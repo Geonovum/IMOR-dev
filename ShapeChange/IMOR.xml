@@ -3,7 +3,7 @@
 	<input>
 		<parameter name="inputModelType" value="EA7"/>
 		<parameter name="inputFile" value="../UML/imor_ruimte_05.eap"/>
-		<parameter name="appSchemaNamespaceRegex" value=".*.nl.*"/>
+		<parameter name="appSchemaNamespaceRegex" value=".*imor.*"/>
 		<parameter name="checkingConstraints" value="disabled"/>
 		<parameter name="representTaggedValues" value="vocabulary,obligation,extensibility,extendableByMS"/>
 		<xi:include href="http://shapechange.net/resources/config/StandardAliases.xml"/>
