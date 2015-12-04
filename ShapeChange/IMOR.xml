@@ -2,7 +2,7 @@
 <ShapeChangeConfiguration xmlns:xi="http://www.w3.org/2001/XInclude" xmlns="http://www.interactive-instruments.de/ShapeChange/Configuration/1.1" xmlns:sc="http://www.interactive-instruments.de/ShapeChange/Configuration/1.1"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.interactive-instruments.de/ShapeChange/Configuration/1.1 http://shapechange.net/resources/schema/ShapeChangeConfiguration.xsd">
 	<input>
 		<parameter name="inputModelType" value="EA7"/>
-		<parameter name="inputFile" value="../UML/imor_ruimte_04.eap"/>
+		<parameter name="inputFile" value="../UML/imor_ruimte_05.eap"/>
 		<parameter name="appSchemaNamespaceRegex" value=".*.nl.*"/>
 		<parameter name="checkingConstraints" value="disabled"/>
 		<parameter name="representTaggedValues" value="vocabulary,obligation,extensibility,extendableByMS"/>
@@ -10,16 +10,16 @@
 	</input>
 	<log>
 		<parameter name="reportLevel" value="INFO"/>
-		<parameter name="logFile" value="log-imor-shapechange.xml"/>
+		<parameter name="logFile" value="output/log-imor-shapechange.xml"/>
 	</log>
 	<targets>
 		<Target class="de.interactive_instruments.ShapeChange.Target.Ontology.RDF" mode="enabled">
-		  <targetParameter name="outputDirectory" value="codelists"/>
+		  <targetParameter name="outputDirectory" value="output/rdf"/>
 		  <targetParameter name="language" value="nl"/>
 		  <targetParameter name="codeListOnly" value="true"/>
 		</Target>
 		<TargetXmlSchema class="de.interactive_instruments.ShapeChange.Target.XmlSchema.XmlSchema" mode="enabled">
-			<targetParameter name="outputDirectory" value="xsd"/>
+			<targetParameter name="outputDirectory" value="output/xsd"/>
 			<targetParameter name="defaultEncodingRule" value="iso19136_2007_INSPIRE_Extensions"/>
 			<xi:include href="http://shapechange.net/resources/config/StandardRules.xml"/>
 
@@ -47,7 +47,7 @@
 			</xsdMapEntries>
 		</TargetXmlSchema>
 		<Target class="de.interactive_instruments.ShapeChange.Target.Codelists.CodelistDictionaries" mode="enabled">
-			<targetParameter name="outputDirectory" value="cl"/>
+			<targetParameter name="outputDirectory" value="output/dictionaries"/>
 			<targetParameter name="enumerations" value="true"/>
 		</Target>
 	</targets>
