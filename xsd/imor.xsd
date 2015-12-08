@@ -1,0 +1,1347 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- eerste imor xsd. Gegenereerd voor het maken van voorbeeld xml constructies -->
+<!-- schema is gebaseerd op imor uml versie 0.5 -->
+<!-- 2015-12-08 -->
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:imor="http://www.geostandaarden.nl/imor" targetNamespace="http://www.geostandaarden.nl/imor" elementFormDefault="qualified">
+	<import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
+	<!--XML Schema document created by ShapeChange - http://shapechange.net/-->
+	<element name="AMvB" type="imor:AMvBType" substitutionGroup="imor:Omgevingsdocument_Omgevingsbesluit"/>
+	<complexType name="AMvBType">
+		<complexContent>
+			<extension base="imor:Omgevingsdocument_OmgevingsbesluitType">
+				<sequence/>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="AMvBPropertyType">
+		<sequence minOccurs="0">
+			<element ref="imor:AMvB"/>
+		</sequence>
+		<attributeGroup ref="gml:AssociationAttributeGroup"/>
+		<attributeGroup ref="gml:OwnershipAttributeGroup"/>
+	</complexType>
+	<element name="AanwijzingZwemlocaties" type="imor:AanwijzingZwemlocatiesType" substitutionGroup="imor:Omgevingsdocument_Omgevingsbesluit"/>
+	<complexType name="AanwijzingZwemlocatiesType">
+		<complexContent>
+			<extension base="imor:Omgevingsdocument_OmgevingsbesluitType">
+				<sequence/>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="AanwijzingZwemlocatiesPropertyType">
+		<sequence minOccurs="0">
+			<element ref="imor:AanwijzingZwemlocaties"/>
+		</sequence>
+		<attributeGroup ref="gml:AssociationAttributeGroup"/>
+		<attributeGroup ref="gml:OwnershipAttributeGroup"/>
+	</complexType>
+	<element name="Activiteit" type="imor:ActiviteitType" substitutionGroup="imor:Norm"/>
+	<complexType name="ActiviteitType">
+		<complexContent>
+			<extension base="imor:NormType">
+				<sequence>
+					<element name="typeHandeling" type="imor:HandelingWaardeType"/>
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="ActiviteitPropertyType">
+		<sequence minOccurs="0">
+			<element ref="imor:Activiteit"/>
+		</sequence>
+		<attributeGroup ref="gml:AssociationAttributeGroup"/>
+		<attributeGroup ref="gml:OwnershipAttributeGroup"/>
+	</complexType>
+	<element name="Afdeling" type="imor:AfdelingType" substitutionGroup="imor:Tekstelement"/>
+	<complexType name="AfdelingType">
+		<complexContent>
+			<extension base="imor:TekstelementType">
+				<sequence/>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="AfdelingPropertyType">
+		<sequence minOccurs="0">
+			<element ref="imor:Afdeling"/>
+		</sequence>
+		<attributeGroup ref="gml:AssociationAttributeGroup"/>
+		<attributeGroup ref="gml:OwnershipAttributeGroup"/>
+	</complexType>
+	<element name="AlgemeneBepaling" type="imor:AlgemeneBepalingType" substitutionGroup="imor:Norm"/>
+	<complexType name="AlgemeneBepalingType">
+		<complexContent>
+			<extension base="imor:NormType">
+				<sequence>
+					<element name="typeBepaling"/>
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="AlgemeneBepalingPropertyType">
+		<sequence minOccurs="0">
+			<element ref="imor:AlgemeneBepaling"/>
+		</sequence>
+		<attributeGroup ref="gml:AssociationAttributeGroup"/>
+		<attributeGroup ref="gml:OwnershipAttributeGroup"/>
+	</complexType>
+	<element name="Artikel" type="imor:ArtikelType" substitutionGroup="imor:Tekstelement"/>
+	<complexType name="ArtikelType">
+		<complexContent>
+			<extension base="imor:TekstelementType">
+				<sequence/>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="ArtikelPropertyType">
+		<sequence minOccurs="0">
+			<element ref="imor:Artikel"/>
+		</sequence>
+		<attributeGroup ref="gml:AssociationAttributeGroup"/>
+		<attributeGroup ref="gml:OwnershipAttributeGroup"/>
+	</complexType>
+	<element name="Beleidsregels" type="imor:BeleidsregelsType" substitutionGroup="imor:Omgevingsdocument_Omgevingsbesluit"/>
+	<complexType name="BeleidsregelsType">
+		<complexContent>
+			<extension base="imor:Omgevingsdocument_OmgevingsbesluitType">
+				<sequence/>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="BeleidsregelsPropertyType">
+		<sequence minOccurs="0">
+			<element ref="imor:Beleidsregels"/>
+		</sequence>
+		<attributeGroup ref="gml:AssociationAttributeGroup"/>
+		<attributeGroup ref="gml:OwnershipAttributeGroup"/>
+	</complexType>
+	<element name="Benoemdgebied" type="imor:BenoemdgebiedType" substitutionGroup="imor:Norm"/>
+	<complexType name="BenoemdgebiedType">
+		<complexContent>
+			<extension base="imor:NormType">
+				<sequence>
+					<element name="typeBenoemdgebied" type="imor:GebiedWaardeType"/>
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="BenoemdgebiedPropertyType">
+		<sequence minOccurs="0">
+			<element ref="imor:Benoemdgebied"/>
+		</sequence>
+		<attributeGroup ref="gml:AssociationAttributeGroup"/>
+		<attributeGroup ref="gml:OwnershipAttributeGroup"/>
+	</complexType>
+	<element name="BeschikkingMaatwerkvoorschriften" type="imor:BeschikkingMaatwerkvoorschriftenType" substitutionGroup="imor:Omgevingsdocument_Omgevingsbesluit"/>
+	<complexType name="BeschikkingMaatwerkvoorschriftenType">
+		<complexContent>
+			<extension base="imor:Omgevingsdocument_OmgevingsbesluitType">
+				<sequence/>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="BeschikkingMaatwerkvoorschriftenPropertyType">
+		<sequence minOccurs="0">
+			<element ref="imor:BeschikkingMaatwerkvoorschriften"/>
+		</sequence>
+		<attributeGroup ref="gml:AssociationAttributeGroup"/>
+		<attributeGroup ref="gml:OwnershipAttributeGroup"/>
+	</complexType>
+	<element name="BeschrijvendeWaarde" type="imor:BeschrijvendeWaardeType" substitutionGroup="imor:Waarde"/>
+	<complexType name="BeschrijvendeWaardeType">
+		<complexContent>
+			<extension base="imor:WaardeType">
+				<sequence>
+					<element name="waarde" type="string"/>
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="BeschrijvendeWaardePropertyType">
+		<sequence minOccurs="0">
+			<element ref="imor:BeschrijvendeWaarde"/>
+		</sequence>
+		<attributeGroup ref="gml:AssociationAttributeGroup"/>
+		<attributeGroup ref="gml:OwnershipAttributeGroup"/>
+	</complexType>
+	<element name="Besluit" type="imor:BesluitType" substitutionGroup="imor:IMOR_Object"/>
+	<complexType name="BesluitType">
+		<complexContent>
+			<extension base="imor:IMOR_ObjectType">
+				<sequence>
+					<element name="documentstatus" type="imor:documentstatusWaardeType"/>
+					<element name="procedure"/>
+					<element name="werkingsgebied" type="imor:WerkingsgebiedPropertyType" minOccurs="0" maxOccurs="unbounded"/>
+					<element name="besluittekst" type="imor:TekstelementPropertyType"/>
+					<element name="omgevingsdocument" type="imor:OmgevingsdocumentPropertyType"/>
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="BesluitPropertyType">
+		<sequence minOccurs="0">
+			<element ref="imor:Besluit"/>
+		</sequence>
+		<attributeGroup ref="gml:AssociationAttributeGroup"/>
+		<attributeGroup ref="gml:OwnershipAttributeGroup"/>
+	</complexType>
+	<element name="BesluitExperiment" type="imor:BesluitExperimentType" substitutionGroup="imor:Omgevingsdocument_Omgevingsbesluit"/>
+	<complexType name="BesluitExperimentType">
+		<complexContent>
+			<extension base="imor:Omgevingsdocument_OmgevingsbesluitType">
+				<sequence/>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="BesluitExperimentPropertyType">
+		<sequence minOccurs="0">
+			<element ref="imor:BesluitExperiment"/>
+		</sequence>
+		<attributeGroup ref="gml:AssociationAttributeGroup"/>
+		<attributeGroup ref="gml:OwnershipAttributeGroup"/>
+	</complexType>
+	<element name="BesluitGS_GebiedGeenOmPlan" type="imor:BesluitGS_GebiedGeenOmPlanType" substitutionGroup="imor:Omgevingsdocument_Omgevingsbesluit"/>
+	<complexType name="BesluitGS_GebiedGeenOmPlanType">
+		<complexContent>
+			<extension base="imor:Omgevingsdocument_OmgevingsbesluitType">
+				<sequence/>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="BesluitGS_GebiedGeenOmPlanPropertyType">
+		<sequence minOccurs="0">
+			<element ref="imor:BesluitGS_GebiedGeenOmPlan"/>
+		</sequence>
+		<attributeGroup ref="gml:AssociationAttributeGroup"/>
+		<attributeGroup ref="gml:OwnershipAttributeGroup"/>
+	</complexType>
+	<element name="BooleanWaarde" type="imor:BooleanWaardeType" substitutionGroup="imor:Waarde"/>
+	<complexType name="BooleanWaardeType">
+		<complexContent>
+			<extension base="imor:WaardeType">
+				<sequence>
+					<element name="waarde"/>
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="BooleanWaardePropertyType">
+		<sequence minOccurs="0">
+			<element ref="imor:BooleanWaarde"/>
+		</sequence>
+		<attributeGroup ref="gml:AssociationAttributeGroup"/>
+		<attributeGroup ref="gml:OwnershipAttributeGroup"/>
+	</complexType>
+	<element name="DatumTijdWaarde" type="imor:DatumTijdWaardeType" substitutionGroup="imor:Waarde"/>
+	<complexType name="DatumTijdWaardeType">
+		<complexContent>
+			<extension base="imor:WaardeType">
+				<sequence>
+					<element name="waarde" type="date"/>
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="DatumTijdWaardePropertyType">
+		<sequence minOccurs="0">
+			<element ref="imor:DatumTijdWaarde"/>
+		</sequence>
+		<attributeGroup ref="gml:AssociationAttributeGroup"/>
+		<attributeGroup ref="gml:OwnershipAttributeGroup"/>
+	</complexType>
+	<element name="Deeltekstdeel" type="imor:DeeltekstdeelType" substitutionGroup="gml:AbstractFeature"/>
+	<complexType name="DeeltekstdeelType">
+		<complexContent>
+			<extension base="gml:AbstractFeatureType">
+				<sequence/>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="DeeltekstdeelPropertyType">
+		<sequence minOccurs="0">
+			<element ref="imor:Deeltekstdeel"/>
+		</sequence>
+		<attributeGroup ref="gml:AssociationAttributeGroup"/>
+		<attributeGroup ref="gml:OwnershipAttributeGroup"/>
+	</complexType>
+	<simpleType name="EnzWaardeType">
+		<union memberTypes="imor:EnzWaardeEnumerationType imor:EnzWaardeOtherType"/>
+	</simpleType>
+	<simpleType name="EnzWaardeEnumerationType">
+		<restriction base="string"/>
+	</simpleType>
+	<simpleType name="EnzWaardeOtherType">
+		<restriction base="string">
+			<pattern value="other: \w{2,}"/>
+		</restriction>
+	</simpleType>
+	<element name="Feittype" type="imor:FeittypeType" substitutionGroup="gml:AbstractFeature"/>
+	<complexType name="FeittypeType">
+		<complexContent>
+			<extension base="gml:AbstractFeatureType">
+				<sequence/>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="FeittypePropertyType">
+		<sequence minOccurs="0">
+			<element ref="imor:Feittype"/>
+		</sequence>
+		<attributeGroup ref="gml:AssociationAttributeGroup"/>
+		<attributeGroup ref="gml:OwnershipAttributeGroup"/>
+	</complexType>
+	<simpleType name="GebiedWaardeType">
+		<union memberTypes="imor:GebiedWaardeEnumerationType imor:GebiedWaardeOtherType"/>
+	</simpleType>
+	<simpleType name="GebiedWaardeEnumerationType">
+		<restriction base="string">
+			<enumeration value="gebiedsaanduiding"/>
+			<enumeration value="gebiedsaanduidingroep"/>
+			<enumeration value="bouwaanduiding"/>
+			<enumeration value="welstandsniveau"/>
+			<enumeration value="welstandsobject"/>
+		</restriction>
+	</simpleType>
+	<simpleType name="GebiedWaardeOtherType">
+		<restriction base="string">
+			<pattern value="other: \w{2,}"/>
+		</restriction>
+	</simpleType>
+	<simpleType name="GebiedsaanduidingWaardeType">
+		<union memberTypes="imor:GebiedsaanduidingWaardeEnumerationType imor:GebiedsaanduidingWaardeOtherType"/>
+	</simpleType>
+	<simpleType name="GebiedsaanduidingWaardeEnumerationType">
+		<restriction base="string"/>
+	</simpleType>
+	<simpleType name="GebiedsaanduidingWaardeOtherType">
+		<restriction base="string">
+			<pattern value="other: \w{2,}"/>
+		</restriction>
+	</simpleType>
+	<element name="GeclassificeerdeWaarde" type="imor:GeclassificeerdeWaardeType" substitutionGroup="imor:Waarde"/>
+	<complexType name="GeclassificeerdeWaardeType">
+		<complexContent>
+			<extension base="imor:WaardeType">
+				<sequence>
+					<element name="waarde" type="gml:CodeWithAuthorityType"/>
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="GeclassificeerdeWaardePropertyType">
+		<sequence minOccurs="0">
+			<element ref="imor:GeclassificeerdeWaarde"/>
+		</sequence>
+		<attributeGroup ref="gml:AssociationAttributeGroup"/>
+		<attributeGroup ref="gml:OwnershipAttributeGroup"/>
+	</complexType>
+	<simpleType name="GeclassificeerdeWaardeListType">
+		<union memberTypes="imor:GeclassificeerdeWaardeListEnumerationType imor:GeclassificeerdeWaardeListOtherType"/>
+	</simpleType>
+	<simpleType name="GeclassificeerdeWaardeListEnumerationType">
+		<restriction base="string"/>
+	</simpleType>
+	<simpleType name="GeclassificeerdeWaardeListOtherType">
+		<restriction base="string">
+			<pattern value="other: \w{2,}"/>
+		</restriction>
+	</simpleType>
+	<simpleType name="HandelingWaardeType">
+		<union memberTypes="imor:HandelingWaardeEnumerationType imor:HandelingWaardeOtherType"/>
+	</simpleType>
+	<simpleType name="HandelingWaardeEnumerationType">
+		<restriction base="string"/>
+	</simpleType>
+	<simpleType name="HandelingWaardeOtherType">
+		<restriction base="string">
+			<pattern value="other: \w{2,}"/>
+		</restriction>
+	</simpleType>
+	<element name="Hoofdstuk" type="imor:HoofdstukType" substitutionGroup="imor:Tekstelement"/>
+	<complexType name="HoofdstukType">
+		<complexContent>
+			<extension base="imor:TekstelementType">
+				<sequence/>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="HoofdstukPropertyType">
+		<sequence minOccurs="0">
+			<element ref="imor:Hoofdstuk"/>
+		</sequence>
+		<attributeGroup ref="gml:AssociationAttributeGroup"/>
+		<attributeGroup ref="gml:OwnershipAttributeGroup"/>
+	</complexType>
+	<element name="I2012Bestemmingsplan" type="imor:I2012BestemmingsplanType" substitutionGroup="gml:AbstractGML"/>
+	<complexType name="I2012BestemmingsplanType">
+		<complexContent>
+			<extension base="gml:AbstractGMLType">
+				<sequence/>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="I2012BestemmingsplanPropertyType">
+		<sequence minOccurs="0">
+			<element ref="imor:I2012Bestemmingsplan"/>
+		</sequence>
+		<attributeGroup ref="gml:AssociationAttributeGroup"/>
+		<attributeGroup ref="gml:OwnershipAttributeGroup"/>
+	</complexType>
+	<element name="I2012Omgevingsvergunning" type="imor:I2012OmgevingsvergunningType" substitutionGroup="gml:AbstractGML"/>
+	<complexType name="I2012OmgevingsvergunningType">
+		<complexContent>
+			<extension base="gml:AbstractGMLType">
+				<sequence/>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="I2012OmgevingsvergunningPropertyType">
+		<sequence minOccurs="0">
+			<element ref="imor:I2012Omgevingsvergunning"/>
+		</sequence>
+		<attributeGroup ref="gml:AssociationAttributeGroup"/>
+		<attributeGroup ref="gml:OwnershipAttributeGroup"/>
+	</complexType>
+	<element name="I2012ProvincialeVerordening" type="imor:I2012ProvincialeVerordeningType" substitutionGroup="gml:AbstractGML"/>
+	<complexType name="I2012ProvincialeVerordeningType">
+		<complexContent>
+			<extension base="gml:AbstractGMLType">
+				<sequence/>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="I2012ProvincialeVerordeningPropertyType">
+		<sequence minOccurs="0">
+			<element ref="imor:I2012ProvincialeVerordening"/>
+		</sequence>
+		<attributeGroup ref="gml:AssociationAttributeGroup"/>
+		<attributeGroup ref="gml:OwnershipAttributeGroup"/>
+	</complexType>
+	<element name="I2012Structuurvisie" type="imor:I2012StructuurvisieType" substitutionGroup="gml:AbstractGML"/>
+	<complexType name="I2012StructuurvisieType">
+		<complexContent>
+			<extension base="gml:AbstractGMLType">
+				<sequence/>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="I2012StructuurvisiePropertyType">
+		<sequence minOccurs="0">
+			<element ref="imor:I2012Structuurvisie"/>
+		</sequence>
+		<attributeGroup ref="gml:AssociationAttributeGroup"/>
+		<attributeGroup ref="gml:OwnershipAttributeGroup"/>
+	</complexType>
+	<element name="IMOR_Object" type="imor:IMOR_ObjectType" substitutionGroup="gml:AbstractFeature"/>
+	<complexType name="IMOR_ObjectType">
+		<complexContent>
+			<extension base="gml:AbstractFeatureType">
+				<sequence>
+					<element name="identificatie"/>
+					<element name="beginGeldigheid" type="dateTime"/>
+					<element name="tijdstipRegistratie" type="dateTime"/>
+					<element name="eindGeldigheid" type="dateTime" minOccurs="0"/>
+					<element name="eindRegistratie" type="dateTime" minOccurs="0"/>
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="IMOR_ObjectPropertyType">
+		<sequence minOccurs="0">
+			<element ref="imor:IMOR_Object"/>
+		</sequence>
+		<attributeGroup ref="gml:AssociationAttributeGroup"/>
+		<attributeGroup ref="gml:OwnershipAttributeGroup"/>
+	</complexType>
+	<element name="Instructiebesluit" type="imor:InstructiebesluitType" substitutionGroup="imor:Omgevingsdocument_Omgevingsbesluit"/>
+	<complexType name="InstructiebesluitType">
+		<complexContent>
+			<extension base="imor:Omgevingsdocument_OmgevingsbesluitType">
+				<sequence/>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="InstructiebesluitPropertyType">
+		<sequence minOccurs="0">
+			<element ref="imor:Instructiebesluit"/>
+		</sequence>
+		<attributeGroup ref="gml:AssociationAttributeGroup"/>
+		<attributeGroup ref="gml:OwnershipAttributeGroup"/>
+	</complexType>
+	<element name="InstructieregelsGS" type="imor:InstructieregelsGSType" substitutionGroup="imor:Omgevingsdocument_Omgevingsbesluit"/>
+	<complexType name="InstructieregelsGSType">
+		<complexContent>
+			<extension base="imor:Omgevingsdocument_OmgevingsbesluitType">
+				<sequence/>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="InstructieregelsGSPropertyType">
+		<sequence minOccurs="0">
+			<element ref="imor:InstructieregelsGS"/>
+		</sequence>
+		<attributeGroup ref="gml:AssociationAttributeGroup"/>
+		<attributeGroup ref="gml:OwnershipAttributeGroup"/>
+	</complexType>
+	<element name="Invulveld" type="imor:InvulveldType" substitutionGroup="gml:AbstractFeature"/>
+	<complexType name="InvulveldType">
+		<complexContent>
+			<extension base="gml:AbstractFeatureType">
+				<sequence/>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="InvulveldPropertyType">
+		<sequence minOccurs="0">
+			<element ref="imor:Invulveld"/>
+		</sequence>
+		<attributeGroup ref="gml:AssociationAttributeGroup"/>
+		<attributeGroup ref="gml:OwnershipAttributeGroup"/>
+	</complexType>
+	<simpleType name="JurischOnderwerpWaardeType">
+		<union memberTypes="imor:JurischOnderwerpWaardeEnumerationType imor:JurischOnderwerpWaardeOtherType"/>
+	</simpleType>
+	<simpleType name="JurischOnderwerpWaardeEnumerationType">
+		<restriction base="string"/>
+	</simpleType>
+	<simpleType name="JurischOnderwerpWaardeOtherType">
+		<restriction base="string">
+			<pattern value="other: \w{2,}"/>
+		</restriction>
+	</simpleType>
+	<element name="KeywordPhrase" type="imor:KeywordPhraseType" substitutionGroup="gml:AbstractFeature"/>
+	<complexType name="KeywordPhraseType">
+		<complexContent>
+			<extension base="gml:AbstractFeatureType">
+				<sequence/>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="KeywordPhrasePropertyType">
+		<sequence minOccurs="0">
+			<element ref="imor:KeywordPhrase"/>
+		</sequence>
+		<attributeGroup ref="gml:AssociationAttributeGroup"/>
+		<attributeGroup ref="gml:OwnershipAttributeGroup"/>
+	</complexType>
+	<element name="Legger" type="imor:LeggerType" substitutionGroup="imor:Omgevingsdocument_Omgevingsbesluit"/>
+	<complexType name="LeggerType">
+		<complexContent>
+			<extension base="imor:Omgevingsdocument_OmgevingsbesluitType">
+				<sequence/>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="LeggerPropertyType">
+		<sequence minOccurs="0">
+			<element ref="imor:Legger"/>
+		</sequence>
+		<attributeGroup ref="gml:AssociationAttributeGroup"/>
+		<attributeGroup ref="gml:OwnershipAttributeGroup"/>
+	</complexType>
+	<element name="Lid" type="imor:LidType" substitutionGroup="imor:Tekstelement"/>
+	<complexType name="LidType">
+		<complexContent>
+			<extension base="imor:TekstelementType">
+				<sequence/>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="LidPropertyType">
+		<sequence minOccurs="0">
+			<element ref="imor:Lid"/>
+		</sequence>
+		<attributeGroup ref="gml:AssociationAttributeGroup"/>
+		<attributeGroup ref="gml:OwnershipAttributeGroup"/>
+	</complexType>
+	<element name="Maatvoering" type="imor:MaatvoeringType" substitutionGroup="imor:Norm"/>
+	<complexType name="MaatvoeringType">
+		<complexContent>
+			<extension base="imor:NormType">
+				<sequence>
+					<element name="typeMaatvoeringWaarde" type="imor:MaatvoeringWaardeType"/>
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="MaatvoeringPropertyType">
+		<sequence minOccurs="0">
+			<element ref="imor:Maatvoering"/>
+		</sequence>
+		<attributeGroup ref="gml:AssociationAttributeGroup"/>
+		<attributeGroup ref="gml:OwnershipAttributeGroup"/>
+	</complexType>
+	<simpleType name="MaatvoeringWaardeType">
+		<union memberTypes="imor:MaatvoeringWaardeEnumerationType imor:MaatvoeringWaardeOtherType"/>
+	</simpleType>
+	<simpleType name="MaatvoeringWaardeEnumerationType">
+		<restriction base="string">
+			<enumeration value="maxBouwhoogte"/>
+			<enumeration value="aantalParkeerplaatsen"/>
+			<enumeration value="enz"/>
+		</restriction>
+	</simpleType>
+	<simpleType name="MaatvoeringWaardeOtherType">
+		<restriction base="string">
+			<pattern value="other: \w{2,}"/>
+		</restriction>
+	</simpleType>
+	<element name="Melding" type="imor:MeldingType" substitutionGroup="imor:Omgevingsdocument_Omgevingsbesluit"/>
+	<complexType name="MeldingType">
+		<complexContent>
+			<extension base="imor:Omgevingsdocument_OmgevingsbesluitType">
+				<sequence/>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="MeldingPropertyType">
+		<sequence minOccurs="0">
+			<element ref="imor:Melding"/>
+		</sequence>
+		<attributeGroup ref="gml:AssociationAttributeGroup"/>
+		<attributeGroup ref="gml:OwnershipAttributeGroup"/>
+	</complexType>
+	<element name="MinisterieleRegeling" type="imor:MinisterieleRegelingType" substitutionGroup="imor:Omgevingsdocument_Omgevingsbesluit"/>
+	<complexType name="MinisterieleRegelingType">
+		<complexContent>
+			<extension base="imor:Omgevingsdocument_OmgevingsbesluitType">
+				<sequence/>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="MinisterieleRegelingPropertyType">
+		<sequence minOccurs="0">
+			<element ref="imor:MinisterieleRegeling"/>
+		</sequence>
+		<attributeGroup ref="gml:AssociationAttributeGroup"/>
+		<attributeGroup ref="gml:OwnershipAttributeGroup"/>
+	</complexType>
+	<element name="Norm" type="imor:NormType" abstract="true" substitutionGroup="imor:IMOR_Object"/>
+	<complexType name="NormType" abstract="true">
+		<complexContent>
+			<extension base="imor:IMOR_ObjectType">
+				<sequence>
+					<element name="naam" type="string" minOccurs="0"/>
+					<element name="waardeZonderGebied" type="imor:WaardePropertyType" minOccurs="0"/>
+					<element name="algemenereNorm" type="imor:NormPropertyType" minOccurs="0" maxOccurs="unbounded"/>
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="NormPropertyType">
+		<sequence minOccurs="0">
+			<element ref="imor:Norm"/>
+		</sequence>
+		<attributeGroup ref="gml:AssociationAttributeGroup"/>
+		<attributeGroup ref="gml:OwnershipAttributeGroup"/>
+	</complexType>
+	<element name="NumeriekeWaarde" type="imor:NumeriekeWaardeType" substitutionGroup="imor:Waarde"/>
+	<complexType name="NumeriekeWaardeType">
+		<complexContent>
+			<extension base="imor:WaardeType">
+				<sequence>
+					<element name="waarde" type="gml:MeasureType"/>
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="NumeriekeWaardePropertyType">
+		<sequence minOccurs="0">
+			<element ref="imor:NumeriekeWaarde"/>
+		</sequence>
+		<attributeGroup ref="gml:AssociationAttributeGroup"/>
+		<attributeGroup ref="gml:OwnershipAttributeGroup"/>
+	</complexType>
+	<element name="Omgevingsdocument" type="imor:OmgevingsdocumentType" substitutionGroup="imor:IMOR_Object"/>
+	<complexType name="OmgevingsdocumentType">
+		<complexContent>
+			<extension base="imor:IMOR_ObjectType">
+				<sequence>
+					<element name="typeOmgevingsdocument" type="imor:OmgevingsdocumentTypeWaardeType"/>
+					<element name="tekst" type="imor:RegeltekstPropertyType" minOccurs="0">
+						<annotation>
+							<appinfo>
+								<reversePropertyName xmlns="http://www.opengis.net/gml/3.2">imor:omgevingsdocument</reversePropertyName>
+							</appinfo>
+						</annotation>
+					</element>
+					<element name="ruimtelijkdeel" type="imor:WerkingsgebiedPropertyType" minOccurs="0" maxOccurs="unbounded">
+						<annotation>
+							<appinfo>
+								<reversePropertyName xmlns="http://www.opengis.net/gml/3.2">imor:omgevingsdocument</reversePropertyName>
+							</appinfo>
+						</annotation>
+					</element>
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="OmgevingsdocumentPropertyType">
+		<sequence minOccurs="0">
+			<element ref="imor:Omgevingsdocument"/>
+		</sequence>
+		<attributeGroup ref="gml:AssociationAttributeGroup"/>
+		<attributeGroup ref="gml:OwnershipAttributeGroup"/>
+	</complexType>
+	<simpleType name="OmgevingsdocumentTypeWaardeType">
+		<union memberTypes="imor:OmgevingsdocumentTypeWaardeEnumerationType imor:OmgevingsdocumentTypeWaardeOtherType"/>
+	</simpleType>
+	<simpleType name="OmgevingsdocumentTypeWaardeEnumerationType">
+		<restriction base="string">
+			<enumeration value="omgevingsvisie"/>
+			<enumeration value="programma"/>
+			<enumeration value="omgevingsplan"/>
+			<enumeration value="waterschapsverordening"/>
+			<enumeration value="omgevingsverordening"/>
+			<enumeration value="projectbesluit"/>
+		</restriction>
+	</simpleType>
+	<simpleType name="OmgevingsdocumentTypeWaardeOtherType">
+		<restriction base="string">
+			<pattern value="other: \w{2,}"/>
+		</restriction>
+	</simpleType>
+	<element name="Omgevingsdocument_Omgevingsbesluit" type="imor:Omgevingsdocument_OmgevingsbesluitType" substitutionGroup="gml:AbstractGML"/>
+	<complexType name="Omgevingsdocument_OmgevingsbesluitType">
+		<complexContent>
+			<extension base="gml:AbstractGMLType">
+				<sequence/>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="Omgevingsdocument_OmgevingsbesluitPropertyType">
+		<sequence minOccurs="0">
+			<element ref="imor:Omgevingsdocument_Omgevingsbesluit"/>
+		</sequence>
+		<attributeGroup ref="gml:AssociationAttributeGroup"/>
+		<attributeGroup ref="gml:OwnershipAttributeGroup"/>
+	</complexType>
+	<element name="Omgevingsdocument_Omgevingswet" type="imor:Omgevingsdocument_OmgevingswetType" substitutionGroup="gml:AbstractGML"/>
+	<complexType name="Omgevingsdocument_OmgevingswetType">
+		<complexContent>
+			<extension base="gml:AbstractGMLType">
+				<sequence/>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="Omgevingsdocument_OmgevingswetPropertyType">
+		<sequence minOccurs="0">
+			<element ref="imor:Omgevingsdocument_Omgevingswet"/>
+		</sequence>
+		<attributeGroup ref="gml:AssociationAttributeGroup"/>
+		<attributeGroup ref="gml:OwnershipAttributeGroup"/>
+	</complexType>
+	<element name="Omgevingsplan" type="imor:OmgevingsplanType" substitutionGroup="imor:Omgevingsdocument_Omgevingswet"/>
+	<complexType name="OmgevingsplanType">
+		<complexContent>
+			<extension base="imor:Omgevingsdocument_OmgevingswetType">
+				<sequence/>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="OmgevingsplanPropertyType">
+		<sequence minOccurs="0">
+			<element ref="imor:Omgevingsplan"/>
+		</sequence>
+		<attributeGroup ref="gml:AssociationAttributeGroup"/>
+		<attributeGroup ref="gml:OwnershipAttributeGroup"/>
+	</complexType>
+	<element name="Omgevingsvergunning" type="imor:OmgevingsvergunningType" substitutionGroup="imor:Omgevingsdocument_Omgevingsbesluit"/>
+	<complexType name="OmgevingsvergunningType">
+		<complexContent>
+			<extension base="imor:Omgevingsdocument_OmgevingsbesluitType">
+				<sequence/>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="OmgevingsvergunningPropertyType">
+		<sequence minOccurs="0">
+			<element ref="imor:Omgevingsvergunning"/>
+		</sequence>
+		<attributeGroup ref="gml:AssociationAttributeGroup"/>
+		<attributeGroup ref="gml:OwnershipAttributeGroup"/>
+	</complexType>
+	<element name="Omgevingsverordening" type="imor:OmgevingsverordeningType" substitutionGroup="imor:Omgevingsdocument_Omgevingswet"/>
+	<complexType name="OmgevingsverordeningType">
+		<complexContent>
+			<extension base="imor:Omgevingsdocument_OmgevingswetType">
+				<sequence/>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="OmgevingsverordeningPropertyType">
+		<sequence minOccurs="0">
+			<element ref="imor:Omgevingsverordening"/>
+		</sequence>
+		<attributeGroup ref="gml:AssociationAttributeGroup"/>
+		<attributeGroup ref="gml:OwnershipAttributeGroup"/>
+	</complexType>
+	<element name="Omgevingsvisie" type="imor:OmgevingsvisieType" substitutionGroup="imor:Omgevingsdocument_Omgevingswet"/>
+	<complexType name="OmgevingsvisieType">
+		<complexContent>
+			<extension base="imor:Omgevingsdocument_OmgevingswetType">
+				<sequence/>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="OmgevingsvisiePropertyType">
+		<sequence minOccurs="0">
+			<element ref="imor:Omgevingsvisie"/>
+		</sequence>
+		<attributeGroup ref="gml:AssociationAttributeGroup"/>
+		<attributeGroup ref="gml:OwnershipAttributeGroup"/>
+	</complexType>
+	<element name="Onderwerphoofdgroep" type="imor:OnderwerphoofdgroepType" substitutionGroup="gml:AbstractFeature"/>
+	<complexType name="OnderwerphoofdgroepType">
+		<complexContent>
+			<extension base="gml:AbstractFeatureType">
+				<sequence>
+					<element name="JurischOnderwerp" type="imor:JurischOnderwerpWaardeType"/>
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="OnderwerphoofdgroepPropertyType">
+		<sequence minOccurs="0">
+			<element ref="imor:Onderwerphoofdgroep"/>
+		</sequence>
+		<attributeGroup ref="gml:AssociationAttributeGroup"/>
+		<attributeGroup ref="gml:OwnershipAttributeGroup"/>
+	</complexType>
+	<element name="Paragraaf" type="imor:ParagraafType" substitutionGroup="imor:Tekstelement"/>
+	<complexType name="ParagraafType">
+		<complexContent>
+			<extension base="imor:TekstelementType">
+				<sequence/>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="ParagraafPropertyType">
+		<sequence minOccurs="0">
+			<element ref="imor:Paragraaf"/>
+		</sequence>
+		<attributeGroup ref="gml:AssociationAttributeGroup"/>
+		<attributeGroup ref="gml:OwnershipAttributeGroup"/>
+	</complexType>
+	<element name="Pijlbesluit" type="imor:PijlbesluitType" substitutionGroup="imor:Omgevingsdocument_Omgevingsbesluit"/>
+	<complexType name="PijlbesluitType">
+		<complexContent>
+			<extension base="imor:Omgevingsdocument_OmgevingsbesluitType">
+				<sequence/>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="PijlbesluitPropertyType">
+		<sequence minOccurs="0">
+			<element ref="imor:Pijlbesluit"/>
+		</sequence>
+		<attributeGroup ref="gml:AssociationAttributeGroup"/>
+		<attributeGroup ref="gml:OwnershipAttributeGroup"/>
+	</complexType>
+	<element name="Programma" type="imor:ProgrammaType" substitutionGroup="imor:Omgevingsdocument_Omgevingswet"/>
+	<complexType name="ProgrammaType">
+		<complexContent>
+			<extension base="imor:Omgevingsdocument_OmgevingswetType">
+				<sequence/>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="ProgrammaPropertyType">
+		<sequence minOccurs="0">
+			<element ref="imor:Programma"/>
+		</sequence>
+		<attributeGroup ref="gml:AssociationAttributeGroup"/>
+		<attributeGroup ref="gml:OwnershipAttributeGroup"/>
+	</complexType>
+	<element name="Projectbesluit" type="imor:ProjectbesluitType" substitutionGroup="imor:Omgevingsdocument_Omgevingswet"/>
+	<complexType name="ProjectbesluitType">
+		<complexContent>
+			<extension base="imor:Omgevingsdocument_OmgevingswetType">
+				<sequence/>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="ProjectbesluitPropertyType">
+		<sequence minOccurs="0">
+			<element ref="imor:Projectbesluit"/>
+		</sequence>
+		<attributeGroup ref="gml:AssociationAttributeGroup"/>
+		<attributeGroup ref="gml:OwnershipAttributeGroup"/>
+	</complexType>
+	<element name="Rechtsfiguur" type="imor:RechtsfiguurType" substitutionGroup="gml:AbstractGML"/>
+	<complexType name="RechtsfiguurType">
+		<complexContent>
+			<extension base="gml:AbstractGMLType">
+				<sequence/>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="RechtsfiguurPropertyType">
+		<sequence minOccurs="0">
+			<element ref="imor:Rechtsfiguur"/>
+		</sequence>
+		<attributeGroup ref="gml:AssociationAttributeGroup"/>
+		<attributeGroup ref="gml:OwnershipAttributeGroup"/>
+	</complexType>
+	<element name="Regeltekst" type="imor:RegeltekstType" substitutionGroup="imor:IMOR_Object"/>
+	<complexType name="RegeltekstType">
+		<complexContent>
+			<extension base="imor:IMOR_ObjectType">
+				<sequence>
+					<element name="tekst" maxOccurs="unbounded">
+						<complexType>
+							<complexContent>
+								<extension base="gml:AbstractFeatureMemberType">
+									<sequence minOccurs="0">
+										<element ref="imor:Tekstelement"/>
+									</sequence>
+									<attributeGroup ref="gml:AssociationAttributeGroup"/>
+								</extension>
+							</complexContent>
+						</complexType>
+					</element>
+					<element name="omgevingsdocument" type="imor:OmgevingsdocumentPropertyType">
+						<annotation>
+							<appinfo>
+								<reversePropertyName xmlns="http://www.opengis.net/gml/3.2">imor:tekst</reversePropertyName>
+							</appinfo>
+						</annotation>
+					</element>
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="RegeltekstPropertyType">
+		<sequence minOccurs="0">
+			<element ref="imor:Regeltekst"/>
+		</sequence>
+		<attributeGroup ref="gml:AssociationAttributeGroup"/>
+		<attributeGroup ref="gml:OwnershipAttributeGroup"/>
+	</complexType>
+	<simpleType name="RegeltypeWaardeType">
+		<union memberTypes="imor:RegeltypeWaardeEnumerationType imor:RegeltypeWaardeOtherType"/>
+	</simpleType>
+	<simpleType name="RegeltypeWaardeEnumerationType">
+		<restriction base="string">
+			<enumeration value="(beleidsthema's)"/>
+			<enumeration value="functie"/>
+			<enumeration value="besluitgebied"/>
+			<enumeration value="maatvoering"/>
+			<enumeration value="bouwen"/>
+			<enumeration value="milieu"/>
+			<enumeration value="externe veiligheid"/>
+		</restriction>
+	</simpleType>
+	<simpleType name="RegeltypeWaardeOtherType">
+		<restriction base="string">
+			<pattern value="other: \w{2,}"/>
+		</restriction>
+	</simpleType>
+	<element name="Relatieobject" type="imor:RelatieobjectType" substitutionGroup="gml:AbstractFeature"/>
+	<complexType name="RelatieobjectType">
+		<complexContent>
+			<extension base="gml:AbstractFeatureType">
+				<sequence>
+					<element name="gerelateerdeWaarde" type="imor:WaardePropertyType" maxOccurs="unbounded"/>
+					<element name="normWaarde" type="imor:WaardePropertyType" minOccurs="0" maxOccurs="unbounded"/>
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="RelatieobjectPropertyType">
+		<sequence minOccurs="0">
+			<element ref="imor:Relatieobject"/>
+		</sequence>
+		<attributeGroup ref="gml:AssociationAttributeGroup"/>
+		<attributeGroup ref="gml:OwnershipAttributeGroup"/>
+	</complexType>
+	<simpleType name="RelatietypeWaardeType">
+		<union memberTypes="imor:RelatietypeWaardeEnumerationType imor:RelatietypeWaardeOtherType"/>
+	</simpleType>
+	<simpleType name="RelatietypeWaardeEnumerationType">
+		<restriction base="string">
+			<enumeration value="informatieSupplementair"/>
+			<enumeration value="informatieZelfstandig"/>
+		</restriction>
+	</simpleType>
+	<simpleType name="RelatietypeWaardeOtherType">
+		<restriction base="string">
+			<pattern value="other: \w{2,}"/>
+		</restriction>
+	</simpleType>
+	<element name="RuleSpeak" type="imor:RuleSpeakType" substitutionGroup="gml:AbstractGML"/>
+	<complexType name="RuleSpeakType">
+		<complexContent>
+			<extension base="gml:AbstractGMLType">
+				<sequence/>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="RuleSpeakPropertyType">
+		<sequence minOccurs="0">
+			<element ref="imor:RuleSpeak"/>
+		</sequence>
+		<attributeGroup ref="gml:AssociationAttributeGroup"/>
+		<attributeGroup ref="gml:OwnershipAttributeGroup"/>
+	</complexType>
+	<element name="SemanticsOfBusinessVocabularyAndBusinessRulesSVBR" type="imor:SemanticsOfBusinessVocabularyAndBusinessRulesSVBRType" substitutionGroup="gml:AbstractGML"/>
+	<complexType name="SemanticsOfBusinessVocabularyAndBusinessRulesSVBRType">
+		<complexContent>
+			<extension base="gml:AbstractGMLType">
+				<sequence/>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="SemanticsOfBusinessVocabularyAndBusinessRulesSVBRPropertyType">
+		<sequence minOccurs="0">
+			<element ref="imor:SemanticsOfBusinessVocabularyAndBusinessRulesSVBR"/>
+		</sequence>
+		<attributeGroup ref="gml:AssociationAttributeGroup"/>
+		<attributeGroup ref="gml:OwnershipAttributeGroup"/>
+	</complexType>
+	<element name="Sublid" type="imor:SublidType" substitutionGroup="imor:Tekstelement"/>
+	<complexType name="SublidType">
+		<complexContent>
+			<extension base="imor:TekstelementType">
+				<sequence/>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="SublidPropertyType">
+		<sequence minOccurs="0">
+			<element ref="imor:Sublid"/>
+		</sequence>
+		<attributeGroup ref="gml:AssociationAttributeGroup"/>
+		<attributeGroup ref="gml:OwnershipAttributeGroup"/>
+	</complexType>
+	<simpleType name="TekstTypeType">
+		<union memberTypes="imor:TekstTypeEnumerationType imor:TekstTypeOtherType"/>
+	</simpleType>
+	<simpleType name="TekstTypeEnumerationType">
+		<restriction base="string"/>
+	</simpleType>
+	<simpleType name="TekstTypeOtherType">
+		<restriction base="string">
+			<pattern value="other: \w{2,}"/>
+		</restriction>
+	</simpleType>
+	<element name="Tekstdeel" type="imor:TekstdeelType" substitutionGroup="gml:AbstractFeature"/>
+	<complexType name="TekstdeelType">
+		<complexContent>
+			<extension base="gml:AbstractFeatureType">
+				<sequence/>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="TekstdeelPropertyType">
+		<sequence minOccurs="0">
+			<element ref="imor:Tekstdeel"/>
+		</sequence>
+		<attributeGroup ref="gml:AssociationAttributeGroup"/>
+		<attributeGroup ref="gml:OwnershipAttributeGroup"/>
+	</complexType>
+	<element name="Tekstelement" type="imor:TekstelementType" substitutionGroup="imor:IMOR_Object"/>
+	<complexType name="TekstelementType">
+		<complexContent>
+			<extension base="imor:IMOR_ObjectType">
+				<sequence>
+					<element name="tekst" type="imor:TekstpatroonPropertyType"/>
+					<element name="tekstType" type="imor:TekstTypeType"/>
+					<element name="norm" type="imor:NormPropertyType" minOccurs="0" maxOccurs="unbounded"/>
+					<element name="ouder" type="imor:TekstelementPropertyType" maxOccurs="unbounded">
+						<annotation>
+							<appinfo>
+								<reversePropertyName xmlns="http://www.opengis.net/gml/3.2">imor:kind</reversePropertyName>
+							</appinfo>
+						</annotation>
+					</element>
+					<element name="kind" type="imor:TekstelementPropertyType" minOccurs="0" maxOccurs="unbounded">
+						<annotation>
+							<appinfo>
+								<reversePropertyName xmlns="http://www.opengis.net/gml/3.2">imor:ouder</reversePropertyName>
+							</appinfo>
+						</annotation>
+					</element>
+					<element name="voorafgaandElement" type="imor:TekstelementPropertyType" minOccurs="0"/>
+					<element name="zoneringsobject" type="imor:ZoneringsobjectPropertyType" minOccurs="0" maxOccurs="unbounded"/>
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="TekstelementPropertyType">
+		<sequence minOccurs="0">
+			<element ref="imor:Tekstelement"/>
+		</sequence>
+		<attributeGroup ref="gml:AssociationAttributeGroup"/>
+		<attributeGroup ref="gml:OwnershipAttributeGroup"/>
+	</complexType>
+	<element name="Tekstpatroon" type="imor:TekstpatroonType" substitutionGroup="gml:AbstractObject"/>
+	<complexType name="TekstpatroonType">
+		<sequence/>
+	</complexType>
+	<complexType name="TekstpatroonPropertyType">
+		<sequence>
+			<element ref="imor:Tekstpatroon"/>
+		</sequence>
+	</complexType>
+	<element name="Term" type="imor:TermType" substitutionGroup="gml:AbstractFeature"/>
+	<complexType name="TermType">
+		<complexContent>
+			<extension base="gml:AbstractFeatureType">
+				<sequence/>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="TermPropertyType">
+		<sequence minOccurs="0">
+			<element ref="imor:Term"/>
+		</sequence>
+		<attributeGroup ref="gml:AssociationAttributeGroup"/>
+		<attributeGroup ref="gml:OwnershipAttributeGroup"/>
+	</complexType>
+	<simpleType name="TypeZoneringWaardeType">
+		<union memberTypes="imor:TypeZoneringWaardeEnumerationType imor:TypeZoneringWaardeOtherType"/>
+	</simpleType>
+	<simpleType name="TypeZoneringWaardeEnumerationType">
+		<restriction base="string">
+			<enumeration value="functie"/>
+			<enumeration value="beperking"/>
+			<enumeration value="ruimtelijkeVisie"/>
+			<enumeration value="besluit"/>
+			<enumeration value="andereTypen"/>
+		</restriction>
+	</simpleType>
+	<simpleType name="TypeZoneringWaardeOtherType">
+		<restriction base="string">
+			<pattern value="other: \w{2,}"/>
+		</restriction>
+	</simpleType>
+	<element name="UitspraakRechter" type="imor:UitspraakRechterType" substitutionGroup="imor:Omgevingsdocument_Omgevingsbesluit"/>
+	<complexType name="UitspraakRechterType">
+		<complexContent>
+			<extension base="imor:Omgevingsdocument_OmgevingsbesluitType">
+				<sequence/>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="UitspraakRechterPropertyType">
+		<sequence minOccurs="0">
+			<element ref="imor:UitspraakRechter"/>
+		</sequence>
+		<attributeGroup ref="gml:AssociationAttributeGroup"/>
+		<attributeGroup ref="gml:OwnershipAttributeGroup"/>
+	</complexType>
+	<element name="Visie" type="imor:VisieType" substitutionGroup="imor:Norm"/>
+	<complexType name="VisieType">
+		<complexContent>
+			<extension base="imor:NormType">
+				<sequence>
+					<element name="typeVisie"/>
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="VisiePropertyType">
+		<sequence minOccurs="0">
+			<element ref="imor:Visie"/>
+		</sequence>
+		<attributeGroup ref="gml:AssociationAttributeGroup"/>
+		<attributeGroup ref="gml:OwnershipAttributeGroup"/>
+	</complexType>
+	<element name="Voorbereidingsbesluit" type="imor:VoorbereidingsbesluitType" substitutionGroup="imor:Omgevingsdocument_Omgevingsbesluit"/>
+	<complexType name="VoorbereidingsbesluitType">
+		<complexContent>
+			<extension base="imor:Omgevingsdocument_OmgevingsbesluitType">
+				<sequence/>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="VoorbereidingsbesluitPropertyType">
+		<sequence minOccurs="0">
+			<element ref="imor:Voorbereidingsbesluit"/>
+		</sequence>
+		<attributeGroup ref="gml:AssociationAttributeGroup"/>
+		<attributeGroup ref="gml:OwnershipAttributeGroup"/>
+	</complexType>
+	<element name="Voorkeursbeslissing" type="imor:VoorkeursbeslissingType" substitutionGroup="imor:Omgevingsdocument_Omgevingsbesluit"/>
+	<complexType name="VoorkeursbeslissingType">
+		<complexContent>
+			<extension base="imor:Omgevingsdocument_OmgevingsbesluitType">
+				<sequence/>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="VoorkeursbeslissingPropertyType">
+		<sequence minOccurs="0">
+			<element ref="imor:Voorkeursbeslissing"/>
+		</sequence>
+		<attributeGroup ref="gml:AssociationAttributeGroup"/>
+		<attributeGroup ref="gml:OwnershipAttributeGroup"/>
+	</complexType>
+	<element name="VoornemenVerkenning" type="imor:VoornemenVerkenningType" substitutionGroup="imor:Omgevingsdocument_Omgevingsbesluit"/>
+	<complexType name="VoornemenVerkenningType">
+		<complexContent>
+			<extension base="imor:Omgevingsdocument_OmgevingsbesluitType">
+				<sequence/>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="VoornemenVerkenningPropertyType">
+		<sequence minOccurs="0">
+			<element ref="imor:VoornemenVerkenning"/>
+		</sequence>
+		<attributeGroup ref="gml:AssociationAttributeGroup"/>
+		<attributeGroup ref="gml:OwnershipAttributeGroup"/>
+	</complexType>
+	<element name="Waarde" type="imor:WaardeType" abstract="true" substitutionGroup="imor:IMOR_Object"/>
+	<complexType name="WaardeType" abstract="true">
+		<complexContent>
+			<extension base="imor:IMOR_ObjectType">
+				<sequence>
+					<element name="gerelateerdeWaarde" type="imor:RelatieobjectPropertyType" minOccurs="0" maxOccurs="unbounded"/>
+					<element name="norm" type="imor:NormPropertyType" minOccurs="0"/>
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="WaardePropertyType">
+		<sequence minOccurs="0">
+			<element ref="imor:Waarde"/>
+		</sequence>
+		<attributeGroup ref="gml:AssociationAttributeGroup"/>
+		<attributeGroup ref="gml:OwnershipAttributeGroup"/>
+	</complexType>
+	<element name="Waterschapsverordening" type="imor:WaterschapsverordeningType" substitutionGroup="imor:Omgevingsdocument_Omgevingswet"/>
+	<complexType name="WaterschapsverordeningType">
+		<complexContent>
+			<extension base="imor:Omgevingsdocument_OmgevingswetType">
+				<sequence/>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="WaterschapsverordeningPropertyType">
+		<sequence minOccurs="0">
+			<element ref="imor:Waterschapsverordening"/>
+		</sequence>
+		<attributeGroup ref="gml:AssociationAttributeGroup"/>
+		<attributeGroup ref="gml:OwnershipAttributeGroup"/>
+	</complexType>
+	<element name="Werkingsgebied" type="imor:WerkingsgebiedType" substitutionGroup="imor:IMOR_Object"/>
+	<complexType name="WerkingsgebiedType">
+		<complexContent>
+			<extension base="imor:IMOR_ObjectType">
+				<sequence>
+					<element name="begrenzingIndicatief" type="boolean"/>
+					<element name="geometrie" type="gml:SurfacePropertyType"/>
+					<element name="zoneringsobject" type="imor:ZoneringsobjectPropertyType"/>
+					<element name="normWaarde" type="imor:WaardePropertyType" minOccurs="0" maxOccurs="unbounded"/>
+					<element name="omgevingsdocument" type="imor:OmgevingsdocumentPropertyType">
+						<annotation>
+							<appinfo>
+								<reversePropertyName xmlns="http://www.opengis.net/gml/3.2">imor:ruimtelijkdeel</reversePropertyName>
+							</appinfo>
+						</annotation>
+					</element>
+					<element name="contextgebied" type="imor:WerkingsgebiedPropertyType" minOccurs="0" maxOccurs="unbounded"/>
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="WerkingsgebiedPropertyType">
+		<sequence minOccurs="0">
+			<element ref="imor:Werkingsgebied"/>
+		</sequence>
+		<attributeGroup ref="gml:AssociationAttributeGroup"/>
+		<attributeGroup ref="gml:OwnershipAttributeGroup"/>
+	</complexType>
+	<element name="Zinstructuur" type="imor:ZinstructuurType" substitutionGroup="gml:AbstractFeature"/>
+	<complexType name="ZinstructuurType">
+		<complexContent>
+			<extension base="gml:AbstractFeatureType">
+				<sequence/>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="ZinstructuurPropertyType">
+		<sequence minOccurs="0">
+			<element ref="imor:Zinstructuur"/>
+		</sequence>
+		<attributeGroup ref="gml:AssociationAttributeGroup"/>
+		<attributeGroup ref="gml:OwnershipAttributeGroup"/>
+	</complexType>
+	<element name="Zoneringsobject" type="imor:ZoneringsobjectType" substitutionGroup="imor:IMOR_Object"/>
+	<complexType name="ZoneringsobjectType">
+		<complexContent>
+			<extension base="imor:IMOR_ObjectType">
+				<sequence>
+					<element name="naam" type="string"/>
+					<element name="typeZoneringsaanduiding" type="imor:TypeZoneringWaardeType"/>
+					<element name="normWaardeAlgemeen" type="imor:WaardePropertyType" minOccurs="0" maxOccurs="unbounded"/>
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="ZoneringsobjectPropertyType">
+		<sequence minOccurs="0">
+			<element ref="imor:Zoneringsobject"/>
+		</sequence>
+		<attributeGroup ref="gml:AssociationAttributeGroup"/>
+		<attributeGroup ref="gml:OwnershipAttributeGroup"/>
+	</complexType>
+	<simpleType name="aspectWaardeType">
+		<union memberTypes="imor:aspectWaardeEnumerationType imor:aspectWaardeOtherType"/>
+	</simpleType>
+	<simpleType name="aspectWaardeEnumerationType">
+		<restriction base="string">
+			<enumeration value="bouwhoogte"/>
+			<enumeration value="percentage bebouwd"/>
+			<enumeration value="functie"/>
+			<enumeration value="iets dat je wilt regelen..."/>
+		</restriction>
+	</simpleType>
+	<simpleType name="aspectWaardeOtherType">
+		<restriction base="string">
+			<pattern value="other: \w{2,}"/>
+		</restriction>
+	</simpleType>
+	<simpleType name="datatypeWaardeType">
+		<union memberTypes="imor:datatypeWaardeEnumerationType imor:datatypeWaardeOtherType"/>
+	</simpleType>
+	<simpleType name="datatypeWaardeEnumerationType">
+		<restriction base="string">
+			<enumeration value="CharacterString"/>
+			<enumeration value="Number"/>
+			<enumeration value="Real"/>
+			<enumeration value="codelijst"/>
+			<enumeration value="boolean"/>
+		</restriction>
+	</simpleType>
+	<simpleType name="datatypeWaardeOtherType">
+		<restriction base="string">
+			<pattern value="other: \w{2,}"/>
+		</restriction>
+	</simpleType>
+	<simpleType name="documentstatusWaardeType">
+		<union memberTypes="imor:documentstatusWaardeEnumerationType imor:documentstatusWaardeOtherType"/>
+	</simpleType>
+	<simpleType name="documentstatusWaardeEnumerationType">
+		<restriction base="string">
+			<enumeration value="geconsolideerd"/>
+		</restriction>
+	</simpleType>
+	<simpleType name="documentstatusWaardeOtherType">
+		<restriction base="string">
+			<pattern value="other: \w{2,}"/>
+		</restriction>
+	</simpleType>
+	<simpleType name="functieWaardeType">
+		<union memberTypes="imor:functieWaardeEnumerationType imor:functieWaardeOtherType"/>
+	</simpleType>
+	<simpleType name="functieWaardeEnumerationType">
+		<restriction base="string"/>
+	</simpleType>
+	<simpleType name="functieWaardeOtherType">
+		<restriction base="string">
+			<pattern value="other: \w{2,}"/>
+		</restriction>
+	</simpleType>
+</schema>
