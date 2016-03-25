@@ -203,32 +203,6 @@ NOTE Onder beheer van een administratieve eenheid (Rijk, provincie, gemeente, wa
       <pattern value="other: \w{2,}"/>
     </restriction>
   </simpleType>
-  <element name="BenoemdGebiedHoofdgroepOverig" substitutionGroup="gml:AbstractGML" type="imor:BenoemdGebiedHoofdgroepOverigType"/>
-  <complexType name="BenoemdGebiedHoofdgroepOverigType">
-    <complexContent>
-      <extension base="gml:AbstractGMLType">
-        <sequence>
-          <element name="afwijkactiviteitverleningsgebied"/>
-          <element name="afwijkendeVergunningplichtgebied"/>
-          <element name="archeologie"/>
-          <element name="beperkingengebied"/>
-          <element name="cultureelErfgoed"/>
-          <element name="Infrastructuur"/>
-          <element name="landschap"/>
-          <element name="moderniseringsgebied"/>
-          <element name="Natuur"/>
-          <element name="programmagebied"/>
-        </sequence>
-      </extension>
-    </complexContent>
-  </complexType>
-  <complexType name="BenoemdGebiedHoofdgroepOverigPropertyType">
-    <sequence minOccurs="0">
-      <element ref="imor:BenoemdGebiedHoofdgroepOverig"/>
-    </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
-  </complexType>
   <simpleType name="BenoemdGebiedHoofdgroepWaardeType">
     <annotation>
       <documentation>Classificatie van typen gebiedsaanduidingen.
@@ -255,145 +229,6 @@ NOTE Waarden hieruit kunnen al betekenis hebben, bijvoorbeeld, landelijkgebied, 
     </restriction>
   </simpleType>
   <simpleType name="BenoemdGebiedHoofdgroepWaardeOtherType">
-    <restriction base="string">
-      <pattern value="other: \w{2,}"/>
-    </restriction>
-  </simpleType>
-  <simpleType name="BenoemdGebiedOmgevingsplanWaardeType">
-    <union memberTypes="imor:BenoemdGebiedOmgevingsplanWaardeEnumerationType imor:BenoemdGebiedOmgevingsplanWaardeOtherType"/>
-  </simpleType>
-  <simpleType name="BenoemdGebiedOmgevingsplanWaardeEnumerationType">
-    <restriction base="string">
-      <enumeration value="geluidzone"/>
-      <enumeration value="geluidzone - industrie"/>
-      <enumeration value="geluidzone - spoor"/>
-      <enumeration value="geluidzone - weg"/>
-      <enumeration value="luchtvaartverkeerzone"/>
-      <enumeration value="milieuzone"/>
-      <enumeration value="milieuzone - bodembeschermingsgebied"/>
-      <enumeration value="milieuzone - geluidsgevoelige functie"/>
-      <enumeration value="milieuzone - geurzone"/>
-      <enumeration value="milieuzone - grondwaterbeschermingsgebied"/>
-      <enumeration value="milieuzone - stiltegebied"/>
-      <enumeration value="milieuzone - waterwingebied"/>
-      <enumeration value="milieuzone - zones wet milieubeheer"/>
-      <enumeration value="reconstructiewetzone"/>
-      <enumeration value="reconstructiewetzone - extensiveringsgebied"/>
-      <enumeration value="reconstructiewetzone - landbouwontwikkelingsgebied"/>
-      <enumeration value="reconstructiewetzone - verwevingsgebied"/>
-      <enumeration value="veiligheidszone"/>
-      <enumeration value="veiligheidszone - bevi"/>
-      <enumeration value="veiligheidszone - leiding"/>
-      <enumeration value="veiligheidszone - lpg"/>
-      <enumeration value="veiligheidszone - munitie"/>
-      <enumeration value="veiligheidszone - vervoer gevaarlijke stoffen"/>
-      <enumeration value="veiligheidszone - vuurwerk"/>
-      <enumeration value="veiligheidszone - windturbine"/>
-      <enumeration value="vrijwaringszone"/>
-      <enumeration value="vrijwaringszone - buisleidingenstraat"/>
-      <enumeration value="vrijwaringszone - dijk"/>
-      <enumeration value="vrijwaringszone - duin"/>
-      <enumeration value="vrijwaringszone - molenbiotoop"/>
-      <enumeration value="vrijwaringszone - radar"/>
-      <enumeration value="vrijwaringszone - spoor"/>
-      <enumeration value="vrijwaringszone - straalpad"/>
-      <enumeration value="vrijwaringszone - vaarweg"/>
-      <enumeration value="vrijwaringszone - weg"/>
-      <enumeration value="waarde"/>
-      <enumeration value="wetgevingzone"/>
-      <enumeration value="wetgevingzone - afwijkingsgebied"/>
-      <enumeration value="wetgevingzone - moderniseringsgebied"/>
-      <enumeration value="wetgevingzone - natura2000"/>
-      <enumeration value="wetgevingzone - tracé wet"/>
-      <enumeration value="wetgevingzone - verwezenlijking in naaste toekomst"/>
-      <enumeration value="wetgevingzone - wet geluidhinder"/>
-      <enumeration value="wetgevingzone - waterwet"/>
-      <enumeration value="wetgevingzone - wijzigingsgebied"/>
-    </restriction>
-  </simpleType>
-  <simpleType name="BenoemdGebiedOmgevingsplanWaardeOtherType">
-    <restriction base="string">
-      <pattern value="other: \w{2,}"/>
-    </restriction>
-  </simpleType>
-  <simpleType name="BenoemdGebiedWaardeType">
-    <annotation>
-      <documentation>Gebied dat wordt benoemd en waarvoro specifieke regels gelden.
-NOTE De gekozen waardelijst is afhankelijk van het type omgevingsdocument.
--- Source --</documentation>
-    </annotation>
-    <union memberTypes="imor:BenoemdGebiedWaardeEnumerationType imor:BenoemdGebiedWaardeOtherType"/>
-  </simpleType>
-  <simpleType name="BenoemdGebiedWaardeEnumerationType">
-    <annotation>
-      <documentation>Gebied dat wordt benoemd en waarvoro specifieke regels gelden.
-NOTE De gekozen waardelijst is afhankelijk van het type omgevingsdocument.
--- Source --</documentation>
-    </annotation>
-    <restriction base="string"/>
-  </simpleType>
-  <simpleType name="BenoemdGebiedWaardeOtherType">
-    <restriction base="string">
-      <pattern value="other: \w{2,}"/>
-    </restriction>
-  </simpleType>
-  <simpleType name="BenoemdgebiedHoofdgroepOmgevingsplanWaardeType">
-    <union memberTypes="imor:BenoemdgebiedHoofdgroepOmgevingsplanWaardeEnumerationType imor:BenoemdgebiedHoofdgroepOmgevingsplanWaardeOtherType"/>
-  </simpleType>
-  <simpleType name="BenoemdgebiedHoofdgroepOmgevingsplanWaardeEnumerationType">
-    <restriction base="string">
-      <enumeration value="gebiedsaanduiding"/>
-      <enumeration value="bouwaanduiding"/>
-      <enumeration value="welstandsniveau"/>
-      <enumeration value="welstandsobject"/>
-      <enumeration value="bouwvlak"/>
-    </restriction>
-  </simpleType>
-  <simpleType name="BenoemdgebiedHoofdgroepOmgevingsplanWaardeOtherType">
-    <restriction base="string">
-      <pattern value="other: \w{2,}"/>
-    </restriction>
-  </simpleType>
-  <simpleType name="BenoemdgebiedHoofdgroepOmgevingsvisieWaardeType">
-    <union memberTypes="imor:BenoemdgebiedHoofdgroepOmgevingsvisieWaardeEnumerationType imor:BenoemdgebiedHoofdgroepOmgevingsvisieWaardeOtherType"/>
-  </simpleType>
-  <simpleType name="BenoemdgebiedHoofdgroepOmgevingsvisieWaardeEnumerationType">
-    <restriction base="string"/>
-  </simpleType>
-  <simpleType name="BenoemdgebiedHoofdgroepOmgevingsvisieWaardeOtherType">
-    <restriction base="string">
-      <pattern value="other: \w{2,}"/>
-    </restriction>
-  </simpleType>
-  <simpleType name="BenoemdgebiedHoofdgroepWaterschapsverordeningWaardeType">
-    <union memberTypes="imor:BenoemdgebiedHoofdgroepWaterschapsverordeningWaardeEnumerationType imor:BenoemdgebiedHoofdgroepWaterschapsverordeningWaardeOtherType"/>
-  </simpleType>
-  <simpleType name="BenoemdgebiedHoofdgroepWaterschapsverordeningWaardeEnumerationType">
-    <restriction base="string"/>
-  </simpleType>
-  <simpleType name="BenoemdgebiedHoofdgroepWaterschapsverordeningWaardeOtherType">
-    <restriction base="string">
-      <pattern value="other: \w{2,}"/>
-    </restriction>
-  </simpleType>
-  <simpleType name="BenoemdgebiedOmgevingsvisieWaardeType">
-    <union memberTypes="imor:BenoemdgebiedOmgevingsvisieWaardeEnumerationType imor:BenoemdgebiedOmgevingsvisieWaardeOtherType"/>
-  </simpleType>
-  <simpleType name="BenoemdgebiedOmgevingsvisieWaardeEnumerationType">
-    <restriction base="string"/>
-  </simpleType>
-  <simpleType name="BenoemdgebiedOmgevingsvisieWaardeOtherType">
-    <restriction base="string">
-      <pattern value="other: \w{2,}"/>
-    </restriction>
-  </simpleType>
-  <simpleType name="BenoemdgebiedWaterschapverordeningWaardeType">
-    <union memberTypes="imor:BenoemdgebiedWaterschapverordeningWaardeEnumerationType imor:BenoemdgebiedWaterschapverordeningWaardeOtherType"/>
-  </simpleType>
-  <simpleType name="BenoemdgebiedWaterschapverordeningWaardeEnumerationType">
-    <restriction base="string"/>
-  </simpleType>
-  <simpleType name="BenoemdgebiedWaterschapverordeningWaardeOtherType">
     <restriction base="string">
       <pattern value="other: \w{2,}"/>
     </restriction>
@@ -538,49 +373,6 @@ NOTE -- Source --</documentation>
   <complexType name="BooleanWaardePropertyType">
     <sequence>
       <element ref="imor:BooleanWaarde"/>
-    </sequence>
-  </complexType>
-  <simpleType name="BouwaanduidingOmgevingsplanWaardeType">
-    <union memberTypes="imor:BouwaanduidingOmgevingsplanWaardeEnumerationType imor:BouwaanduidingOmgevingsplanWaardeOtherType"/>
-  </simpleType>
-  <simpleType name="BouwaanduidingOmgevingsplanWaardeEnumerationType">
-    <restriction base="string">
-      <enumeration value="aaneengebouwd"/>
-      <enumeration value="antennemast"/>
-      <enumeration value="bijgebouwen"/>
-      <enumeration value="gestapeld"/>
-      <enumeration value="kap"/>
-      <enumeration value="karakteristiek"/>
-      <enumeration value="nokrichting"/>
-      <enumeration value="onderdoorgang"/>
-      <enumeration value="plat dak"/>
-      <enumeration value="twee-aaneen"/>
-      <enumeration value="vrijstaand"/>
-      <enumeration value="aaneengebouwd uitgesloten"/>
-      <enumeration value="antennemast uitgesloten"/>
-      <enumeration value="bijgebouwen uitgesloten"/>
-      <enumeration value="gestapeld uitgesloten"/>
-      <enumeration value="kap uitgesloten"/>
-      <enumeration value="karakteristiek uitgesloten"/>
-      <enumeration value="nokrichting uitgesloten"/>
-      <enumeration value="onderdoorgang uitgesloten"/>
-      <enumeration value="plat dak uitgesloten"/>
-      <enumeration value="twee-aaneen uitgesloten"/>
-      <enumeration value="vrijstaand uitgesloten"/>
-    </restriction>
-  </simpleType>
-  <simpleType name="BouwaanduidingOmgevingsplanWaardeOtherType">
-    <restriction base="string">
-      <pattern value="other: \w{2,}"/>
-    </restriction>
-  </simpleType>
-  <element name="CharacterString" substitutionGroup="gml:AbstractObject" type="imor:CharacterStringType"/>
-  <complexType name="CharacterStringType">
-    <sequence/>
-  </complexType>
-  <complexType name="CharacterStringPropertyType">
-    <sequence>
-      <element ref="imor:CharacterString"/>
     </sequence>
   </complexType>
   <element name="Conditie" substitutionGroup="imor:IMOR_Object" type="imor:ConditieType">
@@ -754,349 +546,23 @@ NOTE -- Source --</documentation>
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <simpleType name="FunctieOmgevingsplanWaardeType">
-    <union memberTypes="imor:FunctieOmgevingsplanWaardeEnumerationType imor:FunctieOmgevingsplanWaardeOtherType"/>
-  </simpleType>
-  <simpleType name="FunctieOmgevingsplanWaardeEnumerationType">
-    <restriction base="string">
-      <enumeration value="aanlegsteiger"/>
-      <enumeration value="agrarisch"/>
-      <enumeration value="agrarisch bedrijf"/>
-      <enumeration value="agrarisch loonbedrijf"/>
-      <enumeration value="agrarisch met waarden"/>
-      <enumeration value="akkerbouw"/>
-      <enumeration value="ambachtelijke be- en verwerking agrarische producten"/>
-      <enumeration value="aquacultuur"/>
-      <enumeration value="aquaduct"/>
-      <enumeration value="archeologie"/>
-      <enumeration value="archeologische waarden"/>
-      <enumeration value="asielzoekerscentrum"/>
-      <enumeration value="atelier"/>
-      <enumeration value="attractiepark"/>
-      <enumeration value="autocircuit"/>
-      <enumeration value="baggerspeciedepot"/>
-      <enumeration value="bed &amp; breakfast"/>
-      <enumeration value="bedrijf"/>
-      <enumeration value="bedrijf aan huis"/>
-      <enumeration value="bedrijf tot en met categorie 1"/>
-      <enumeration value="bedrijf tot en met categorie 2"/>
-      <enumeration value="bedrijf tot en met categorie 3.1"/>
-      <enumeration value="bedrijf tot en met categorie 3.2"/>
-      <enumeration value="bedrijf tot en met categorie 4.1"/>
-      <enumeration value="bedrijf tot en met categorie 4.2"/>
-      <enumeration value="bedrijf tot en met categorie 5.1"/>
-      <enumeration value="bedrijf tot en met categorie 5.2"/>
-      <enumeration value="bedrijf tot en met categorie 5.3"/>
-      <enumeration value="bedrijf tot en met categorie 6"/>
-      <enumeration value="bedrijf van categorie 1"/>
-      <enumeration value="bedrijf van categorie 2"/>
-      <enumeration value="bedrijf van categorie 3.1"/>
-      <enumeration value="bedrijf van categorie 3.2"/>
-      <enumeration value="bedrijf van categorie 4.1"/>
-      <enumeration value="bedrijf van categorie 4.2"/>
-      <enumeration value="bedrijf van categorie 5.1"/>
-      <enumeration value="bedrijf van categorie 5.2"/>
-      <enumeration value="bedrijf van categorie 5.3"/>
-      <enumeration value="bedrijf van categorie 6"/>
-      <enumeration value="bedrijfswoning"/>
-      <enumeration value="bedrijventerrein"/>
-      <enumeration value="beeldbepalende boom"/>
-      <enumeration value="begraafplaats"/>
-      <enumeration value="belwinkel"/>
-      <enumeration value="bergbezinkbassin"/>
-      <enumeration value="beroep aan huis"/>
-      <enumeration value="bibliotheek"/>
-      <enumeration value="bioscoop"/>
-      <enumeration value="bollenteelt"/>
-      <enumeration value="bomenrij"/>
-      <enumeration value="bomenteelt"/>
-      <enumeration value="bordeel"/>
-      <enumeration value="bos"/>
-      <enumeration value="bosbouw"/>
-      <enumeration value="bouwbedrijf"/>
-      <enumeration value="bowlingbaan"/>
-      <enumeration value="brandweerkazerne"/>
-      <enumeration value="brug"/>
-      <enumeration value="café"/>
-      <enumeration value="café-restaurant"/>
-      <enumeration value="cafetaria"/>
-      <enumeration value="caravanstalling"/>
-      <enumeration value="casino"/>
-      <enumeration value="centrum"/>
-      <enumeration value="congrescentrum"/>
-      <enumeration value="creativiteitscentrum"/>
-      <enumeration value="crematorium"/>
-      <enumeration value="cultuur en ontspanning"/>
-      <enumeration value="cultuurhistorie"/>
-      <enumeration value="cultuurhistorische waarden"/>
-      <enumeration value="dagrecreatie"/>
-      <enumeration value="dansschool"/>
-      <enumeration value="detailhandel"/>
-      <enumeration value="detailhandel grootschalig"/>
-      <enumeration value="detailhandel in brand- en explosiegevaarlijke goederen"/>
-      <enumeration value="detailhandel perifeer"/>
-      <enumeration value="detailhandel volumineus"/>
-      <enumeration value="dienstverlening"/>
-      <enumeration value="dierenasiel"/>
-      <enumeration value="dierenpension"/>
-      <enumeration value="dierentuin"/>
-      <enumeration value="discotheek"/>
-      <enumeration value="drafbaan"/>
-      <enumeration value="drugsopvang"/>
-      <enumeration value="ecoduct"/>
-      <enumeration value="ecologie"/>
-      <enumeration value="ecologische verbindingszone"/>
-      <enumeration value="ecologische waarde"/>
-      <enumeration value="explosieven en munitiedepot"/>
-      <enumeration value="eendenkooi"/>
-      <enumeration value="erf"/>
-      <enumeration value="evenemententerrein"/>
-      <enumeration value="feestzaal"/>
-      <enumeration value="fietsenstalling"/>
-      <enumeration value="fitnesscentrum"/>
-      <enumeration value="fruitteelt"/>
-      <enumeration value="garage"/>
-      <enumeration value="garagebox"/>
-      <enumeration value="geluidscherm"/>
-      <enumeration value="geluidwal"/>
-      <enumeration value="gemaal"/>
-      <enumeration value="gemengd"/>
-      <enumeration value="geomorfologie"/>
-      <enumeration value="geomorfologische waarde"/>
-      <enumeration value="gezondheidszorg"/>
-      <enumeration value="glastuinbouw"/>
-      <enumeration value="golfbaan"/>
-      <enumeration value="groen"/>
-      <enumeration value="groenvoorziening"/>
-      <enumeration value="gronddepot"/>
-      <enumeration value="grondgebonden"/>
-      <enumeration value="grondgebonden veehouderij"/>
-      <enumeration value="groothandel"/>
-      <enumeration value="haven"/>
-      <enumeration value="havenbedrijf"/>
-      <enumeration value="horeca"/>
-      <enumeration value="horeca tot en met categorie 1"/>
-      <enumeration value="horeca tot en met categorie 2"/>
-      <enumeration value="horeca tot en met categorie 3"/>
-      <enumeration value="horeca tot en met categorie 4"/>
-      <enumeration value="horeca tot en met categorie 5"/>
-      <enumeration value="horeca tot en met categorie 6"/>
-      <enumeration value="horeca tot en met categorie 7"/>
-      <enumeration value="horeca tot en met categorie 8"/>
-      <enumeration value="horeca tot en met categorie 9"/>
-      <enumeration value="horeca van categorie 1"/>
-      <enumeration value="horeca van categorie 2"/>
-      <enumeration value="horeca van categorie 3"/>
-      <enumeration value="horeca van categorie 4"/>
-      <enumeration value="horeca van categorie 5"/>
-      <enumeration value="horeca van categorie 6"/>
-      <enumeration value="horeca van categorie 7"/>
-      <enumeration value="horeca van categorie 8"/>
-      <enumeration value="horeca van categorie 9"/>
-      <enumeration value="hotel"/>
-      <enumeration value="houtsingel"/>
-      <enumeration value="houtwal"/>
-      <enumeration value="hovenier"/>
-      <enumeration value="ijsbaan"/>
-      <enumeration value="infrastructuur"/>
-      <enumeration value="intensieve kwekerij"/>
-      <enumeration value="intensieve veehouderij"/>
-      <enumeration value="internetcafé"/>
-      <enumeration value="internetwinkel"/>
-      <enumeration value="jachthaven"/>
-      <enumeration value="jeugdopvang"/>
-      <enumeration value="jongeren ontmoetingsplek"/>
-      <enumeration value="justitiële inrichting"/>
-      <enumeration value="kamerverhuur"/>
-      <enumeration value="kampeerboerderij"/>
-      <enumeration value="kampeerterrein"/>
-      <enumeration value="kantoor"/>
-      <enumeration value="kartbaan"/>
-      <enumeration value="kas"/>
-      <enumeration value="kazerne"/>
-      <enumeration value="kinderboerderij"/>
-      <enumeration value="kinderdagverblijf"/>
-      <enumeration value="kunstijsbaan"/>
-      <enumeration value="laad- en losplaats"/>
-      <enumeration value="landhuis"/>
-      <enumeration value="landingsbaan"/>
-      <enumeration value="landschap"/>
-      <enumeration value="landschap"/>
-      <enumeration value="landschapswaarden"/>
-      <enumeration value="langzaam verkeer"/>
-      <enumeration value="leiding brandstof"/>
-      <enumeration value="leiding gas"/>
-      <enumeration value="leiding hoogspanning"/>
-      <enumeration value="leiding hoogspanningsverbinding"/>
-      <enumeration value="leiding olie"/>
-      <enumeration value="leiding riool"/>
-      <enumeration value="leiding water"/>
-      <enumeration value="leidingstrook"/>
-      <enumeration value="ligplaats"/>
-      <enumeration value="luchthaven"/>
-      <enumeration value="luchtverkeer"/>
-      <enumeration value="maatschappelijk"/>
-      <enumeration value="manege"/>
-      <enumeration value="markt"/>
-      <enumeration value="meer"/>
-      <enumeration value="militair terrein"/>
-      <enumeration value="militair oefenterrein"/>
-      <enumeration value="militaire zaken"/>
-      <enumeration value="militaire luchthaven"/>
-      <enumeration value="modelvliegtuigbaan"/>
-      <enumeration value="monumentale boom"/>
-      <enumeration value="motorcrossterrein"/>
-      <enumeration value="munitiedepot"/>
-      <enumeration value="museum"/>
-      <enumeration value="muziekschool"/>
-      <enumeration value="muziektheater"/>
-      <enumeration value="naschoolse opvang"/>
-      <enumeration value="natuur"/>
-      <enumeration value="natuur en landschap"/>
-      <enumeration value="natuur- en landschapswaarden"/>
-      <enumeration value="natuurgebied"/>
-      <enumeration value="natuurontwikkelingsgebied"/>
-      <enumeration value="natuurwaarden"/>
-      <enumeration value="niet grondgebonden"/>
-      <enumeration value="nutsbedrijf"/>
-      <enumeration value="nutsvoorziening"/>
-      <enumeration value="oever"/>
-      <enumeration value="onderwijs"/>
-      <enumeration value="ontsluiting"/>
-      <enumeration value="openbaar vervoer"/>
-      <enumeration value="openbaar vervoerstation"/>
-      <enumeration value="openbare dienstverlening"/>
-      <enumeration value="openheid"/>
-      <enumeration value="opslag"/>
-      <enumeration value="paardenfokkerij"/>
-      <enumeration value="paardenhouderij"/>
-      <enumeration value="pad"/>
-      <enumeration value="park"/>
-      <enumeration value="parkeergarage"/>
-      <enumeration value="parkeerterrein"/>
-      <enumeration value="partyboerderij"/>
-      <enumeration value="passantenhaven"/>
-      <enumeration value="pension"/>
-      <enumeration value="peuterspeelzaal"/>
-      <enumeration value="pitch &amp; putt"/>
-      <enumeration value="plantsoen"/>
-      <enumeration value="plein"/>
-      <enumeration value="praktijkruimte"/>
-      <enumeration value="prostitutie"/>
-      <enumeration value="raamprostitutie"/>
-      <enumeration value="railverkeer"/>
-      <enumeration value="recreatie"/>
-      <enumeration value="recreatiewoning"/>
-      <enumeration value="religie"/>
-      <enumeration value="rijbak"/>
-      <enumeration value="risicovolle inrichting"/>
-      <enumeration value="rivier"/>
-      <enumeration value="sauna"/>
-      <enumeration value="schiphuis"/>
-      <enumeration value="scouting"/>
-      <enumeration value="seksinrichting"/>
-      <enumeration value="sierteelt"/>
-      <enumeration value="silo"/>
-      <enumeration value="skeelerbaan"/>
-      <enumeration value="skibaan"/>
-      <enumeration value="sluis"/>
-      <enumeration value="speelterrein"/>
-      <enumeration value="speeltuin"/>
-      <enumeration value="speelvoorziening"/>
-      <enumeration value="spoorverkeer"/>
-      <enumeration value="spoorweg"/>
-      <enumeration value="sport"/>
-      <enumeration value="sportcentrum"/>
-      <enumeration value="sporthal"/>
-      <enumeration value="sportschool"/>
-      <enumeration value="sportveld"/>
-      <enumeration value="sportzaal"/>
-      <enumeration value="squashcentrum"/>
-      <enumeration value="stadion"/>
-      <enumeration value="steiger"/>
-      <enumeration value="strand"/>
-      <enumeration value="strandhuis"/>
-      <enumeration value="studentenhuisvesting"/>
-      <enumeration value="stuw"/>
-      <enumeration value="supermarkt"/>
-      <enumeration value="tennisbaan"/>
-      <enumeration value="terras"/>
-      <enumeration value="theater"/>
-      <enumeration value="transportbedrijf"/>
-      <enumeration value="tuin"/>
-      <enumeration value="tuinbouw"/>
-      <enumeration value="tuincentrum"/>
-      <enumeration value="tunnel"/>
-      <enumeration value="uitvaartcentrum"/>
-      <enumeration value="vaarweg"/>
-      <enumeration value="veerhaven"/>
-      <enumeration value="ven"/>
-      <enumeration value="verblijfsgebied"/>
-      <enumeration value="verblijfsrecreatie"/>
-      <enumeration value="verenigingsleven"/>
-      <enumeration value="vergaderaccomodatie"/>
-      <enumeration value="verkeer"/>
-      <enumeration value="verkoop eigen producten"/>
-      <enumeration value="verkooppunt motorbrandstoffen"/>
-      <enumeration value="verkooppunt motorbrandstoffen met lpg"/>
-      <enumeration value="verkooppunt motorbrandstoffen zonder lpg"/>
-      <enumeration value="vertrek- en aankomsthal"/>
-      <enumeration value="vijver"/>
-      <enumeration value="viskwekerij"/>
-      <enumeration value="volkstuin"/>
-      <enumeration value="vulpunt lpg"/>
-      <enumeration value="waardevolle boom"/>
-      <enumeration value="water"/>
-      <enumeration value="waterberging"/>
-      <enumeration value="waterhuishoudkundige en/of waterstaatkundige functie"/>
-      <enumeration value="waterkering"/>
-      <enumeration value="waterlopen met een waterhuishoudkundige en/of waterstaatkundige functie"/>
-      <enumeration value="waterstaat"/>
-      <enumeration value="waterweg"/>
-      <enumeration value="waterzuiveringsinstallatie"/>
-      <enumeration value="weg"/>
-      <enumeration value="wegverkeer"/>
-      <enumeration value="wellness"/>
-      <enumeration value="welzijnsinstelling"/>
-      <enumeration value="wielerbaan"/>
-      <enumeration value="windturbine"/>
-      <enumeration value="windturbinepark"/>
-      <enumeration value="wonen"/>
-      <enumeration value="woongebied"/>
-      <enumeration value="woonschepenligplaats"/>
-      <enumeration value="woonwagenstandplaats"/>
-      <enumeration value="zee"/>
-      <enumeration value="zend-/ontvangstinstallatie"/>
-      <enumeration value="zorgboerderij"/>
-      <enumeration value="zorginstelling"/>
-      <enumeration value="zorgwoning"/>
-      <enumeration value="zwembad"/>
-    </restriction>
-  </simpleType>
-  <simpleType name="FunctieOmgevingsplanWaardeOtherType">
-    <restriction base="string">
-      <pattern value="other: \w{2,}"/>
-    </restriction>
-  </simpleType>
-  <simpleType name="FunctieWaardeType">
+  <element name="FunctieEnRegel" substitutionGroup="gml:AbstractObject" type="imor:FunctieEnRegelType">
     <annotation>
       <documentation>Typering van gebruik of beperking.
 NOTE -- Source --</documentation>
     </annotation>
-    <union memberTypes="imor:FunctieWaardeEnumerationType imor:FunctieWaardeOtherType"/>
-  </simpleType>
-  <simpleType name="FunctieWaardeEnumerationType">
-    <annotation>
-      <documentation>Typering van gebruik of beperking.
-NOTE -- Source --</documentation>
-    </annotation>
-    <restriction base="string"/>
-  </simpleType>
-  <simpleType name="FunctieWaardeOtherType">
-    <restriction base="string">
-      <pattern value="other: \w{2,}"/>
-    </restriction>
-  </simpleType>
+  </element>
+  <complexType name="FunctieEnRegelType">
+    <sequence>
+      <element name="functie" type="gml:CodeWithAuthorityType"/>
+      <element name="toegestaanUitgesloten" type="imor:ToegestaanUitgeslotenWaardeType"/>
+    </sequence>
+  </complexType>
+  <complexType name="FunctieEnRegelPropertyType">
+    <sequence>
+      <element ref="imor:FunctieEnRegel"/>
+    </sequence>
+  </complexType>
   <element name="Gebiedsaanduiding" substitutionGroup="imor:EigenschapWaarde" type="imor:GebiedsaanduidingType">
     <annotation>
       <documentation>Een in de tekst aangeduid gebied. Dit kan een typering of een absolute locatie zijn.
@@ -1215,66 +681,6 @@ NOTE -- Source --</documentation>
   <complexType name="HoofdstukPropertyType">
     <sequence minOccurs="0">
       <element ref="imor:Hoofdstuk"/>
-    </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
-  </complexType>
-  <element name="I2012Bestemmingsplan" substitutionGroup="gml:AbstractGML" type="imor:I2012BestemmingsplanType"/>
-  <complexType name="I2012BestemmingsplanType">
-    <complexContent>
-      <extension base="gml:AbstractGMLType">
-        <sequence/>
-      </extension>
-    </complexContent>
-  </complexType>
-  <complexType name="I2012BestemmingsplanPropertyType">
-    <sequence minOccurs="0">
-      <element ref="imor:I2012Bestemmingsplan"/>
-    </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
-  </complexType>
-  <element name="I2012Omgevingsvergunning" substitutionGroup="gml:AbstractGML" type="imor:I2012OmgevingsvergunningType"/>
-  <complexType name="I2012OmgevingsvergunningType">
-    <complexContent>
-      <extension base="gml:AbstractGMLType">
-        <sequence/>
-      </extension>
-    </complexContent>
-  </complexType>
-  <complexType name="I2012OmgevingsvergunningPropertyType">
-    <sequence minOccurs="0">
-      <element ref="imor:I2012Omgevingsvergunning"/>
-    </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
-  </complexType>
-  <element name="I2012ProvincialeVerordening" substitutionGroup="gml:AbstractGML" type="imor:I2012ProvincialeVerordeningType"/>
-  <complexType name="I2012ProvincialeVerordeningType">
-    <complexContent>
-      <extension base="gml:AbstractGMLType">
-        <sequence/>
-      </extension>
-    </complexContent>
-  </complexType>
-  <complexType name="I2012ProvincialeVerordeningPropertyType">
-    <sequence minOccurs="0">
-      <element ref="imor:I2012ProvincialeVerordening"/>
-    </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
-  </complexType>
-  <element name="I2012Structuurvisie" substitutionGroup="gml:AbstractGML" type="imor:I2012StructuurvisieType"/>
-  <complexType name="I2012StructuurvisieType">
-    <complexContent>
-      <extension base="gml:AbstractGMLType">
-        <sequence/>
-      </extension>
-    </complexContent>
-  </complexType>
-  <complexType name="I2012StructuurvisiePropertyType">
-    <sequence minOccurs="0">
-      <element ref="imor:I2012Structuurvisie"/>
     </sequence>
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
@@ -1398,17 +804,6 @@ NOTE -- Source --</documentation>
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <simpleType name="JurischOnderwerpWaardeType">
-    <union memberTypes="imor:JurischOnderwerpWaardeEnumerationType imor:JurischOnderwerpWaardeOtherType"/>
-  </simpleType>
-  <simpleType name="JurischOnderwerpWaardeEnumerationType">
-    <restriction base="string"/>
-  </simpleType>
-  <simpleType name="JurischOnderwerpWaardeOtherType">
-    <restriction base="string">
-      <pattern value="other: \w{2,}"/>
-    </restriction>
-  </simpleType>
   <element name="Legger" substitutionGroup="imor:Omgevingsdocument_Omgevingsbesluit" type="imor:LeggerType"/>
   <complexType name="LeggerType">
     <complexContent>
@@ -1450,7 +845,7 @@ NOTE Voorbeelden zijn: bouwhoogte, aantal parkeerplaatsen, minimaal aantla vierk
     <complexContent>
       <extension base="imor:NormType">
         <sequence>
-          <element name="typeMaatvoering" type="imor:MaatvoeringWaardeType">
+          <element name="typeMaatvoering">
             <annotation>
               <documentation>Onderwerp waarvoor een maat is opgenomen.
 NOTE De gekozen waardelijst is afhankelijk van het type omgevingsdocument.
@@ -1468,133 +863,6 @@ NOTE De gekozen waardelijst is afhankelijk van het type omgevingsdocument.
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <simpleType name="MaatvoeringOmgevingsplanWaardeType">
-    <annotation>
-      <documentation>Classificatie van hoofdgroepen van omvang en waarde parameters.
-NOTE -- Source --</documentation>
-    </annotation>
-    <union memberTypes="imor:MaatvoeringOmgevingsplanWaardeEnumerationType imor:MaatvoeringOmgevingsplanWaardeOtherType"/>
-  </simpleType>
-  <simpleType name="MaatvoeringOmgevingsplanWaardeEnumerationType">
-    <annotation>
-      <documentation>Classificatie van hoofdgroepen van omvang en waarde parameters.
-NOTE -- Source --</documentation>
-    </annotation>
-    <restriction base="string">
-      <enumeration value="aantal"/>
-      <enumeration value="aantal bedrijven"/>
-      <enumeration value="maximum aantal bedrijven"/>
-      <enumeration value="minimum aantal bedrijven"/>
-      <enumeration value="aantal bezoekers"/>
-      <enumeration value="maximum aantal bezoekers"/>
-      <enumeration value="minimum aantal bezoekers"/>
-      <enumeration value="aantal bouwlagen"/>
-      <enumeration value="maximum aantal bouwlagen"/>
-      <enumeration value="minimum aantal bouwlagen"/>
-      <enumeration value="aantal gebouwen"/>
-      <enumeration value="maximum aantal gebouwen"/>
-      <enumeration value="minimum aantal gebouwen"/>
-      <enumeration value="aantal parkeerplaatsen"/>
-      <enumeration value="maximum aantal parkeerplaatsen"/>
-      <enumeration value="minimum aantal parkeerplaatsen"/>
-      <enumeration value="aantal rijstroken"/>
-      <enumeration value="maximum aantal rijstroken"/>
-      <enumeration value="minimum aantal rijstroken"/>
-      <enumeration value="aantal sporen"/>
-      <enumeration value="maximum aantal sporen"/>
-      <enumeration value="minimum aantal sporen"/>
-      <enumeration value="aantal winkels"/>
-      <enumeration value="maximum aantal winkels"/>
-      <enumeration value="minimum aantal winkels"/>
-      <enumeration value="aantal wooneenheden"/>
-      <enumeration value="maximum aantal wooneenheden"/>
-      <enumeration value="minimum aantal wooneenheden"/>
-      <enumeration value="maatvoering"/>
-      <enumeration value="bebouwd oppervlak (m2)"/>
-      <enumeration value="maximum bebouwd oppervlak (m2)"/>
-      <enumeration value="minimum bebouwd oppervlak (m2)"/>
-      <enumeration value="breedte (m)"/>
-      <enumeration value="maximum breedte (m)"/>
-      <enumeration value="minimum breedte (m)"/>
-      <enumeration value="dakhelling (graden)"/>
-      <enumeration value="maximum dakhelling (graden)"/>
-      <enumeration value="minimum dakhelling (graden)"/>
-      <enumeration value="diepte (m)"/>
-      <enumeration value="maximum diepte (m)"/>
-      <enumeration value="minimum diepte (m)"/>
-      <enumeration value="hoogte (m)"/>
-      <enumeration value="minimum hoogte (m)"/>
-      <enumeration value="bouwhoogte (m)"/>
-      <enumeration value="maximum bouwhoogte (m)"/>
-      <enumeration value="minimum bouwhoogte (m)"/>
-      <enumeration value="goothoogte (m)"/>
-      <enumeration value="maximum goothoogte (m)"/>
-      <enumeration value="minimum goothoogte (m)"/>
-      <enumeration value="hoogteligging vlak (m)"/>
-      <enumeration value="maximum hoogteligging vlak (m)"/>
-      <enumeration value="minimum hoogteligging vlak (m)"/>
-      <enumeration value="lengte (m)"/>
-      <enumeration value="maximum lengte (m)"/>
-      <enumeration value="minimum lengte (m)"/>
-      <enumeration value="oppervlakte (m2)"/>
-      <enumeration value="maximum oppervlakte (m2)"/>
-      <enumeration value="minimum oppervlakte (m2)"/>
-      <enumeration value="vloeroppervlakte (m2)"/>
-      <enumeration value="vloeroppervlakte; bruto (m2)"/>
-      <enumeration value="vloeroppervlakte; netto (m2)"/>
-      <enumeration value="vloeroppervlakte; bvo (m2)"/>
-      <enumeration value="vloeroppervlakte; vvo (m2)"/>
-      <enumeration value="maximum vloeroppervlakte (m2)"/>
-      <enumeration value="maximum vloeroppervlakte; bruto (m2)"/>
-      <enumeration value="maximum vloeroppervlakte; netto (m2)"/>
-      <enumeration value="maximum vloeroppervlakte; bvo (m2)"/>
-      <enumeration value="maximum vloeroppervlakte; vvo (m2)"/>
-      <enumeration value="minimum vloeroppervlakte (m2)"/>
-      <enumeration value="minimum vloeroppervlakte; bruto (m2)"/>
-      <enumeration value="minimum vloeroppervlakte; netto (m2)"/>
-      <enumeration value="minimum vloeroppervlakte; bvo (m2)"/>
-      <enumeration value="minimum vloeroppervlakte; vvo (m2)"/>
-      <enumeration value="volume (m3)"/>
-      <enumeration value="maximum volume (m3)"/>
-      <enumeration value="minimum volume (m3)"/>
-      <enumeration value="bebouwingspercentage (%)"/>
-      <enumeration value="maximum bebouwingspercentage (%)"/>
-      <enumeration value="minimum bebouwingspercentage (%)"/>
-      <enumeration value="aantal aaneen te bouwen wooneenheden"/>
-      <enumeration value="maximum aantal aaneen te bouwen wooneenheden"/>
-      <enumeration value="minimum aantal aaneen te bouwen wooneenheden"/>
-      <enumeration value="verticale bouwdiepte (m)"/>
-      <enumeration value="maximum verticale bouwdiepte (m)"/>
-      <enumeration value="minimum verticale bouwdiepte (m)"/>
-      <enumeration value="maximum hoogte (m)"/>
-    </restriction>
-  </simpleType>
-  <simpleType name="MaatvoeringOmgevingsplanWaardeOtherType">
-    <restriction base="string">
-      <pattern value="other: \w{2,}"/>
-    </restriction>
-  </simpleType>
-  <simpleType name="MaatvoeringWaardeType">
-    <annotation>
-      <documentation>Onderwerp waarvoor een maat is opgenomen.
-NOTE De gekozen waardelijst is afhankelijk van het type omgevingsdocument.
--- Source --</documentation>
-    </annotation>
-    <union memberTypes="imor:MaatvoeringWaardeEnumerationType imor:MaatvoeringWaardeOtherType"/>
-  </simpleType>
-  <simpleType name="MaatvoeringWaardeEnumerationType">
-    <annotation>
-      <documentation>Onderwerp waarvoor een maat is opgenomen.
-NOTE De gekozen waardelijst is afhankelijk van het type omgevingsdocument.
--- Source --</documentation>
-    </annotation>
-    <restriction base="string"/>
-  </simpleType>
-  <simpleType name="MaatvoeringWaardeOtherType">
-    <restriction base="string">
-      <pattern value="other: \w{2,}"/>
-    </restriction>
-  </simpleType>
   <element name="Melding" substitutionGroup="imor:Omgevingsdocument_Omgevingsbesluit" type="imor:MeldingType"/>
   <complexType name="MeldingType">
     <complexContent>
@@ -1720,24 +988,6 @@ NOTE -- Source --</documentation>
       <element ref="imor:NumeriekeWaarde"/>
     </sequence>
   </complexType>
-  <element name="ObjectType" substitutionGroup="gml:AbstractObject" type="imor:ObjectTypeType"/>
-  <complexType name="ObjectTypeType">
-    <choice/>
-  </complexType>
-  <complexType name="ObjectTypePropertyType">
-    <sequence>
-      <element ref="imor:ObjectType"/>
-    </sequence>
-  </complexType>
-  <simpleType name="ObjecttypeBesluitType">
-    <restriction base="string"/>
-  </simpleType>
-  <simpleType name="ObjecttypePlanType">
-    <restriction base="string"/>
-  </simpleType>
-  <simpleType name="ObjecttypeVisieType">
-    <restriction base="string"/>
-  </simpleType>
   <simpleType name="OmgevingsVergunningPlichtigeActiviteitType">
     <annotation>
       <documentation>Classificatie van hoofdgroepen van handelingen en activiteiten.
@@ -1803,11 +1053,11 @@ NOTE -- Source --</documentation>
     <complexContent>
       <extension base="imor:IMOR_ObjectType">
         <sequence>
-          <element name="beleidsmatigVerantwoordelijkeOverheid" type="string"/>
-          <element maxOccurs="unbounded" minOccurs="0" name="locatieNaam" type="string"/>
           <element name="naam" type="gml:CodeWithAuthorityType"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="locatieNaam" type="string"/>
           <element name="naamOverheid" type="string"/>
           <element name="typeOmgevingsdocument" type="imor:OmgevingsdocumentTypeWaardeType"/>
+          <element name="beleidsmatigVerantwoordelijkeOverheid" type="string"/>
         </sequence>
       </extension>
     </complexContent>
@@ -1994,7 +1244,7 @@ NOTE als hoofdonderwerp geen geo dan wordt geo onderliggend object overgenomen o
     <complexContent>
       <extension base="gml:AbstractFeatureType">
         <sequence>
-          <element name="JurischOnderwerp" type="imor:JurischOnderwerpWaardeType"/>
+          <element name="JurischOnderwerp"/>
         </sequence>
       </extension>
     </complexContent>
@@ -2213,36 +1463,6 @@ Vaak is dit een relatie tussen locaties die specifiek is benoemd. Bijvoorbeeld e
       <pattern value="other: \w{2,}"/>
     </restriction>
   </simpleType>
-  <element name="RuleSpeak" substitutionGroup="gml:AbstractGML" type="imor:RuleSpeakType"/>
-  <complexType name="RuleSpeakType">
-    <complexContent>
-      <extension base="gml:AbstractGMLType">
-        <sequence/>
-      </extension>
-    </complexContent>
-  </complexType>
-  <complexType name="RuleSpeakPropertyType">
-    <sequence minOccurs="0">
-      <element ref="imor:RuleSpeak"/>
-    </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
-  </complexType>
-  <element name="SemanticsOfBusinessVocabularyAndBusinessRulesSVBR" substitutionGroup="gml:AbstractGML" type="imor:SemanticsOfBusinessVocabularyAndBusinessRulesSVBRType"/>
-  <complexType name="SemanticsOfBusinessVocabularyAndBusinessRulesSVBRType">
-    <complexContent>
-      <extension base="gml:AbstractGMLType">
-        <sequence/>
-      </extension>
-    </complexContent>
-  </complexType>
-  <complexType name="SemanticsOfBusinessVocabularyAndBusinessRulesSVBRPropertyType">
-    <sequence minOccurs="0">
-      <element ref="imor:SemanticsOfBusinessVocabularyAndBusinessRulesSVBR"/>
-    </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
-  </complexType>
   <element name="Sublid" substitutionGroup="imor:Tekstelement" type="imor:SublidType"/>
   <complexType name="SublidType">
     <complexContent>
@@ -2254,40 +1474,6 @@ Vaak is dit een relatie tussen locaties die specifiek is benoemd. Bijvoorbeeld e
   <complexType name="SublidPropertyType">
     <sequence minOccurs="0">
       <element ref="imor:Sublid"/>
-    </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
-  </complexType>
-  <element name="TekstMetadata" substitutionGroup="gml:AbstractGML" type="imor:TekstMetadataType"/>
-  <complexType name="TekstMetadataType">
-    <complexContent>
-      <extension base="gml:AbstractGMLType">
-        <sequence/>
-      </extension>
-    </complexContent>
-  </complexType>
-  <complexType name="TekstMetadataPropertyType">
-    <sequence minOccurs="0">
-      <element ref="imor:TekstMetadata"/>
-    </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
-  </complexType>
-  <element name="TekstObject" substitutionGroup="gml:AbstractGML" type="imor:TekstObjectType"/>
-  <complexType name="TekstObjectType">
-    <complexContent>
-      <extension base="gml:AbstractGMLType">
-        <sequence>
-          <element minOccurs="0" name="tekstMetadata" type="imor:TekstMetadataPropertyType"/>
-          <element name="ouderID" type="imor:TekstObjectPropertyType"/>
-          <element maxOccurs="unbounded" minOccurs="0" name="interneVerwijzing" type="imor:TekstObjectPropertyType"/>
-        </sequence>
-      </extension>
-    </complexContent>
-  </complexType>
-  <complexType name="TekstObjectPropertyType">
-    <sequence minOccurs="0">
-      <element ref="imor:TekstObject"/>
     </sequence>
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
@@ -2390,21 +1576,6 @@ NOTE Bijvoorbeeld
       <element ref="imor:Tekstpatroon"/>
     </sequence>
   </complexType>
-  <element name="Teksttype" substitutionGroup="gml:AbstractGML" type="imor:TeksttypeType"/>
-  <complexType name="TeksttypeType">
-    <complexContent>
-      <extension base="gml:AbstractGMLType">
-        <sequence/>
-      </extension>
-    </complexContent>
-  </complexType>
-  <complexType name="TeksttypePropertyType">
-    <sequence minOccurs="0">
-      <element ref="imor:Teksttype"/>
-    </sequence>
-    <attributeGroup ref="gml:AssociationAttributeGroup"/>
-    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
-  </complexType>
   <simpleType name="ThemaWaardeType">
     <union memberTypes="imor:ThemaWaardeEnumerationType imor:ThemaWaardeOtherType"/>
   </simpleType>
@@ -2456,15 +1627,6 @@ NOTE Bijvoorbeeld
       <pattern value="other: \w{2,}"/>
     </restriction>
   </simpleType>
-  <element name="TitelInfo" substitutionGroup="gml:AbstractObject" type="imor:TitelInfoType"/>
-  <complexType name="TitelInfoType">
-    <sequence/>
-  </complexType>
-  <complexType name="TitelInfoPropertyType">
-    <sequence>
-      <element ref="imor:TitelInfo"/>
-    </sequence>
-  </complexType>
   <simpleType name="ToegestaanUitgeslotenWaardeType">
     <union memberTypes="imor:ToegestaanUitgeslotenWaardeEnumerationType imor:ToegestaanUitgeslotenWaardeOtherType"/>
   </simpleType>
@@ -2598,17 +1760,6 @@ NOTE -- Source --</documentation>
     <attributeGroup ref="gml:AssociationAttributeGroup"/>
     <attributeGroup ref="gml:OwnershipAttributeGroup"/>
   </complexType>
-  <simpleType name="WaterschapsverordeningWaardeType">
-    <union memberTypes="imor:WaterschapsverordeningWaardeEnumerationType imor:WaterschapsverordeningWaardeOtherType"/>
-  </simpleType>
-  <simpleType name="WaterschapsverordeningWaardeEnumerationType">
-    <restriction base="string"/>
-  </simpleType>
-  <simpleType name="WaterschapsverordeningWaardeOtherType">
-    <restriction base="string">
-      <pattern value="other: \w{2,}"/>
-    </restriction>
-  </simpleType>
   <simpleType name="WerkingWaardeType">
     <union memberTypes="imor:WerkingWaardeEnumerationType imor:WerkingWaardeOtherType"/>
   </simpleType>
@@ -2688,12 +1839,12 @@ NOTE -- Source --</documentation>
   </simpleType>
   <simpleType name="WettelijkgrondslagWaardeEnumerationType">
     <restriction base="string">
-      <enumeration value="archeologie"/>
-      <enumeration value="bouwen"/>
-      <enumeration value="cultureelErfgoed"/>
       <enumeration value="locatiefunctie"/>
-      <enumeration value="luchtvaart"/>
+      <enumeration value="bouwen"/>
+      <enumeration value="cultureel erfgoed"/>
+      <enumeration value="archeologie"/>
       <enumeration value="omgevingswaarde"/>
+      <enumeration value="luchtvaart"/>
     </restriction>
   </simpleType>
   <simpleType name="WettelijkgrondslagWaardeOtherType">
