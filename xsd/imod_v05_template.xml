@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- templates van objectypen uit IMOD versie 05 -->
+<!-- templates zijn (bijna) lege objecttypen. Te gebruiken als voorbeeld voor IMOD implementatie -->
+<!-- sommige attributen hebben een waarde gekregen om het een valide XML te maken -->
+<!-- versie info -->
+<!-- 20160331: in bewerking -->
+<imod:FeatureCollectionIMOD gml:id="Collectie" xmlns:imod="http://www.geostandaarden.nl/imod" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.geostandaarden.nl/imod imod_v05.xsd">
+	<!-- object besluit met tekst -->
+	<imod:featureMember>
+		<imod:Besluit gml:id="b1">
+			<imod:identificatie/>
+			<imod:beginGeldigheid>2016-01-01T09:00:00</imod:beginGeldigheid>
+			<imod:tijdstipRegistratieROD>2016-01-01T09:00:00</imod:tijdstipRegistratieROD>
+			<imod:tijdstipRegistratie>2016-01-01T09:00:00</imod:tijdstipRegistratie>
+			<imod:documentstatus>geconsolideerd</imod:documentstatus>
+			<imod:procedure/>
+			<imod:datumVaststelling>2016-01-01T09:00:00</imod:datumVaststelling>
+			<imod:datumBekendmaking>2016-01-01T09:00:00</imod:datumBekendmaking>
+			<imod:besluittekst xlink:href=""/>
+			<imod:omgevingsdocument xlink:href=""/>
+		</imod:Besluit>
+	</imod:featureMember>
+	<!-- Tekst bij besluit -->
+	<imod:featureMember>
+		<imod:Tekstelement gml:id="T01">
+			<imod:identificatie/>
+			<imod:beginGeldigheid>2016-01-01T09:00:00</imod:beginGeldigheid>
+			<imod:tijdstipRegistratieROD>2016-01-01T09:00:00</imod:tijdstipRegistratieROD>
+			<imod:tijdstipRegistratie>2016-01-01T09:00:00</imod:tijdstipRegistratie>
+			<imod:tekst>
+				<imod:Tekstpatroon>
+					<imod:patroonType>normWaardePaar</imod:patroonType>
+					<imod:invulveld>
+						<imod:Invulveld gml:id="I01">
+							<imod:identificatie/>
+							<imod:beginGeldigheid>2016-01-01T09:00:00</imod:beginGeldigheid>
+							<imod:tijdstipRegistratieROD>2016-01-01T09:00:00</imod:tijdstipRegistratieROD>
+							<imod:tijdstipRegistratie>2016-01-01T09:00:00</imod:tijdstipRegistratie>
+							<imod:inhoud/>
+						</imod:Invulveld>
+					</imod:invulveld>
+					<imod:tekstzin>
+						<imod:TekstPhrase gml:id="TP01">
+							<imod:identificatie/>
+							<imod:beginGeldigheid>2016-01-01T09:00:00</imod:beginGeldigheid>
+							<imod:tijdstipRegistratieROD>2016-01-01T09:00:00</imod:tijdstipRegistratieROD>
+							<imod:tijdstipRegistratie>2016-01-01T09:00:00</imod:tijdstipRegistratie>
+							<imod:tekst/>
+						</imod:TekstPhrase>
+					</imod:tekstzin>
+				</imod:Tekstpatroon>
+			</imod:tekst>
+			<imod:betekenis/>
+			<imod:ouder/>
+			<imod:kind/>
+			<imod:voorafgaandElement/>
+			<imod:onderwerp/>
+		</imod:Tekstelement>
+	</imod:featureMember>
+	<imod:featureMember>
+		<imod:EigenschapWaarde gml:id="EW01">
+			<imod:identificatie/>
+			<imod:beginGeldigheid>2016-01-01T09:00:00</imod:beginGeldigheid>
+			<imod:tijdstipRegistratieROD>2016-01-01T09:00:00</imod:tijdstipRegistratieROD>
+			<imod:tijdstipRegistratie>2016-01-01T09:00:00</imod:tijdstipRegistratie>
+			<imod:naam/>
+			<imod:waarde>
+				<imod:BeschrijvendeWaarde>
+					<imod:waarde/>
+				</imod:BeschrijvendeWaarde>
+			</imod:waarde>
+			<imod:gerelateerdeEigenschap/>
+		</imod:EigenschapWaarde>
+	</imod:featureMember>
+	<!-- einde object belsuit met tekst -->
+	<!-- Object Omgevingsdocument -->
+	<imod:featureMember>
+		<imod:Omgevingsdocument gml:id="OD01">
+			<imod:identificatie/>
+			<imod:beginGeldigheid>2016-01-01T09:00:00</imod:beginGeldigheid>
+			<imod:tijdstipRegistratieROD>2016-01-01T09:00:00</imod:tijdstipRegistratieROD>
+			<imod:tijdstipRegistratie>2016-01-01T09:00:00</imod:tijdstipRegistratie>
+			<imod:naam codeSpace=""/>
+			<imod:locatieNaam/>
+			<imod:naamOverheid/>
+			<imod:typeOmgevingsdocument>omgevingsplan</imod:typeOmgevingsdocument>
+			<imod:beleidsmatigVerantwoordelijkeOverheid/>
+		</imod:Omgevingsdocument>
+	</imod:featureMember>
+	<!-- einde object Omgevingsdocument -->
+	<!-- object Onderwerp -->
+	<imod:featureMember>
+		<imod:Onderwerp gml:id="O1">
+			<imod:identificatie/>
+			<imod:beginGeldigheid>2016-01-01T09:00:00</imod:beginGeldigheid>
+			<imod:tijdstipRegistratieROD>2016-01-01T09:00:00</imod:tijdstipRegistratieROD>
+			<imod:tijdstipRegistratie>2016-01-01T09:00:00</imod:tijdstipRegistratie>
+			<imod:naam/>
+			<imod:geografischgebied>beheergebied</imod:geografischgebied>
+			<imod:typeActiviteit>afwijkactiviteit</imod:typeActiviteit>
+			<imod:thema>aardkunde</imod:thema>
+			<imod:normadressaat>eenIeder</imod:normadressaat>
+			<imod:wettelijkegrondslag>archeologie</imod:wettelijkegrondslag>
+			<imod:beleidsrol>agenderend</imod:beleidsrol>
+			<imod:werking>directe werking</imod:werking>
+			<imod:hoofdOnderwerp/>
+		</imod:Onderwerp>
+	</imod:featureMember>
+	<!-- einde object Onderwerp -->
+	<!-- object Tekstelement met tekstpatroon type definitie-->
+	<imod:featureMember>
+		<imod:Tekstelement gml:id="TE02">
+			<imod:identificatie/>
+			<imod:beginGeldigheid>2016-01-01T09:00:00</imod:beginGeldigheid>
+			<imod:tijdstipRegistratieROD>2016-01-01T09:00:00</imod:tijdstipRegistratieROD>
+			<imod:tijdstipRegistratie>2016-01-01T09:00:00</imod:tijdstipRegistratie>
+			<imod:tekst>
+				<imod:Tekstpatroon>
+					<imod:patroonType>definitie</imod:patroonType>
+					<imod:invulveld>
+						<imod:Invulveld gml:id="I10">
+							<imod:identificatie/>
+							<imod:beginGeldigheid>2016-01-01T09:00:00</imod:beginGeldigheid>
+							<imod:tijdstipRegistratieROD>2016-01-01T09:00:00</imod:tijdstipRegistratieROD>
+							<imod:tijdstipRegistratie>2016-01-01T09:00:00</imod:tijdstipRegistratie>
+							<imod:inhoud xlink:href="B12"/>
+						</imod:Invulveld>
+					</imod:invulveld>
+					<imod:tekstzin>
+						<imod:TekstPhrase gml:id="TP11">
+							<imod:identificatie/>
+							<imod:beginGeldigheid>2016-01-01T09:00:00</imod:beginGeldigheid>
+							<imod:tijdstipRegistratieROD>2016-01-01T09:00:00</imod:tijdstipRegistratieROD>
+							<imod:tijdstipRegistratie>2016-01-01T09:00:00</imod:tijdstipRegistratie>
+							<imod:tekst>Dit begrip heeft de volgende definitie</imod:tekst>
+						</imod:TekstPhrase>
+					</imod:tekstzin>
+				</imod:Tekstpatroon>
+			</imod:tekst>
+			<imod:betekenis/>
+			<imod:ouder/>
+			<imod:kind/>
+			<imod:voorafgaandElement/>
+			<imod:onderwerp/>
+		</imod:Tekstelement>
+	</imod:featureMember>
+	<imod:featureMember>
+		<imod:Begrip gml:id="B12">
+			<imod:identificatie/>
+			<imod:beginGeldigheid>2016-01-01T09:00:00</imod:beginGeldigheid>
+			<imod:tijdstipRegistratieROD>2016-01-01T09:00:00</imod:tijdstipRegistratieROD>
+			<imod:tijdstipRegistratie>2016-01-01T09:00:00</imod:tijdstipRegistratie>
+			<imod:tekst>begrip x</imod:tekst>
+			<imod:omschrijving xlink:href="D13"/>
+		</imod:Begrip>
+	</imod:featureMember>
+	<imod:featureMember>
+		<imod:Definitie gml:id="D13">
+			<imod:identificatie/>
+			<imod:beginGeldigheid>2016-01-01T09:00:00</imod:beginGeldigheid>
+			<imod:tijdstipRegistratieROD>2016-01-01T09:00:00</imod:tijdstipRegistratieROD>
+			<imod:tijdstipRegistratie>2016-01-01T09:00:00</imod:tijdstipRegistratie>
+			<imod:tekst>teskt van de definitie</imod:tekst>
+		</imod:Definitie>
+	</imod:featureMember>
+	<!-- einde object Tekstelement met definitie -->
+	<!-- object Tekstelement met normWaarde van type Functie -->
+	<imod:featureMember>
+		<imod:Tekstelement gml:id="TE04">
+			<imod:identificatie/>
+			<imod:beginGeldigheid>2016-01-01T09:00:00</imod:beginGeldigheid>
+			<imod:tijdstipRegistratieROD>2016-01-01T09:00:00</imod:tijdstipRegistratieROD>
+			<imod:tijdstipRegistratie>2016-01-01T09:00:00</imod:tijdstipRegistratie>
+			<imod:tekst>
+				<imod:Tekstpatroon>
+					<imod:patroonType>normWaardePaar</imod:patroonType>
+					<imod:invulveld>
+						<imod:Invulveld gml:id="I06">
+							<imod:identificatie/>
+							<imod:beginGeldigheid>2016-01-01T09:00:00</imod:beginGeldigheid>
+							<imod:tijdstipRegistratieROD>2016-01-01T09:00:00</imod:tijdstipRegistratieROD>
+							<imod:tijdstipRegistratie>2016-01-01T09:00:00</imod:tijdstipRegistratie>
+							<imod:inhoud xlink:href="F06"/>
+						</imod:Invulveld>
+					</imod:invulveld>
+				</imod:Tekstpatroon>
+			</imod:tekst>
+			<imod:betekenis/>
+			<imod:ouder/>
+			<imod:kind/>
+			<imod:voorafgaandElement/>
+			<imod:onderwerp/>
+		</imod:Tekstelement>
+	</imod:featureMember>
+	<imod:featureMember>
+		<imod:Functie gml:id="F06">
+			<imod:identificatie/>
+			<imod:beginGeldigheid>2016-01-01T09:00:00</imod:beginGeldigheid>
+			<imod:tijdstipRegistratieROD>2016-01-01T09:00:00</imod:tijdstipRegistratieROD>
+			<imod:tijdstipRegistratie>2016-01-01T09:00:00</imod:tijdstipRegistratie>
+			<imod:naam/>
+			<imod:waarde>
+				<imod:GeclassificeerdeWaarde>
+					<imod:waarde>wonen</imod:waarde>
+				</imod:GeclassificeerdeWaarde>
+			</imod:waarde>
+			<imod:gerelateerdeEigenschap/>
+		</imod:Functie>
+	</imod:featureMember>
+	<!-- einde Tekstelement met normWaarde van type Functie -->
+	<!--  object Beheergebied met EigenschapWaarde en Onderwerp-->
+	<imod:featureMember>
+		<imod:Beheergebied gml:id="BG07">
+			<imod:identificatie/>
+			<imod:beginGeldigheid>2016-01-01T09:00:00</imod:beginGeldigheid>
+			<imod:tijdstipRegistratieROD>2016-01-01T09:00:00</imod:tijdstipRegistratieROD>
+			<imod:tijdstipRegistratie>2016-01-01T09:00:00</imod:tijdstipRegistratie>
+			<imod:begrenzingIndicatief>false</imod:begrenzingIndicatief>
+			<imod:geometrie/>
+			<imod:besluit/>
+			<imod:onderwerp xlink:href=""/>
+			<imod:omgevingsdocument xlink:href=""/>
+			<imod:eigenschapWaarde xlink:href="F06"/>
+		</imod:Beheergebied>
+		<!-- einde Beheergebied met EigenschapWaarde en Onderwerp -->
+		<!-- object Werkingsgebied met Onderwerp en EigenschapWaarde -->
+	</imod:featureMember>
+	<imod:featureMember>
+		<imod:Werkingsgebied gml:id="W08">
+			<imod:identificatie/>
+			<imod:beginGeldigheid>2016-01-01T09:00:00</imod:beginGeldigheid>
+			<imod:tijdstipRegistratieROD>2016-01-01T09:00:00</imod:tijdstipRegistratieROD>
+			<imod:tijdstipRegistratie>2016-01-01T09:00:00</imod:tijdstipRegistratie>
+			<imod:begrenzingIndicatief>false</imod:begrenzingIndicatief>
+			<imod:geometrie/>
+			<imod:besluit/>
+			<imod:onderwerp xlink:href="O1"/>
+			<imod:omgevingsdocument xlink:href="OD01"/>
+			<imod:eigenschapWaarde xlink:href="F06"/>
+			<imod:eigenschapWaarde xlink:href="F06"/>
+			<imod:eigenschapWaarde xlink:href=""/>
+		</imod:Werkingsgebied>
+	</imod:featureMember>
+</imod:FeatureCollectionIMOD>
