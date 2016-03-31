@@ -50,5 +50,23 @@
 			<targetParameter name="outputDirectory" value="output/dictionaries"/>
 			<targetParameter name="enumerations" value="true"/>
 		</Target>
+
+<Target class="de.interactive_instruments.ShapeChange.Target.FeatureCatalogue.FeatureCatalogue" mode="enabled">
+ <targetParameter name="outputDirectory" value="output/fc"/>
+ <targetParameter name="outputFilename" value="featureCatalogue"/>
+ <targetParameter name="package" value="IMOD"/>
+ <targetParameter name="inheritedProperties" value="false"/>
+ <targetParameter name="changeInfo" value="false"/>
+ <targetParameter name="outputFormat" value="HTML"/>
+ <targetParameter name="name" value="'IMOR'"/>
+ <targetParameter name="scope" value="IMOD"/>
+ <targetParameter name="versionNumber" value=""/>
+ <targetParameter name="versionDate" value="2016-03-31"/>
+ <targetParameter name="producer" value="Geonovum"/>
+ <targetParameter name="xsltPath" value="http://shapechange.net/resources/xslt"/>
+ <targetParameter name="xslhtmlFile" value="html.xsl"/>
+ <targetParameter name="featureTerm" value="Ruimtelijk Object"/>
+</Target>
+
 	</targets>
 </ShapeChangeConfiguration>
