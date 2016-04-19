@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- XML schema voor IMOD versie 0.5 -->
 <!-- Versie info -->
+<!-- 20160419: Flora- en fauna-activiteit toegevoegd -->
+<!-- 20160418 Bij werkingsgebied associaties naar 0..* aangepast -->
 <!-- 20160331 FeatureCollectionIMOD toegevoegd -->
 <!-- 20160331 gebaseerd op UML versie 05 -->
 <schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:imod="http://www.geostandaarden.nl/imod" targetNamespace="http://www.geostandaarden.nl/imod" elementFormDefault="qualified" version="0.5">
@@ -1092,6 +1094,7 @@ Onderwerp: aanpassen, uitbreiden juridische activiteit
 			<enumeration value="brandveilig gebruiksactiviteit"/>
 			<enumeration value="milieu belastende activiteit"/>
 			<enumeration value="stortingsactiviteit op zee"/>
+			<enumeration value="Flora- en fauna-activiteit"/>
 		</restriction>
 	</simpleType>
 	<simpleType name="OmgevingsVergunningPlichtigeActiviteitOtherType">
@@ -1892,7 +1895,7 @@ NOTE Een indicatieve begrenzing betekent dat het werkingsgebied ongeveer is aang
 NOTE -- Source --</documentation>
 						</annotation>
 					</element>
-					<element name="besluit" type="gml:ReferenceType" maxOccurs="unbounded">
+					<element name="besluit" type="gml:ReferenceType" minOccurs="0" maxOccurs="unbounded">
 						<annotation>
 							<documentation>Verwijzing naar besluit.
 NOTE -- Source --</documentation>
@@ -1901,7 +1904,7 @@ NOTE -- Source --</documentation>
 							</appinfo>
 						</annotation>
 					</element>
-					<element name="onderwerp" type="gml:ReferenceType" maxOccurs="unbounded">
+					<element name="onderwerp" type="gml:ReferenceType" minOccurs="0" maxOccurs="unbounded">
 						<annotation>
 							<documentation>Verwijzing naar het object Onderwerpt dat bij dit werkingsgebied hoort.
 NOTE -- Source --</documentation>
@@ -1916,7 +1919,7 @@ NOTE -- Source --</documentation>
 NOTE -- Source --</documentation>
 						</annotation>
 					</element>
-					<element name="eigenschapWaarde" type="gml:ReferenceType" maxOccurs="unbounded">
+					<element name="eigenschapWaarde" type="gml:ReferenceType" minOccurs="0" maxOccurs="unbounded">
 						<annotation>
 							<documentation>Een combinatie van eigenschap en waarde die geldt binnen het werkingsgebied.
 NOTE -- Source --</documentation>
