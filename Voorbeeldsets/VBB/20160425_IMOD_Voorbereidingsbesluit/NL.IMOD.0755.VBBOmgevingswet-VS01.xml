@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cvdr:cvdr xmlns:dcterms="http://purl.org/dc/terms/"
+           xmlns:overheid="http://standaarden.overheid.nl/owms/terms/"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns:cvdr="http://standaarden.overheid.nl/cvdr/terms/"
+           xmlns:ode="http://standaarden.overheid.nl/od/eigenschappen/"
+           xmlns:dc="http://purl.org/dc/elements/1.1/"
+           xsi:schemaLocation="http://standaarden.overheid.nl/cvdr/terms/  http://decentrale.regelgeving.overheid.nl/cvdr/xsd/cvdr.xsd">
+   <cvdr:meta>
+      <cvdr:owmskern>
+         <dcterms:identifier>NL.IMRO.0755.VBBOmgevingswet-VS01</dcterms:identifier>
+         <dcterms:title>Voorbereidingsbesluit Buitengebied 2019</dcterms:title>
+         <dcterms:language>nl</dcterms:language>
+         <dcterms:type scheme="overheid:Informatietype">regeling</dcterms:type>
+         <dcterms:creator scheme="overheid:Gemeente">Boekel</dcterms:creator>
+         <dcterms:modified>2019-01-30</dcterms:modified>
+      </cvdr:owmskern>
+   </cvdr:meta>
+   <cvdr:body>
+      <regeling id="NL.IMRO.0755.VBBOmgevingswet-VS01"
+	  dc:subject="NL.IMRO.0755.VBBOmgevingswet-VS01.gml#NL.IMOD.0755.OW_VBBOmgevingswet-VS01">
+            <cvdr:kop>
+               <cvdr:titel>Besluit</cvdr:titel>
+            </cvdr:kop>
+            <cvdr:kop>
+                  <cvdr:label>Raadsbesluit</cvdr:label>
+                  <cvdr:titel>Raadsbesluit</cvdr:titel>
+            </cvdr:kop>
+            <cvdr:artikel id="pt_NL.IMRO.0755.Omgevingsplan2016-VO01.xml#NL.IMRO.PT.s1099">
+                  <cvdr:al>De raad van de gemeente Boekel; </cvdr:al>
+                  <cvdr:al>gezien het voorstel van burgemeester en wethouders d.d. 30 januari 2018;</cvdr:al>
+                  <cvdr:al>gelet op:</cvdr:al>
+                  <cvdr:al>artikel 4.14 van de Omgevingswet;</cvdr:al>
+                  <cvdr:al>BESLUIT</cvdr:al>
+                  <cvdr:lijst type="bol">
+                     <cvdr:li>
+                        <cvdr:al>1.  Een voorbereidingsbesluit voor het buitengebied van de gemeente Boekel te nemen zoals aangewezen in de verbeelding met nummer NL.IMRO.0755.VBBOmgevingswet-VS01.</cvdr:al>
+                     </cvdr:li>
+                     <cvdr:li>
+                        <cvdr:al>2.  Het is op de percelen, waarvoor dit voorbereidingsbesluit geldt, verboden het feitelijk gebruik van gronden en opstallen, zoals dat bestond op het moment van inwerkingtreding van dit besluit, te wijzigen in een ander gebruik, waaronder ook wordt verstaan het wijzigen in omvang, intensiteit, maatvoering en/of verschijningsvorm.</cvdr:al>
+                     </cvdr:li>
+                     <cvdr:li>
+                        <cvdr:al>3.  Burgemeester en wethouders kunnen bij omgevingsvergunning afwijken van dit verbod mits het voorgestane gebruik niet in strijd is met de Omgevingsvisie.</cvdr:al>
+                     </cvdr:li>
+                     <cvdr:li>
+                        <cvdr:al>4.  Het besluit treedt in werking op de dag van de publicatie.</cvdr:al>
+                     </cvdr:li>
+                  </cvdr:lijst>
+				  <cvdr:al>Aldus besloten in de openbare vergadering van de raad van de gemeente Boekel, gehouden op 1 februari 2019. </cvdr:al>
+                  <cvdr:al>de griffier, 				de voorzitter,</cvdr:al>
+                  <cvdr:al>M.R.P. Philipse 				P.M.J.H. Bos</cvdr:al>
+                  <cvdr:al>Besluitnummer: Z/025807 AB/013565</cvdr:al>
+               </cvdr:artikel>
+      </regeling>			   
+   </cvdr:body>
+</cvdr:cvdr>
