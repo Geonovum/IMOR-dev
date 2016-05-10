@@ -1,0 +1,1979 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- XML schema voor IMOD versie 0.5 -->
+<!-- Versie info -->
+<!-- 20160509: NEN3610ID toegevoegd. Zat nog niet in IMOD UML -->
+<!-- Toegevoegd: <enumeration value="voorbereidingsbesluit"/> -->
+<!-- <enumeration value="vastgesteld"/> -->
+<!-- 20160419: Flora- en fauna-activiteit toegevoegd -->
+<!-- 20160418 Bij werkingsgebied associaties naar 0..* aangepast -->
+<!-- 20160331 FeatureCollectionIMOD toegevoegd -->
+<!-- 20160331 gebaseerd op UML versie 05 -->
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:imod="http://www.geostandaarden.nl/imod" targetNamespace="http://www.geostandaarden.nl/imod" elementFormDefault="qualified" version="0.53">
+	<import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
+	<!--XML Schema document created by ShapeChange - http://shapechange.net/-->
+	<element name="FeatureCollectionIMOD" type="imod:FeatureCollectionIMODType" substitutionGroup="gml:AbstractFeature"/>
+	<complexType name="FeatureCollectionIMODType">
+		<complexContent>
+			<extension base="gml:AbstractFeatureType">
+				<sequence minOccurs="0" maxOccurs="unbounded">
+					<element name="featureMember">
+						<complexType>
+							<complexContent>
+								<extension base="gml:AbstractFeatureMemberType">
+									<sequence>
+										<element ref="gml:AbstractFeature"/>
+									</sequence>
+								</extension>
+							</complexContent>
+						</complexType>
+					</element>
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+	<!--   ++++++++++++++++++ -->
+	<element name="NEN3610ID" type="imod:NEN3610IDType" substitutionGroup="gml:AbstractObject"/>
+	<complexType name="NEN3610IDType">
+		<sequence>
+			<element name="namespace" type="string"/>
+			<element name="lokaalID" type="string"/>
+			<element name="versie" type="string" minOccurs="0"/>
+		</sequence>
+	</complexType>
+	<complexType name="NEN3610IDPropertyType">
+		<sequence>
+			<element ref="imod:NEN3610ID"/>
+		</sequence>
+	</complexType>
+	<element name="AMvB" type="imod:AMvBType" substitutionGroup="imod:Omgevingsdocument_Omgevingsbesluit"/>
+	<complexType name="AMvBType">
+		<complexContent>
+			<extension base="imod:Omgevingsdocument_OmgevingsbesluitType">
+				<sequence/>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="AMvBPropertyType">
+		<sequence minOccurs="0">
+			<element ref="imod:AMvB"/>
+		</sequence>
+		<attributeGroup ref="gml:AssociationAttributeGroup"/>
+		<attributeGroup ref="gml:OwnershipAttributeGroup"/>
+	</complexType>
+	<element name="AanwijzingZwemlocaties" type="imod:AanwijzingZwemlocatiesType" substitutionGroup="imod:Omgevingsdocument_Omgevingsbesluit"/>
+	<complexType name="AanwijzingZwemlocatiesType">
+		<complexContent>
+			<extension base="imod:Omgevingsdocument_OmgevingsbesluitType">
+				<sequence/>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="AanwijzingZwemlocatiesPropertyType">
+		<sequence minOccurs="0">
+			<element ref="imod:AanwijzingZwemlocaties"/>
+		</sequence>
+		<attributeGroup ref="gml:AssociationAttributeGroup"/>
+		<attributeGroup ref="gml:OwnershipAttributeGroup"/>
+	</complexType>
+	<element name="Afdeling" type="imod:AfdelingType" substitutionGroup="imod:Tekstelement"/>
+	<complexType name="AfdelingType">
+		<complexContent>
+			<extension base="imod:TekstelementType">
+				<sequence/>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="AfdelingPropertyType">
+		<sequence minOccurs="0">
+			<element ref="imod:Afdeling"/>
+		</sequence>
+		<attributeGroup ref="gml:AssociationAttributeGroup"/>
+		<attributeGroup ref="gml:OwnershipAttributeGroup"/>
+	</complexType>
+	<element name="AltTekst" type="imod:AltTekstType" substitutionGroup="imod:imod_Object">
+		<annotation>
+			<documentation>Alt(ernatieve)tekst: Een stuk tekst waarmee kan worden weergegeven dat waarden ergens anders vandaan moeten worden gehaald.
+NOTE Deze tekst (bv. bedraagt de op de kaart aangegeven bouwhoogte) maakt onderdeel uit van de lopende zin, de waarden van de norm kunnen via het werkingsgebied worden opgehaald. Deze constructie zou ook gebruikt kunnen worden voor het modelleren van: verwijzing (de wettelijk maximaal toegestane waarde) of een gebruik (de ter plaatse gebruikelijke norm).
+-- Source --
+expertoverleg 2/2/2016
+-- Remark --
+Naamgeving moet worden aangepast naar een begrijpelijke term</documentation>
+		</annotation>
+	</element>
+	<complexType name="AltTekstType">
+		<complexContent>
+			<extension base="imod:imod_ObjectType">
+				<sequence>
+					<element name="tekst" type="string"/>
+					<element name="tekstelement" type="gml:ReferenceType">
+						<annotation>
+							<documentation>Tekstelement waar deze eigenschap is benoemd.
+NOTE -- Source --</documentation>
+							<appinfo>
+								<targetElement xmlns="http://www.opengis.net/gml/3.2">imod:TekstPhrase</targetElement>
+							</appinfo>
+						</annotation>
+					</element>
+					<element name="norm" type="gml:ReferenceType" minOccurs="0">
+						<annotation>
+							<documentation>Eigenschap waar de atrenatieve tekst betrekking op heeft.
+NOTE -- Source --</documentation>
+							<appinfo>
+								<targetElement xmlns="http://www.opengis.net/gml/3.2">imod:Norm</targetElement>
+							</appinfo>
+						</annotation>
+					</element>
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="AltTekstPropertyType">
+		<sequence minOccurs="0">
+			<element ref="imod:AltTekst"/>
+		</sequence>
+		<attributeGroup ref="gml:AssociationAttributeGroup"/>
+		<attributeGroup ref="gml:OwnershipAttributeGroup"/>
+	</complexType>
+	<element name="Artikel" type="imod:ArtikelType" substitutionGroup="imod:Tekstelement"/>
+	<complexType name="ArtikelType">
+		<complexContent>
+			<extension base="imod:TekstelementType">
+				<sequence/>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="ArtikelPropertyType">
+		<sequence minOccurs="0">
+			<element ref="imod:Artikel"/>
+		</sequence>
+		<attributeGroup ref="gml:AssociationAttributeGroup"/>
+		<attributeGroup ref="gml:OwnershipAttributeGroup"/>
+	</complexType>
+	<simpleType name="AspectWaardeType">
+		<union memberTypes="imod:AspectWaardeEnumerationType imod:AspectWaardeOtherType"/>
+	</simpleType>
+	<simpleType name="AspectWaardeEnumerationType">
+		<restriction base="string">
+			<enumeration value="bouwhoogte"/>
+			<enumeration value="percentage bebouwd"/>
+			<enumeration value="functie"/>
+			<enumeration value="iets dat je wilt regelen..."/>
+		</restriction>
+	</simpleType>
+	<simpleType name="AspectWaardeOtherType">
+		<restriction base="string">
+			<pattern value="other: \w{2,}"/>
+		</restriction>
+	</simpleType>
+	<element name="Begrip" type="imod:BegripType" substitutionGroup="imod:EigenschapWaarde">
+		<annotation>
+			<documentation>Een begrip is een woord of woordgroep in de tekst waarover de tekst gaat. Begrip is een NormTekstType en komt voor in een DefinitieTekstpatroon.
+NOTE Bv. Leerling, School, Huis, zodat telkens vanuit de centrale term een zinnetje wordt gemaakt om een begripsdefinitie mee te kunnen representeren. (bv. onder leerling wordt verstaan een ingeschreven persoon op een opleiding)
+-- Source --</documentation>
+		</annotation>
+	</element>
+	<complexType name="BegripType">
+		<complexContent>
+			<extension base="imod:EigenschapWaardeType">
+				<sequence>
+					<element name="tekst" type="string"/>
+					<element name="omschrijving" type="gml:ReferenceType">
+						<annotation>
+							<appinfo>
+								<targetElement xmlns="http://www.opengis.net/gml/3.2">imod:Definitie</targetElement>
+							</appinfo>
+						</annotation>
+					</element>
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="BegripPropertyType">
+		<sequence minOccurs="0">
+			<element ref="imod:Begrip"/>
+		</sequence>
+		<attributeGroup ref="gml:AssociationAttributeGroup"/>
+		<attributeGroup ref="gml:OwnershipAttributeGroup"/>
+	</complexType>
+	<element name="Beheergebied" type="imod:BeheergebiedType" substitutionGroup="imod:Werkingsgebied">
+		<annotation>
+			<documentation>Gebied woorvoor geldt dat één organisatie dit beheert.
+NOTE Onder beheer van een administratieve eenheid (Rijk, provincie, gemeente, waterschap, enz.)
+-- Source --</documentation>
+		</annotation>
+	</element>
+	<complexType name="BeheergebiedType">
+		<complexContent>
+			<extension base="imod:WerkingsgebiedType">
+				<sequence/>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="BeheergebiedPropertyType">
+		<sequence minOccurs="0">
+			<element ref="imod:Beheergebied"/>
+		</sequence>
+		<attributeGroup ref="gml:AssociationAttributeGroup"/>
+		<attributeGroup ref="gml:OwnershipAttributeGroup"/>
+	</complexType>
+	<element name="Beleidsregels" type="imod:BeleidsregelsType" substitutionGroup="imod:Omgevingsdocument_Omgevingsbesluit"/>
+	<complexType name="BeleidsregelsType">
+		<complexContent>
+			<extension base="imod:Omgevingsdocument_OmgevingsbesluitType">
+				<sequence/>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="BeleidsregelsPropertyType">
+		<sequence minOccurs="0">
+			<element ref="imod:Beleidsregels"/>
+		</sequence>
+		<attributeGroup ref="gml:AssociationAttributeGroup"/>
+		<attributeGroup ref="gml:OwnershipAttributeGroup"/>
+	</complexType>
+	<simpleType name="BeleidsrolType">
+		<union memberTypes="imod:BeleidsrolEnumerationType imod:BeleidsrolOtherType"/>
+	</simpleType>
+	<simpleType name="BeleidsrolEnumerationType">
+		<restriction base="string">
+			<enumeration value="agenderend"/>
+			<enumeration value="begrenzend"/>
+			<enumeration value="behoudend"/>
+			<enumeration value="beschermend"/>
+			<enumeration value="coordinerend"/>
+			<enumeration value="faciliterend"/>
+			<enumeration value="kaderstellend"/>
+			<enumeration value="onderzoekend"/>
+			<enumeration value="ontwikkelend"/>
+			<enumeration value="ordenend"/>
+			<enumeration value="participerend"/>
+			<enumeration value="regisserend"/>
+			<enumeration value="stimulerend"/>
+			<enumeration value="sturend"/>
+			<enumeration value="uitvoerend"/>
+			<enumeration value="versterkend"/>
+		</restriction>
+	</simpleType>
+	<simpleType name="BeleidsrolOtherType">
+		<restriction base="string">
+			<pattern value="other: \w{2,}"/>
+		</restriction>
+	</simpleType>
+	<simpleType name="BenoemdGebiedHoofdgroepWaardeType">
+		<annotation>
+			<documentation>Classificatie van typen gebiedsaanduidingen.
+NOTE Waarden hieruit kunnen al betekenis hebben, bijvoorbeeld, landelijkgebied, of centrumgebied, of het is een hoofdgroep die nog middels het attribuut waarde verder wordt gedetailleerd. bijvoorbeeld bouwaanduiding.
+-- Source --</documentation>
+		</annotation>
+		<union memberTypes="imod:BenoemdGebiedHoofdgroepWaardeEnumerationType imod:BenoemdGebiedHoofdgroepWaardeOtherType"/>
+	</simpleType>
+	<simpleType name="BenoemdGebiedHoofdgroepWaardeEnumerationType">
+		<annotation>
+			<documentation>Classificatie van typen gebiedsaanduidingen.
+NOTE Waarden hieruit kunnen al betekenis hebben, bijvoorbeeld, landelijkgebied, of centrumgebied, of het is een hoofdgroep die nog middels het attribuut waarde verder wordt gedetailleerd. bijvoorbeeld bouwaanduiding.
+-- Source --</documentation>
+		</annotation>
+		<restriction base="string">
+			<enumeration value="landelijkgebied"/>
+			<enumeration value="centrumgebied"/>
+			<enumeration value="vrijeWaarde"/>
+			<enumeration value="bouwaanduiding"/>
+			<enumeration value="welstandsniveau"/>
+			<enumeration value="welstandsobject"/>
+			<enumeration value="geografischeNaam"/>
+			<enumeration value="bouwvlak"/>
+		</restriction>
+	</simpleType>
+	<simpleType name="BenoemdGebiedHoofdgroepWaardeOtherType">
+		<restriction base="string">
+			<pattern value="other: \w{2,}"/>
+		</restriction>
+	</simpleType>
+	<element name="BeschikkingMaatwerkvoorschriften" type="imod:BeschikkingMaatwerkvoorschriftenType" substitutionGroup="imod:Omgevingsdocument_Omgevingsbesluit"/>
+	<complexType name="BeschikkingMaatwerkvoorschriftenType">
+		<complexContent>
+			<extension base="imod:Omgevingsdocument_OmgevingsbesluitType">
+				<sequence/>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="BeschikkingMaatwerkvoorschriftenPropertyType">
+		<sequence minOccurs="0">
+			<element ref="imod:BeschikkingMaatwerkvoorschriften"/>
+		</sequence>
+		<attributeGroup ref="gml:AssociationAttributeGroup"/>
+		<attributeGroup ref="gml:OwnershipAttributeGroup"/>
+	</complexType>
+	<element name="BeschrijvendeWaarde" type="imod:BeschrijvendeWaardeType" substitutionGroup="imod:Waarde">
+		<annotation>
+			<documentation>Een waarde die bij een norm hoort en die als een vrij in te vullen characterstring is gespecificeerd.
+NOTE Een voorbeeld is een attribuut locatienaam met als waarde een vrij in te vullen tekstveld.
+-- Source --</documentation>
+		</annotation>
+	</element>
+	<complexType name="BeschrijvendeWaardeType">
+		<complexContent>
+			<extension base="imod:WaardeType">
+				<sequence>
+					<element name="waarde" type="string"/>
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="BeschrijvendeWaardePropertyType">
+		<sequence>
+			<element ref="imod:BeschrijvendeWaarde"/>
+		</sequence>
+	</complexType>
+	<element name="Besluit" type="imod:BesluitType" substitutionGroup="imod:imod_Object">
+		<annotation>
+			<documentation>Besluit gekoppeld aan de procedure waar het omgevingsdocument of onderdelen daarvan zich bevindt.
+NOTE Het besluit bekrachtigt de status en wordt genomen door het voor bij die status horend bevoeg gezag.
+
+Opmerking: Dit objecttype staat nog ter discussie: Is het Omgevingsdoc zelf het besluit of is er een besluit aan gekoppeld?
+-- Source --</documentation>
+		</annotation>
+	</element>
+	<complexType name="BesluitType">
+		<complexContent>
+			<extension base="imod:imod_ObjectType">
+				<sequence>
+					<element name="documentstatus" type="imod:DocumentstatusWaardeType">
+						<annotation>
+							<documentation>Procedurele status van het omgevingsdocument of delen daarvan.
+NOTE -- Source --</documentation>
+						</annotation>
+					</element>
+					<element name="procedure"/>
+					<element name="datumVaststelling" type="dateTime">
+						<annotation>
+							<documentation>Datum waarop dit besluit is vastgesteld.
+NOTE -- Source --</documentation>
+						</annotation>
+					</element>
+					<element name="datumBekendmaking" type="dateTime">
+						<annotation>
+							<documentation>Datum waarop dit besluit bekend gemaakt is.
+NOTE -- Source --</documentation>
+						</annotation>
+					</element>
+					<element name="besluittekst" type="gml:ReferenceType" maxOccurs="unbounded">
+						<annotation>
+							<documentation>Tekselement dat onderdelen van het besluit omvat.
+NOTE -- Source --</documentation>
+							<appinfo>
+								<targetElement xmlns="http://www.opengis.net/gml/3.2">imod:Tekstelement</targetElement>
+							</appinfo>
+						</annotation>
+					</element>
+					<element name="omgevingsdocument" type="gml:ReferenceType">
+						<annotation>
+							<documentation>Verwijzing naar het omgevingsdocument waar dit besluit betrekking op heeft.
+NOTE Verwijzing naar het omgevingsdocument waar dit besluit op van toepassing is.
+-- Source --</documentation>
+							<appinfo>
+								<targetElement xmlns="http://www.opengis.net/gml/3.2">imod:Omgevingsdocument</targetElement>
+							</appinfo>
+						</annotation>
+					</element>
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="BesluitPropertyType">
+		<sequence minOccurs="0">
+			<element ref="imod:Besluit"/>
+		</sequence>
+		<attributeGroup ref="gml:AssociationAttributeGroup"/>
+		<attributeGroup ref="gml:OwnershipAttributeGroup"/>
+	</complexType>
+	<element name="BesluitExperiment" type="imod:BesluitExperimentType" substitutionGroup="imod:Omgevingsdocument_Omgevingsbesluit"/>
+	<complexType name="BesluitExperimentType">
+		<complexContent>
+			<extension base="imod:Omgevingsdocument_OmgevingsbesluitType">
+				<sequence/>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="BesluitExperimentPropertyType">
+		<sequence minOccurs="0">
+			<element ref="imod:BesluitExperiment"/>
+		</sequence>
+		<attributeGroup ref="gml:AssociationAttributeGroup"/>
+		<attributeGroup ref="gml:OwnershipAttributeGroup"/>
+	</complexType>
+	<element name="BesluitGS_GebiedGeenOmPlan" type="imod:BesluitGS_GebiedGeenOmPlanType" substitutionGroup="imod:Omgevingsdocument_Omgevingsbesluit"/>
+	<complexType name="BesluitGS_GebiedGeenOmPlanType">
+		<complexContent>
+			<extension base="imod:Omgevingsdocument_OmgevingsbesluitType">
+				<sequence/>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="BesluitGS_GebiedGeenOmPlanPropertyType">
+		<sequence minOccurs="0">
+			<element ref="imod:BesluitGS_GebiedGeenOmPlan"/>
+		</sequence>
+		<attributeGroup ref="gml:AssociationAttributeGroup"/>
+		<attributeGroup ref="gml:OwnershipAttributeGroup"/>
+	</complexType>
+	<element name="BooleanWaarde" type="imod:BooleanWaardeType" substitutionGroup="imod:Waarde">
+		<annotation>
+			<documentation>Een maatgeving middels een boolean waarde.
+NOTE -- Source --</documentation>
+		</annotation>
+	</element>
+	<complexType name="BooleanWaardeType">
+		<complexContent>
+			<extension base="imod:WaardeType">
+				<sequence>
+					<element name="waarde"/>
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="BooleanWaardePropertyType">
+		<sequence>
+			<element ref="imod:BooleanWaarde"/>
+		</sequence>
+	</complexType>
+	<element name="Conditie" type="imod:ConditieType" substitutionGroup="imod:imod_Object">
+		<annotation>
+			<documentation>Voorwaarde waaronder de norm van toepassing is
+NOTE Normen geven aan welke rechten en plichten men heeft en welke vormen van gedrag wel of niet zijn toegestaan. Een conditie kan een (of meerdere) nadere voorwaarde(n) specificeren waaronder de norm van toepassing is.
+-- Source --
+expertoverleg 2/2/2016
+-- Remark --
+Kan dit meervoudig voorkomen, meerdere nevenschikkende voorwaarden? Wat als er een doorverwijzing in de tekst staat, bv. 'tenzij het bepaalde in 52 van toepassing is'</documentation>
+		</annotation>
+	</element>
+	<complexType name="ConditieType">
+		<complexContent>
+			<extension base="imod:imod_ObjectType">
+				<sequence>
+					<element name="tekst" type="string"/>
+					<element name="tekstelement" type="gml:ReferenceType">
+						<annotation>
+							<documentation>Realisatie van de conditie in een tekst.
+NOTE -- Source --</documentation>
+							<appinfo>
+								<targetElement xmlns="http://www.opengis.net/gml/3.2">imod:TekstPhrase</targetElement>
+							</appinfo>
+						</annotation>
+					</element>
+					<element name="norm" type="gml:ReferenceType">
+						<annotation>
+							<documentation>Eigenschap waar de conditie betrekking op heeft.
+NOTE -- Source --</documentation>
+							<appinfo>
+								<targetElement xmlns="http://www.opengis.net/gml/3.2">imod:Norm</targetElement>
+							</appinfo>
+						</annotation>
+					</element>
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="ConditiePropertyType">
+		<sequence minOccurs="0">
+			<element ref="imod:Conditie"/>
+		</sequence>
+		<attributeGroup ref="gml:AssociationAttributeGroup"/>
+		<attributeGroup ref="gml:OwnershipAttributeGroup"/>
+	</complexType>
+	<simpleType name="DatatypeWaardeType">
+		<union memberTypes="imod:DatatypeWaardeEnumerationType imod:DatatypeWaardeOtherType"/>
+	</simpleType>
+	<simpleType name="DatatypeWaardeEnumerationType">
+		<restriction base="string">
+			<enumeration value="CharacterString"/>
+			<enumeration value="Number"/>
+			<enumeration value="Real"/>
+			<enumeration value="codelijst"/>
+			<enumeration value="boolean"/>
+		</restriction>
+	</simpleType>
+	<simpleType name="DatatypeWaardeOtherType">
+		<restriction base="string">
+			<pattern value="other: \w{2,}"/>
+		</restriction>
+	</simpleType>
+	<element name="DatumTijdWaarde" type="imod:DatumTijdWaardeType" substitutionGroup="imod:Waarde">
+		<annotation>
+			<documentation>Een maatgeving middels een datum.
+NOTE -- Source --</documentation>
+		</annotation>
+	</element>
+	<complexType name="DatumTijdWaardeType">
+		<complexContent>
+			<extension base="imod:WaardeType">
+				<sequence>
+					<element name="waarde" type="date"/>
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="DatumTijdWaardePropertyType">
+		<sequence>
+			<element ref="imod:DatumTijdWaarde"/>
+		</sequence>
+	</complexType>
+	<element name="Definitie" type="imod:DefinitieType" substitutionGroup="imod:imod_Object">
+		<annotation>
+			<documentation>Een definitie is een woordgroep in de tekst wat een begrip omschrijft. Definitie is een WaardeTekstType en komt voor in een DefinitieTekstpatroon.
+NOTE Bv. Leerling, School, Huis, zodat telkens vanuit de centrale term een zinnetje wordt gemaakt om een begripsdefinitie mee te kunnen representeren. (bv. onder leerling wordt verstaan een ingeschreven persoon op een opleiding)
+-- Source --</documentation>
+		</annotation>
+	</element>
+	<complexType name="DefinitieType">
+		<complexContent>
+			<extension base="imod:imod_ObjectType">
+				<sequence>
+					<element name="tekst" type="string"/>
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="DefinitiePropertyType">
+		<sequence minOccurs="0">
+			<element ref="imod:Definitie"/>
+		</sequence>
+		<attributeGroup ref="gml:AssociationAttributeGroup"/>
+		<attributeGroup ref="gml:OwnershipAttributeGroup"/>
+	</complexType>
+	<simpleType name="DocumentstatusWaardeType">
+		<union memberTypes="imod:DocumentstatusWaardeEnumerationType imod:DocumentstatusWaardeOtherType"/>
+	</simpleType>
+	<simpleType name="DocumentstatusWaardeEnumerationType">
+		<restriction base="string">
+			<enumeration value="geconsolideerd"/>
+			<enumeration value="vastgesteld"/>
+		</restriction>
+	</simpleType>
+	<simpleType name="DocumentstatusWaardeOtherType">
+		<restriction base="string">
+			<pattern value="other: \w{2,}"/>
+		</restriction>
+	</simpleType>
+	<element name="EigenschapWaarde" type="imod:EigenschapWaardeType" substitutionGroup="imod:imod_Object">
+		<annotation>
+			<documentation>Kenmerk dat wordt geduid.
+NOTE Eigenschap wordt gebruikt om kenmerken van informatielementen uit de tekst te duiden, te benoemen en te kwalificeren of kwantificeren.
+-- Source --</documentation>
+		</annotation>
+	</element>
+	<complexType name="EigenschapWaardeType">
+		<complexContent>
+			<extension base="imod:imod_ObjectType">
+				<sequence>
+					<element name="naam" type="string" minOccurs="0">
+						<annotation>
+							<documentation>specifieke naamgeving voor het onderwerp van de eigenschap.
+NOTE -- Source --</documentation>
+						</annotation>
+					</element>
+					<element name="waarde" type="imod:WaardePropertyType" minOccurs="0" maxOccurs="unbounded">
+						<annotation>
+							<documentation>De kwalitatieve of kwantitatieve waarde die bij deze eigenschap hoort.
+NOTE -- Source --</documentation>
+						</annotation>
+					</element>
+					<element name="gerelateerdeEigenschap" type="gml:ReferenceType" minOccurs="0" maxOccurs="unbounded">
+						<annotation>
+							<documentation>Eigenschap waaraan gerelateerd wordt.
+NOTE -- Source --</documentation>
+							<appinfo>
+								<targetElement xmlns="http://www.opengis.net/gml/3.2">imod:Relatieobject</targetElement>
+							</appinfo>
+						</annotation>
+					</element>
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="EigenschapWaardePropertyType">
+		<sequence minOccurs="0">
+			<element ref="imod:EigenschapWaarde"/>
+		</sequence>
+		<attributeGroup ref="gml:AssociationAttributeGroup"/>
+		<attributeGroup ref="gml:OwnershipAttributeGroup"/>
+	</complexType>
+	<element name="Functie" type="imod:FunctieType" substitutionGroup="imod:Norm">
+		<annotation>
+			<documentation>Regelgeving gerelateerd aan gebruiksmogelijkheid of gebruiksbeperking.
+NOTE -- Source --</documentation>
+		</annotation>
+	</element>
+	<complexType name="FunctieType">
+		<complexContent>
+			<extension base="imod:NormType">
+				<sequence/>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="FunctiePropertyType">
+		<sequence minOccurs="0">
+			<element ref="imod:Functie"/>
+		</sequence>
+		<attributeGroup ref="gml:AssociationAttributeGroup"/>
+		<attributeGroup ref="gml:OwnershipAttributeGroup"/>
+	</complexType>
+	<element name="FunctieEnRegel" type="imod:FunctieEnRegelType" substitutionGroup="gml:AbstractObject">
+		<annotation>
+			<documentation>Typering van gebruik of beperking.
+NOTE -- Source --</documentation>
+		</annotation>
+	</element>
+	<complexType name="FunctieEnRegelType">
+		<sequence>
+			<element name="functie" type="gml:CodeWithAuthorityType"/>
+			<element name="toegestaanUitgesloten" type="imod:ToegestaanUitgeslotenWaardeType"/>
+		</sequence>
+	</complexType>
+	<complexType name="FunctieEnRegelPropertyType">
+		<sequence>
+			<element ref="imod:FunctieEnRegel"/>
+		</sequence>
+	</complexType>
+	<element name="Gebiedsaanduiding" type="imod:GebiedsaanduidingType" substitutionGroup="imod:EigenschapWaarde">
+		<annotation>
+			<documentation>Een in de tekst aangeduid gebied. Dit kan een typering of een absolute locatie zijn.
+NOTE Voorbeelden: Natuurgebied, landbouwgebied, infrastructuur, dijklichaam, Welstandsniveaugebied, gemeente Amsterdam
+-- Source --</documentation>
+		</annotation>
+	</element>
+	<complexType name="GebiedsaanduidingType">
+		<complexContent>
+			<extension base="imod:EigenschapWaardeType">
+				<sequence>
+					<element name="typeBenoemdgebied" type="imod:BenoemdGebiedHoofdgroepWaardeType"/>
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="GebiedsaanduidingPropertyType">
+		<sequence minOccurs="0">
+			<element ref="imod:Gebiedsaanduiding"/>
+		</sequence>
+		<attributeGroup ref="gml:AssociationAttributeGroup"/>
+		<attributeGroup ref="gml:OwnershipAttributeGroup"/>
+	</complexType>
+	<simpleType name="GebiedsaanduidingWaardeType">
+		<annotation>
+			<documentation>Voorbeeld van een codelijst.
+NOTE -- Source --</documentation>
+		</annotation>
+		<union memberTypes="imod:GebiedsaanduidingWaardeEnumerationType imod:GebiedsaanduidingWaardeOtherType"/>
+	</simpleType>
+	<simpleType name="GebiedsaanduidingWaardeEnumerationType">
+		<annotation>
+			<documentation>Voorbeeld van een codelijst.
+NOTE -- Source --</documentation>
+		</annotation>
+		<restriction base="string"/>
+	</simpleType>
+	<simpleType name="GebiedsaanduidingWaardeOtherType">
+		<restriction base="string">
+			<pattern value="other: \w{2,}"/>
+		</restriction>
+	</simpleType>
+	<element name="GeclassificeerdeWaarde" type="imod:GeclassificeerdeWaardeType" substitutionGroup="imod:Waarde">
+		<annotation>
+			<documentation>Een waarde uit een codelijst (classificatie).
+NOTE Om een normonderwerp te typeren met een waarde uit een codelijst (classificatie).
+-- Source --</documentation>
+		</annotation>
+	</element>
+	<complexType name="GeclassificeerdeWaardeType">
+		<complexContent>
+			<extension base="imod:WaardeType">
+				<sequence>
+					<element name="waarde" type="imod:GeclassificeerdeWaardelijstType"/>
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="GeclassificeerdeWaardePropertyType">
+		<sequence>
+			<element ref="imod:GeclassificeerdeWaarde"/>
+		</sequence>
+	</complexType>
+	<simpleType name="GeclassificeerdeWaardelijstType">
+		<annotation>
+			<documentation>Een codelijst.
+NOTE -- Source --</documentation>
+		</annotation>
+		<union memberTypes="imod:GeclassificeerdeWaardelijstEnumerationType imod:GeclassificeerdeWaardelijstOtherType"/>
+	</simpleType>
+	<simpleType name="GeclassificeerdeWaardelijstEnumerationType">
+		<annotation>
+			<documentation>Een codelijst.
+NOTE -- Source --</documentation>
+		</annotation>
+		<restriction base="string"/>
+	</simpleType>
+	<simpleType name="GeclassificeerdeWaardelijstOtherType">
+		<restriction base="string">
+			<pattern value="other: \w{2,}"/>
+		</restriction>
+	</simpleType>
+	<simpleType name="GetaleigenschapType">
+		<annotation>
+			<documentation>Beschrijving van de waarde in relatie tot de parameter.
+NOTE -- Source --</documentation>
+		</annotation>
+		<union memberTypes="imod:GetaleigenschapEnumerationType imod:GetaleigenschapOtherType"/>
+	</simpleType>
+	<simpleType name="GetaleigenschapEnumerationType">
+		<annotation>
+			<documentation>Beschrijving van de waarde in relatie tot de parameter.
+NOTE -- Source --</documentation>
+		</annotation>
+		<restriction base="string">
+			<enumeration value="maximum"/>
+			<enumeration value="minimum"/>
+			<enumeration value="gemiddeld"/>
+			<enumeration value="bovengrens"/>
+			<enumeration value="ondergrens"/>
+		</restriction>
+	</simpleType>
+	<simpleType name="GetaleigenschapOtherType">
+		<restriction base="string">
+			<pattern value="other: \w{2,}"/>
+		</restriction>
+	</simpleType>
+	<element name="Hoofdstuk" type="imod:HoofdstukType" substitutionGroup="imod:Tekstelement"/>
+	<complexType name="HoofdstukType">
+		<complexContent>
+			<extension base="imod:TekstelementType">
+				<sequence/>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="HoofdstukPropertyType">
+		<sequence minOccurs="0">
+			<element ref="imod:Hoofdstuk"/>
+		</sequence>
+		<attributeGroup ref="gml:AssociationAttributeGroup"/>
+		<attributeGroup ref="gml:OwnershipAttributeGroup"/>
+	</complexType>
+	<element name="imod_Object" type="imod:imod_ObjectType" substitutionGroup="gml:AbstractFeature"/>
+	<complexType name="imod_ObjectType">
+		<complexContent>
+			<extension base="gml:AbstractFeatureType">
+				<sequence>
+					<element name="identificatie" type="imod:NEN3610IDPropertyType">
+					
+						<annotation>
+							<documentation>identificatie: Unieke identificatie van het object binnen het domein van NEN 3610.
+-- Source --
+NEN 3610:2011</documentation>
+						</annotation>
+					</element>
+					<element name="beginGeldigheid" type="dateTime">
+						<annotation>
+							<documentation>begingeldigheid: start van de periode waarop deze instantie van het object geldig is in de werkelijkheid.
+NOTE Er zijn verschillende datatypes voor de represenstatie van een tijdstip: Afhankelijk van de gebruikerswensen m.b.t. granulariteit kan o.a. worden gekozen uit types TM_Instant, Date of DateTime.
+-- Source --
+NEN 3610:2011 en StUF 03.01</documentation>
+						</annotation>
+					</element>
+					<element name="tijdstipRegistratieROD" type="dateTime">
+						<annotation>
+							<documentation>Tijdstip opname in landelijke voorziening
+-- Source --
+Expertoverleg/Poc</documentation>
+						</annotation>
+					</element>
+					<element name="tijdstipRegistratie" type="dateTime">
+						<annotation>
+							<documentation>tijdstipregistratie: tijdstip waarop deze instantie van het object is opgenomen in de registratie
+NOTE Er zijn verschillende datatypes voor de representatie van een tijdstip: Afhankelijk van de gebruikerswensen m.b.t. granulariteit kan o.a. worden gekozen uit types TM_Instant, Date of DateTime. Voor formele historie zal DateTime in vrijwel alle gevallen de beste keuze zijn.
+-- Source --
+NEN 3610:2011 en StUF 03.01</documentation>
+						</annotation>
+					</element>
+					<element name="eindGeldigheid" type="dateTime" minOccurs="0">
+						<annotation>
+							<documentation>eindgeldigheid: eind van de periode waarop deze instantie van het object geldig is in de werkelijkheid. Wanneer deze waarde niet is ingevuld is de instantie nog geldig
+NOTE Er zijn verschillende datatypes voor de representatie van een tijdstip: Afhankelijk van de gebruikerswensen m.b.t. granulariteit kan o.a. worden gekozen uit types TM_Instant, Date of DateTime.
+-- Source --
+NEN 3610:2011 en StUF 03.01</documentation>
+						</annotation>
+					</element>
+					<element name="eindRegistratie" type="dateTime" minOccurs="0">
+						<annotation>
+							<documentation>eindregistratie: eind van de periode waarop deze instantie van het object geldig is in de registratie. Wanneer deze waarde niet is ingevuld is de instantie nog geldig
+NOTE Er zijn verschillende datatypes voor de representatie van een tijdstip: Afhankelijk van de gebruikerswensen m.b.t. granulariteit kan o,a, gekozen worden uit types TM_Instant, Date of DateTime. Voor formele historie zal DateTime in vrijwel alle gevallen de beste keuze zijn.
+-- Source --
+NEN 3610:2011 and StUF 03.01</documentation>
+						</annotation>
+					</element>
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="imod_ObjectPropertyType">
+		<sequence minOccurs="0">
+			<element ref="imod:imod_Object"/>
+		</sequence>
+		<attributeGroup ref="gml:AssociationAttributeGroup"/>
+		<attributeGroup ref="gml:OwnershipAttributeGroup"/>
+	</complexType>
+	<element name="Instructiebesluit" type="imod:InstructiebesluitType" substitutionGroup="imod:Omgevingsdocument_Omgevingsbesluit"/>
+	<complexType name="InstructiebesluitType">
+		<complexContent>
+			<extension base="imod:Omgevingsdocument_OmgevingsbesluitType">
+				<sequence/>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="InstructiebesluitPropertyType">
+		<sequence minOccurs="0">
+			<element ref="imod:Instructiebesluit"/>
+		</sequence>
+		<attributeGroup ref="gml:AssociationAttributeGroup"/>
+		<attributeGroup ref="gml:OwnershipAttributeGroup"/>
+	</complexType>
+	<element name="InstructieregelsGS" type="imod:InstructieregelsGSType" substitutionGroup="imod:Omgevingsdocument_Omgevingsbesluit"/>
+	<complexType name="InstructieregelsGSType">
+		<complexContent>
+			<extension base="imod:Omgevingsdocument_OmgevingsbesluitType">
+				<sequence/>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="InstructieregelsGSPropertyType">
+		<sequence minOccurs="0">
+			<element ref="imod:InstructieregelsGS"/>
+		</sequence>
+		<attributeGroup ref="gml:AssociationAttributeGroup"/>
+		<attributeGroup ref="gml:OwnershipAttributeGroup"/>
+	</complexType>
+	<element name="Invulveld" type="imod:InvulveldType" substitutionGroup="imod:imod_Object">
+		<annotation>
+			<documentation>Deel van een tekstpatroon waar een term of waarde wordt ingevuld.
+NOTE -- Source --</documentation>
+		</annotation>
+	</element>
+	<complexType name="InvulveldType">
+		<complexContent>
+			<extension base="imod:imod_ObjectType">
+				<sequence>
+					<element name="inhoud" type="gml:ReferenceType">
+						<annotation>
+							<documentation>Eigenschap-waarde combinatie die in de tekst is ingevuld.
+NOTE -- Source --</documentation>
+							<appinfo>
+								<targetElement xmlns="http://www.opengis.net/gml/3.2">imod:EigenschapWaarde</targetElement>
+							</appinfo>
+						</annotation>
+					</element>
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="InvulveldPropertyType">
+		<sequence minOccurs="0">
+			<element ref="imod:Invulveld"/>
+		</sequence>
+		<attributeGroup ref="gml:AssociationAttributeGroup"/>
+		<attributeGroup ref="gml:OwnershipAttributeGroup"/>
+	</complexType>
+	<element name="Legger" type="imod:LeggerType" substitutionGroup="imod:Omgevingsdocument_Omgevingsbesluit"/>
+	<complexType name="LeggerType">
+		<complexContent>
+			<extension base="imod:Omgevingsdocument_OmgevingsbesluitType">
+				<sequence/>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="LeggerPropertyType">
+		<sequence minOccurs="0">
+			<element ref="imod:Legger"/>
+		</sequence>
+		<attributeGroup ref="gml:AssociationAttributeGroup"/>
+		<attributeGroup ref="gml:OwnershipAttributeGroup"/>
+	</complexType>
+	<element name="Lid" type="imod:LidType" substitutionGroup="imod:Tekstelement"/>
+	<complexType name="LidType">
+		<complexContent>
+			<extension base="imod:TekstelementType">
+				<sequence/>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="LidPropertyType">
+		<sequence minOccurs="0">
+			<element ref="imod:Lid"/>
+		</sequence>
+		<attributeGroup ref="gml:AssociationAttributeGroup"/>
+		<attributeGroup ref="gml:OwnershipAttributeGroup"/>
+	</complexType>
+	<element name="Maatvoering" type="imod:MaatvoeringType" substitutionGroup="imod:Norm">
+		<annotation>
+			<documentation>Regelgeving gekoppeld aan een kwantificeerbare parameter.
+NOTE Voorbeelden zijn: bouwhoogte, aantal parkeerplaatsen, minimaal aantla vierkante meters, hectares, breedte.
+-- Source --</documentation>
+		</annotation>
+	</element>
+	<complexType name="MaatvoeringType">
+		<complexContent>
+			<extension base="imod:NormType">
+				<sequence>
+					<element name="typeMaatvoering">
+						<annotation>
+							<documentation>Onderwerp waarvoor een maat is opgenomen.
+NOTE De gekozen waardelijst is afhankelijk van het type omgevingsdocument.
+-- Source --</documentation>
+						</annotation>
+					</element>
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="MaatvoeringPropertyType">
+		<sequence minOccurs="0">
+			<element ref="imod:Maatvoering"/>
+		</sequence>
+		<attributeGroup ref="gml:AssociationAttributeGroup"/>
+		<attributeGroup ref="gml:OwnershipAttributeGroup"/>
+	</complexType>
+	<element name="Melding" type="imod:MeldingType" substitutionGroup="imod:Omgevingsdocument_Omgevingsbesluit"/>
+	<complexType name="MeldingType">
+		<complexContent>
+			<extension base="imod:Omgevingsdocument_OmgevingsbesluitType">
+				<sequence/>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="MeldingPropertyType">
+		<sequence minOccurs="0">
+			<element ref="imod:Melding"/>
+		</sequence>
+		<attributeGroup ref="gml:AssociationAttributeGroup"/>
+		<attributeGroup ref="gml:OwnershipAttributeGroup"/>
+	</complexType>
+	<element name="Metadata" type="imod:MetadataType" substitutionGroup="gml:AbstractGML">
+		<annotation>
+			<documentation>Meta gegevens die van toepassing zijn op een besluit of regeling
+NOTE Opmerking: dit object en gekoppelde informatie is nog niet goed uitgewerkt. Informatie is gekopieerd uit: http://koop.overheid.nl/sites/koop.wmrijk.nl/files/IPM_dr_4_0_deel_6-Metadata_XML-schema_Webservices.pdf
+-- Source --</documentation>
+		</annotation>
+	</element>
+	<complexType name="MetadataType">
+		<complexContent>
+			<extension base="gml:AbstractGMLType">
+				<sequence/>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="MetadataPropertyType">
+		<sequence minOccurs="0">
+			<element ref="imod:Metadata"/>
+		</sequence>
+		<attributeGroup ref="gml:AssociationAttributeGroup"/>
+		<attributeGroup ref="gml:OwnershipAttributeGroup"/>
+	</complexType>
+	<element name="MinisterieleRegeling" type="imod:MinisterieleRegelingType" substitutionGroup="imod:Omgevingsdocument_Omgevingsbesluit"/>
+	<complexType name="MinisterieleRegelingType">
+		<complexContent>
+			<extension base="imod:Omgevingsdocument_OmgevingsbesluitType">
+				<sequence/>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="MinisterieleRegelingPropertyType">
+		<sequence minOccurs="0">
+			<element ref="imod:MinisterieleRegeling"/>
+		</sequence>
+		<attributeGroup ref="gml:AssociationAttributeGroup"/>
+		<attributeGroup ref="gml:OwnershipAttributeGroup"/>
+	</complexType>
+	<element name="Norm" type="imod:NormType" substitutionGroup="imod:EigenschapWaarde">
+		<annotation>
+			<documentation>Een voorwaarde of criterium.
+NOTE Normen geven aan welke rechten en plichten men heeft en welke vormen van gedrag wel of niet zijn toegestaan.
+-- Source --</documentation>
+		</annotation>
+	</element>
+	<complexType name="NormType">
+		<complexContent>
+			<extension base="imod:EigenschapWaardeType">
+				<sequence/>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="NormPropertyType">
+		<sequence minOccurs="0">
+			<element ref="imod:Norm"/>
+		</sequence>
+		<attributeGroup ref="gml:AssociationAttributeGroup"/>
+		<attributeGroup ref="gml:OwnershipAttributeGroup"/>
+	</complexType>
+	<simpleType name="NormadressaatWaardeType">
+		<annotation>
+			<documentation>categorie personen voor wie een gegeven norm geldt
+NOTE Normen geven aan welke rechten en plichten men heeft en welke vormen van gedrag wel of niet zijn toegestaan. De normadressaat is de nadere bepaling voor wie een gegeven norm geldt.
+-- Source --
+expertoverleg 2/2/2016
+-- Remark --
+Welke waarden nemen we voor dit type op ('een ieder'; 'bevoegd gezag gemeente/waterschap'; 'bevoegd gezag specifieke overheid'); hoe bepalen we de regels voor de vulling?</documentation>
+		</annotation>
+		<union memberTypes="imod:NormadressaatWaardeEnumerationType imod:NormadressaatWaardeOtherType"/>
+	</simpleType>
+	<simpleType name="NormadressaatWaardeEnumerationType">
+		<annotation>
+			<documentation>categorie personen voor wie een gegeven norm geldt
+NOTE Normen geven aan welke rechten en plichten men heeft en welke vormen van gedrag wel of niet zijn toegestaan. De normadressaat is de nadere bepaling voor wie een gegeven norm geldt.
+-- Source --
+expertoverleg 2/2/2016
+-- Remark --
+Welke waarden nemen we voor dit type op ('een ieder'; 'bevoegd gezag gemeente/waterschap'; 'bevoegd gezag specifieke overheid'); hoe bepalen we de regels voor de vulling?</documentation>
+		</annotation>
+		<restriction base="string">
+			<enumeration value="eenIeder"/>
+			<enumeration value="bevoegdGezagGemeente"/>
+			<enumeration value="bevoegdGezagWaterschap"/>
+			<enumeration value="specifiekBevoegdGezagGemeenteX"/>
+		</restriction>
+	</simpleType>
+	<simpleType name="NormadressaatWaardeOtherType">
+		<restriction base="string">
+			<pattern value="other: \w{2,}"/>
+		</restriction>
+	</simpleType>
+	<element name="NumeriekeWaarde" type="imod:NumeriekeWaardeType" substitutionGroup="imod:Waarde">
+		<annotation>
+			<documentation>Waarde gespecificeerd als een numerieke waarde.
+NOTE -- Source --</documentation>
+		</annotation>
+	</element>
+	<complexType name="NumeriekeWaardeType">
+		<complexContent>
+			<extension base="imod:WaardeType">
+				<sequence>
+					<element name="waarde" type="gml:MeasureType"/>
+					<element name="getalwaardeEigenschap" type="imod:GetaleigenschapType" minOccurs="0"/>
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="NumeriekeWaardePropertyType">
+		<sequence>
+			<element ref="imod:NumeriekeWaarde"/>
+		</sequence>
+	</complexType>
+	<simpleType name="OmgevingsVergunningPlichtigeActiviteitType">
+		<annotation>
+			<documentation>Classificatie van hoofdgroepen van handelingen en activiteiten.
+NOTE -- Source --
+
+-- Development-- 
+Onderwerp: aanpassen, uitbreiden juridische activiteit
+
+1) het model bevat nu een normtypologie "HandelingWaarde", 
+2) voor de waardelijst moet het document van Luc worden verwerkt, hierin staan al meer uitgewerkte onderwerpen voor gemeenten
+3) nienke werkt lijst 2) bij voor onderwerpen van provincies/waterschappen
+4) deze lijst moet als 'tag' op een hoofdstuk/artikel/lid worden geplakt, moet deze constructie worden omgezet naar een tag, of is een normtypologie afdoende?
+5) deze lijst moet (snel, periodiek) kunnen worden bijgewerkt, extern te beheren, en is als externe webservice opvraagbaar voor software leveranciers
+6) afstemmen bruikbaarheid met afnemer 'laancatalogus', deze moet burgeractiviteiten 'plaatsen van een serre' kunnen mappen op lijstentries uit 2) bv. plaatsen van een bijbehorend bouwwerk; zijn de te gebruiken lijsten compleet en van een afdoende niveau van detail?
+7) afstemmen bruikbaarheid met afnemer 'olo', deze moet voor specifieke burgeractiviteiten 'plaatsen van een serre' kunnen mappen op generiek herbruikbare onderdelen bv. bouwen, slopen, kappen etc. Dit is een externe activiteit van de laancatalogus. Biedt de lijst/aanpak ook hier afdoende aanknopingspunten?
+8) bij opstellen van teksten moet de software een selectie uit de lijst afdwingen, (wanneer een gewenste keuze niet beschikbaar is moet deze via het proces van 5) kunnen worden bijgewerkt), wanneer een organisatie werkt met vooraf klaargezette templates (voorbeeldteksten) kan dit vooraf al zijn ingesteld. Vraagpunt: is voor alle teksten een keuze uit de lijst zinnig (en dus verplicht te stellen?), hoe dient de controle regel te werken?
+9) definitie van veld, conventies over gebruik
+10) zit deze waarde op zoneringsobjectniveau (is dit een object waarvoor altijd 1 en slechts 1 juridische activiteit en werkingsgebied voor geldt), of toch op individueel tekstblokniveau (zo hoog en dus zo generiek mogelijk)  Conventie en werkwijze zou tekstblokken per juridische activiteit moeten opstellen, geen mengvormen voor de makkelijke vindbaarheid en selectiemogelijkheden bieden.</documentation>
+		</annotation>
+		<union memberTypes="imod:OmgevingsVergunningPlichtigeActiviteitEnumerationType imod:OmgevingsVergunningPlichtigeActiviteitOtherType"/>
+	</simpleType>
+	<simpleType name="OmgevingsVergunningPlichtigeActiviteitEnumerationType">
+		<annotation>
+			<documentation>Classificatie van hoofdgroepen van handelingen en activiteiten.
+NOTE -- Source --
+
+-- Development-- 
+Onderwerp: aanpassen, uitbreiden juridische activiteit
+
+1) het model bevat nu een normtypologie "HandelingWaarde", 
+2) voor de waardelijst moet het document van Luc worden verwerkt, hierin staan al meer uitgewerkte onderwerpen voor gemeenten
+3) nienke werkt lijst 2) bij voor onderwerpen van provincies/waterschappen
+4) deze lijst moet als 'tag' op een hoofdstuk/artikel/lid worden geplakt, moet deze constructie worden omgezet naar een tag, of is een normtypologie afdoende?
+5) deze lijst moet (snel, periodiek) kunnen worden bijgewerkt, extern te beheren, en is als externe webservice opvraagbaar voor software leveranciers
+6) afstemmen bruikbaarheid met afnemer 'laancatalogus', deze moet burgeractiviteiten 'plaatsen van een serre' kunnen mappen op lijstentries uit 2) bv. plaatsen van een bijbehorend bouwwerk; zijn de te gebruiken lijsten compleet en van een afdoende niveau van detail?
+7) afstemmen bruikbaarheid met afnemer 'olo', deze moet voor specifieke burgeractiviteiten 'plaatsen van een serre' kunnen mappen op generiek herbruikbare onderdelen bv. bouwen, slopen, kappen etc. Dit is een externe activiteit van de laancatalogus. Biedt de lijst/aanpak ook hier afdoende aanknopingspunten?
+8) bij opstellen van teksten moet de software een selectie uit de lijst afdwingen, (wanneer een gewenste keuze niet beschikbaar is moet deze via het proces van 5) kunnen worden bijgewerkt), wanneer een organisatie werkt met vooraf klaargezette templates (voorbeeldteksten) kan dit vooraf al zijn ingesteld. Vraagpunt: is voor alle teksten een keuze uit de lijst zinnig (en dus verplicht te stellen?), hoe dient de controle regel te werken?
+9) definitie van veld, conventies over gebruik
+10) zit deze waarde op zoneringsobjectniveau (is dit een object waarvoor altijd 1 en slechts 1 juridische activiteit en werkingsgebied voor geldt), of toch op individueel tekstblokniveau (zo hoog en dus zo generiek mogelijk)  Conventie en werkwijze zou tekstblokken per juridische activiteit moeten opstellen, geen mengvormen voor de makkelijke vindbaarheid en selectiemogelijkheden bieden.</documentation>
+		</annotation>
+		<restriction base="string">
+			<enumeration value="bouwactiviteit"/>
+			<enumeration value="afwijkactiviteit"/>
+			<enumeration value="rijksmonumentactiviteit"/>
+			<enumeration value="ontgrondingsactiviteit"/>
+			<enumeration value="brandveilig gebruiksactiviteit"/>
+			<enumeration value="milieu belastende activiteit"/>
+			<enumeration value="stortingsactiviteit op zee"/>
+			<enumeration value="Flora- en fauna-activiteit"/>
+		</restriction>
+	</simpleType>
+	<simpleType name="OmgevingsVergunningPlichtigeActiviteitOtherType">
+		<restriction base="string">
+			<pattern value="other: \w{2,}"/>
+		</restriction>
+	</simpleType>
+	<element name="Omgevingsdocument" type="imod:OmgevingsdocumentType" substitutionGroup="imod:imod_Object">
+		<annotation>
+			<documentation>Rechtsfiguur die op grond van de Omgevingswet als omgevingsdocument is aangewezen.
+NOTE -- Source --</documentation>
+		</annotation>
+	</element>
+	<complexType name="OmgevingsdocumentType">
+		<complexContent>
+			<extension base="imod:imod_ObjectType">
+				<sequence>
+					<element name="naam" type="gml:CodeWithAuthorityType"/>
+					<element name="locatieNaam" type="string" minOccurs="0" maxOccurs="unbounded"/>
+					<element name="naamOverheid" type="string"/>
+					<element name="typeOmgevingsdocument" type="imod:OmgevingsdocumentTypeWaardeType"/>
+					<element name="beleidsmatigVerantwoordelijkeOverheid" type="string"/>
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="OmgevingsdocumentPropertyType">
+		<sequence minOccurs="0">
+			<element ref="imod:Omgevingsdocument"/>
+		</sequence>
+		<attributeGroup ref="gml:AssociationAttributeGroup"/>
+		<attributeGroup ref="gml:OwnershipAttributeGroup"/>
+	</complexType>
+	<simpleType name="OmgevingsdocumentTypeWaardeType">
+		<annotation>
+			<documentation>Rechtsfiguur die op grond van de Omgevingswet als omgevingsdocument is aangewezen.
+NOTE Voorlopig zijn nog alleen de kerninstrumenten opgenomen.
+-- Source --</documentation>
+		</annotation>
+		<union memberTypes="imod:OmgevingsdocumentTypeWaardeEnumerationType imod:OmgevingsdocumentTypeWaardeOtherType"/>
+	</simpleType>
+	<simpleType name="OmgevingsdocumentTypeWaardeEnumerationType">
+		<annotation>
+			<documentation>Rechtsfiguur die op grond van de Omgevingswet als omgevingsdocument is aangewezen.
+NOTE Voorlopig zijn nog alleen de kerninstrumenten opgenomen.
+-- Source --</documentation>
+		</annotation>
+		<restriction base="string">
+			<enumeration value="omgevingsplan"/>
+			<enumeration value="omgevingsvisie"/>
+			<enumeration value="omgevingsverordening"/>
+			<enumeration value="waterschapsverordening"/>
+			<enumeration value="projectbesluit"/>
+			<enumeration value="programma"/>
+			<enumeration value="voorbereidingsbesluit"/>
+		</restriction>
+	</simpleType>
+	<simpleType name="OmgevingsdocumentTypeWaardeOtherType">
+		<restriction base="string">
+			<pattern value="other: \w{2,}"/>
+		</restriction>
+	</simpleType>
+	<element name="Omgevingsdocument_Omgevingsbesluit" type="imod:Omgevingsdocument_OmgevingsbesluitType" substitutionGroup="gml:AbstractGML"/>
+	<complexType name="Omgevingsdocument_OmgevingsbesluitType">
+		<complexContent>
+			<extension base="gml:AbstractGMLType">
+				<sequence/>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="Omgevingsdocument_OmgevingsbesluitPropertyType">
+		<sequence minOccurs="0">
+			<element ref="imod:Omgevingsdocument_Omgevingsbesluit"/>
+		</sequence>
+		<attributeGroup ref="gml:AssociationAttributeGroup"/>
+		<attributeGroup ref="gml:OwnershipAttributeGroup"/>
+	</complexType>
+	<element name="Omgevingsdocument_Omgevingswet" type="imod:Omgevingsdocument_OmgevingswetType" substitutionGroup="gml:AbstractGML"/>
+	<complexType name="Omgevingsdocument_OmgevingswetType">
+		<complexContent>
+			<extension base="gml:AbstractGMLType">
+				<sequence/>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="Omgevingsdocument_OmgevingswetPropertyType">
+		<sequence minOccurs="0">
+			<element ref="imod:Omgevingsdocument_Omgevingswet"/>
+		</sequence>
+		<attributeGroup ref="gml:AssociationAttributeGroup"/>
+		<attributeGroup ref="gml:OwnershipAttributeGroup"/>
+	</complexType>
+	<element name="Omgevingsplan" type="imod:OmgevingsplanType" substitutionGroup="imod:Omgevingsdocument_Omgevingswet"/>
+	<complexType name="OmgevingsplanType">
+		<complexContent>
+			<extension base="imod:Omgevingsdocument_OmgevingswetType">
+				<sequence/>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="OmgevingsplanPropertyType">
+		<sequence minOccurs="0">
+			<element ref="imod:Omgevingsplan"/>
+		</sequence>
+		<attributeGroup ref="gml:AssociationAttributeGroup"/>
+		<attributeGroup ref="gml:OwnershipAttributeGroup"/>
+	</complexType>
+	<element name="Omgevingsvergunning" type="imod:OmgevingsvergunningType" substitutionGroup="imod:Omgevingsdocument_Omgevingsbesluit"/>
+	<complexType name="OmgevingsvergunningType">
+		<complexContent>
+			<extension base="imod:Omgevingsdocument_OmgevingsbesluitType">
+				<sequence/>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="OmgevingsvergunningPropertyType">
+		<sequence minOccurs="0">
+			<element ref="imod:Omgevingsvergunning"/>
+		</sequence>
+		<attributeGroup ref="gml:AssociationAttributeGroup"/>
+		<attributeGroup ref="gml:OwnershipAttributeGroup"/>
+	</complexType>
+	<element name="Omgevingsverordening" type="imod:OmgevingsverordeningType" substitutionGroup="imod:Omgevingsdocument_Omgevingswet"/>
+	<complexType name="OmgevingsverordeningType">
+		<complexContent>
+			<extension base="imod:Omgevingsdocument_OmgevingswetType">
+				<sequence/>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="OmgevingsverordeningPropertyType">
+		<sequence minOccurs="0">
+			<element ref="imod:Omgevingsverordening"/>
+		</sequence>
+		<attributeGroup ref="gml:AssociationAttributeGroup"/>
+		<attributeGroup ref="gml:OwnershipAttributeGroup"/>
+	</complexType>
+	<element name="Omgevingsvisie" type="imod:OmgevingsvisieType" substitutionGroup="imod:Omgevingsdocument_Omgevingswet"/>
+	<complexType name="OmgevingsvisieType">
+		<complexContent>
+			<extension base="imod:Omgevingsdocument_OmgevingswetType">
+				<sequence/>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="OmgevingsvisiePropertyType">
+		<sequence minOccurs="0">
+			<element ref="imod:Omgevingsvisie"/>
+		</sequence>
+		<attributeGroup ref="gml:AssociationAttributeGroup"/>
+		<attributeGroup ref="gml:OwnershipAttributeGroup"/>
+	</complexType>
+	<element name="Onderwerp" type="imod:OnderwerpType" substitutionGroup="imod:imod_Object">
+		<annotation>
+			<documentation>Object dat de inhoudelijke onderwerpen van een omgevingsdocument structureert en benoemt.
+NOTE In de tekst van een omgevingsdocument wordt bij elkaar horend beleid gebundeld. Meestal geeft de inhoudsopgave van het document de onderwerpen weer. De onderwerpen kunnen ook in de legenda van de kaart terugkomen.
+-- Source --</documentation>
+		</annotation>
+	</element>
+	<complexType name="OnderwerpType">
+		<complexContent>
+			<extension base="imod:imod_ObjectType">
+				<sequence>
+					<element name="naam" type="string">
+						<annotation>
+							<documentation>Naam van het zoneringsobject zoals het in de tekst is benoemd.
+NOTE -- Source --</documentation>
+						</annotation>
+					</element>
+					<element name="geografischgebied" type="imod:TypeGebiedWaardeType" minOccurs="0">
+						<annotation>
+							<documentation>Soort zoneringsobject.
+NOTE -- Source --</documentation>
+						</annotation>
+					</element>
+					<element name="typeActiviteit" type="imod:OmgevingsVergunningPlichtigeActiviteitType" minOccurs="0"/>
+					<element name="thema" type="imod:ThemaWaardeType" minOccurs="0"/>
+					<element name="normadressaat" type="imod:NormadressaatWaardeType" minOccurs="0" maxOccurs="unbounded">
+						<annotation>
+							<documentation>Categorie personen voor wie een gegeven norm geldt.
+NOTE Normen geven aan welke rechten en plichten men heeft en welke vormen van gedrag wel of niet zijn toegestaan. De normadressaat is de nadere bepaling voor wie een gegeven norm geldt.
+-- Source --</documentation>
+						</annotation>
+					</element>
+					<element name="wettelijkegrondslag" type="imod:WettelijkgrondslagWaardeType" minOccurs="0"/>
+					<element name="beleidsrol" type="imod:BeleidsrolType" minOccurs="0" maxOccurs="unbounded"/>
+					<element name="werking" type="imod:WerkingWaardeType" minOccurs="0"/>
+					<element name="hoofdOnderwerp" type="imod:OnderwerpPropertyType" minOccurs="0">
+						<annotation>
+							<documentation>Onderwerp waar dit een sub-onderwerp van is.
+NOTE als hoofdonderwerp geen geo dan wordt geo onderliggend object overgenomen of totaal beheersgebied.</documentation>
+						</annotation>
+					</element>
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="OnderwerpPropertyType">
+		<sequence minOccurs="0">
+			<element ref="imod:Onderwerp"/>
+		</sequence>
+		<attributeGroup ref="gml:AssociationAttributeGroup"/>
+		<attributeGroup ref="gml:OwnershipAttributeGroup"/>
+	</complexType>
+	<element name="Onderwerphoofdgroep" type="imod:OnderwerphoofdgroepType" substitutionGroup="gml:AbstractFeature"/>
+	<complexType name="OnderwerphoofdgroepType">
+		<complexContent>
+			<extension base="gml:AbstractFeatureType">
+				<sequence>
+					<element name="JurischOnderwerp"/>
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="OnderwerphoofdgroepPropertyType">
+		<sequence minOccurs="0">
+			<element ref="imod:Onderwerphoofdgroep"/>
+		</sequence>
+		<attributeGroup ref="gml:AssociationAttributeGroup"/>
+		<attributeGroup ref="gml:OwnershipAttributeGroup"/>
+	</complexType>
+	<element name="Paragraaf" type="imod:ParagraafType" substitutionGroup="imod:Tekstelement"/>
+	<complexType name="ParagraafType">
+		<complexContent>
+			<extension base="imod:TekstelementType">
+				<sequence/>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="ParagraafPropertyType">
+		<sequence minOccurs="0">
+			<element ref="imod:Paragraaf"/>
+		</sequence>
+		<attributeGroup ref="gml:AssociationAttributeGroup"/>
+		<attributeGroup ref="gml:OwnershipAttributeGroup"/>
+	</complexType>
+	<simpleType name="PatroonTypeWaardeType">
+		<union memberTypes="imod:PatroonTypeWaardeEnumerationType imod:PatroonTypeWaardeOtherType"/>
+	</simpleType>
+	<simpleType name="PatroonTypeWaardeEnumerationType">
+		<restriction base="string">
+			<enumeration value="definitie"/>
+			<enumeration value="normWaardePaar"/>
+			<enumeration value="normWaardePaarMetConditie"/>
+			<enumeration value="normWaardePaarMetAltTekst"/>
+			<enumeration value="vrijeTekst"/>
+		</restriction>
+	</simpleType>
+	<simpleType name="PatroonTypeWaardeOtherType">
+		<restriction base="string">
+			<pattern value="other: \w{2,}"/>
+		</restriction>
+	</simpleType>
+	<element name="Pijlbesluit" type="imod:PijlbesluitType" substitutionGroup="imod:Omgevingsdocument_Omgevingsbesluit"/>
+	<complexType name="PijlbesluitType">
+		<complexContent>
+			<extension base="imod:Omgevingsdocument_OmgevingsbesluitType">
+				<sequence/>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="PijlbesluitPropertyType">
+		<sequence minOccurs="0">
+			<element ref="imod:Pijlbesluit"/>
+		</sequence>
+		<attributeGroup ref="gml:AssociationAttributeGroup"/>
+		<attributeGroup ref="gml:OwnershipAttributeGroup"/>
+	</complexType>
+	<element name="Programma" type="imod:ProgrammaType" substitutionGroup="imod:Omgevingsdocument_Omgevingswet"/>
+	<complexType name="ProgrammaType">
+		<complexContent>
+			<extension base="imod:Omgevingsdocument_OmgevingswetType">
+				<sequence/>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="ProgrammaPropertyType">
+		<sequence minOccurs="0">
+			<element ref="imod:Programma"/>
+		</sequence>
+		<attributeGroup ref="gml:AssociationAttributeGroup"/>
+		<attributeGroup ref="gml:OwnershipAttributeGroup"/>
+	</complexType>
+	<element name="Projectbesluit" type="imod:ProjectbesluitType" substitutionGroup="imod:Omgevingsdocument_Omgevingswet"/>
+	<complexType name="ProjectbesluitType">
+		<complexContent>
+			<extension base="imod:Omgevingsdocument_OmgevingswetType">
+				<sequence/>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="ProjectbesluitPropertyType">
+		<sequence minOccurs="0">
+			<element ref="imod:Projectbesluit"/>
+		</sequence>
+		<attributeGroup ref="gml:AssociationAttributeGroup"/>
+		<attributeGroup ref="gml:OwnershipAttributeGroup"/>
+	</complexType>
+	<element name="Rechtsfiguur" type="imod:RechtsfiguurType" substitutionGroup="gml:AbstractGML"/>
+	<complexType name="RechtsfiguurType">
+		<complexContent>
+			<extension base="gml:AbstractGMLType">
+				<sequence/>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="RechtsfiguurPropertyType">
+		<sequence minOccurs="0">
+			<element ref="imod:Rechtsfiguur"/>
+		</sequence>
+		<attributeGroup ref="gml:AssociationAttributeGroup"/>
+		<attributeGroup ref="gml:OwnershipAttributeGroup"/>
+	</complexType>
+	<element name="Regeltekst" type="imod:RegeltekstType" substitutionGroup="imod:imod_Object">
+		<annotation>
+			<documentation>Het tekstgedeelte van een omgevingsdocument.
+NOTE -- Source --</documentation>
+		</annotation>
+	</element>
+	<complexType name="RegeltekstType">
+		<complexContent>
+			<extension base="imod:imod_ObjectType">
+				<sequence>
+					<element name="tekst" maxOccurs="unbounded">
+						<annotation>
+							<documentation>Verwijzing naar tekstelementen die samen de complete regeltekst omvatten.
+NOTE -- Source --</documentation>
+							<appinfo>
+								<targetElement xmlns="http://www.opengis.net/gml/3.2">imod:Tekstelement</targetElement>
+							</appinfo>
+						</annotation>
+						<complexType>
+							<complexContent>
+								<extension base="gml:AbstractFeatureMemberType">
+									<sequence/>
+									<attributeGroup ref="gml:AssociationAttributeGroup"/>
+								</extension>
+							</complexContent>
+						</complexType>
+					</element>
+					<element name="omgevingsdocument" type="gml:ReferenceType">
+						<annotation>
+							<documentation>Verwijzing naar het omgevingsdocument waar deze tekst een onderdeel van is.
+NOTE -- Source --</documentation>
+							<appinfo>
+								<targetElement xmlns="http://www.opengis.net/gml/3.2">imod:Omgevingsdocument</targetElement>
+							</appinfo>
+						</annotation>
+					</element>
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="RegeltekstPropertyType">
+		<sequence minOccurs="0">
+			<element ref="imod:Regeltekst"/>
+		</sequence>
+		<attributeGroup ref="gml:AssociationAttributeGroup"/>
+		<attributeGroup ref="gml:OwnershipAttributeGroup"/>
+	</complexType>
+	<simpleType name="RegeltypeWaardeType">
+		<union memberTypes="imod:RegeltypeWaardeEnumerationType imod:RegeltypeWaardeOtherType"/>
+	</simpleType>
+	<simpleType name="RegeltypeWaardeEnumerationType">
+		<restriction base="string">
+			<enumeration value="(beleidsthema's)"/>
+			<enumeration value="functie"/>
+			<enumeration value="besluitgebied"/>
+			<enumeration value="maatvoering"/>
+			<enumeration value="bouwen"/>
+			<enumeration value="milieu"/>
+			<enumeration value="externe veiligheid"/>
+		</restriction>
+	</simpleType>
+	<simpleType name="RegeltypeWaardeOtherType">
+		<restriction base="string">
+			<pattern value="other: \w{2,}"/>
+		</restriction>
+	</simpleType>
+	<element name="Relatieobject" type="imod:RelatieobjectType" substitutionGroup="imod:EigenschapWaarde">
+		<annotation>
+			<documentation>Beschrijving van een relatie tussen twee beleidsobjecten in de beleidstekst. De relatie zelf heeft ook gekoppeld beleid.
+NOTE Opmerking: Nog experimenteel. Kijken of dit nodig is en werkt in voorbeelddata.
+
+Vaak is dit een relatie tussen locaties die specifiek is benoemd. Bijvoorbeeld een stedenband. Andere voorbeelden ???
+-- Source --</documentation>
+		</annotation>
+	</element>
+	<complexType name="RelatieobjectType">
+		<complexContent>
+			<extension base="imod:EigenschapWaardeType">
+				<sequence>
+					<element name="typeRelatie" type="imod:RelatietypeWaardeType"/>
+					<element name="voorwaarde" minOccurs="0">
+						<complexType>
+							<complexContent>
+								<extension base="gml:AbstractFeatureMemberType">
+									<sequence minOccurs="0">
+										<element ref="imod:Conditie"/>
+									</sequence>
+									<attributeGroup ref="gml:AssociationAttributeGroup"/>
+								</extension>
+							</complexContent>
+						</complexType>
+					</element>
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="RelatieobjectPropertyType">
+		<sequence minOccurs="0">
+			<element ref="imod:Relatieobject"/>
+		</sequence>
+		<attributeGroup ref="gml:AssociationAttributeGroup"/>
+		<attributeGroup ref="gml:OwnershipAttributeGroup"/>
+	</complexType>
+	<simpleType name="RelatietypeWaardeType">
+		<union memberTypes="imod:RelatietypeWaardeEnumerationType imod:RelatietypeWaardeOtherType"/>
+	</simpleType>
+	<simpleType name="RelatietypeWaardeEnumerationType">
+		<restriction base="string">
+			<enumeration value="algemenereEigenschap"/>
+			<enumeration value="gezamelijkBeleid"/>
+			<enumeration value="nadereVerbijzondering"/>
+			<enumeration value="conditie"/>
+		</restriction>
+	</simpleType>
+	<simpleType name="RelatietypeWaardeOtherType">
+		<restriction base="string">
+			<pattern value="other: \w{2,}"/>
+		</restriction>
+	</simpleType>
+	<element name="Sublid" type="imod:SublidType" substitutionGroup="imod:Tekstelement"/>
+	<complexType name="SublidType">
+		<complexContent>
+			<extension base="imod:TekstelementType">
+				<sequence/>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="SublidPropertyType">
+		<sequence minOccurs="0">
+			<element ref="imod:Sublid"/>
+		</sequence>
+		<attributeGroup ref="gml:AssociationAttributeGroup"/>
+		<attributeGroup ref="gml:OwnershipAttributeGroup"/>
+	</complexType>
+	<element name="TekstPhrase" type="imod:TekstPhraseType" substitutionGroup="imod:imod_Object">
+		<annotation>
+			<documentation>Dit is een deel van een zin wat kan worden getagged.
+NOTE Bijvoorbeeld kan een stukje van een zin worden aangemerkt als conditie behorende bij een norm/waarde paar.
+-- Source --
+expertmeeting 2/2/2016</documentation>
+		</annotation>
+	</element>
+	<complexType name="TekstPhraseType">
+		<complexContent>
+			<extension base="imod:imod_ObjectType">
+				<sequence>
+					<element name="tekst" type="string"/>
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="TekstPhrasePropertyType">
+		<sequence minOccurs="0">
+			<element ref="imod:TekstPhrase"/>
+		</sequence>
+		<attributeGroup ref="gml:AssociationAttributeGroup"/>
+		<attributeGroup ref="gml:OwnershipAttributeGroup"/>
+	</complexType>
+	<element name="Tekstelement" type="imod:TekstelementType" substitutionGroup="imod:imod_Object"/>
+	<complexType name="TekstelementType">
+		<complexContent>
+			<extension base="imod:imod_ObjectType">
+				<sequence>
+					<element name="tekst" type="imod:TekstpatroonPropertyType">
+						<annotation>
+							<documentation>Een tekstsjabloon dat middels een zinstructuur en invulvelden een leesbare een bevraagbare en interpreteerbare tekst creeert.
+NOTE -- Source --</documentation>
+						</annotation>
+					</element>
+					<element name="betekenis" type="gml:ReferenceType" minOccurs="0" maxOccurs="unbounded">
+						<annotation>
+							<appinfo>
+								<targetElement xmlns="http://www.opengis.net/gml/3.2">imod:EigenschapWaarde</targetElement>
+							</appinfo>
+						</annotation>
+					</element>
+					<element name="ouder" type="gml:ReferenceType" maxOccurs="unbounded">
+						<annotation>
+							<appinfo>
+								<targetElement xmlns="http://www.opengis.net/gml/3.2">imod:Tekstelement</targetElement>
+								<reversePropertyName xmlns="http://www.opengis.net/gml/3.2">imod:kind</reversePropertyName>
+							</appinfo>
+						</annotation>
+					</element>
+					<element name="kind" type="gml:ReferenceType" minOccurs="0" maxOccurs="unbounded">
+						<annotation>
+							<appinfo>
+								<targetElement xmlns="http://www.opengis.net/gml/3.2">imod:Tekstelement</targetElement>
+								<reversePropertyName xmlns="http://www.opengis.net/gml/3.2">imod:ouder</reversePropertyName>
+							</appinfo>
+						</annotation>
+					</element>
+					<element name="voorafgaandElement" type="gml:ReferenceType" minOccurs="0">
+						<annotation>
+							<documentation>Tekstelement dat in volgorde voorafgaat.
+NOTE -- Source --</documentation>
+							<appinfo>
+								<targetElement xmlns="http://www.opengis.net/gml/3.2">imod:Tekstelement</targetElement>
+							</appinfo>
+						</annotation>
+					</element>
+					<element name="onderwerp" type="imod:OnderwerpPropertyType" minOccurs="0" maxOccurs="unbounded">
+						<annotation>
+							<documentation>Verwijzing naar het object Onderwerp dat bij dit tekstelement hoort.
+NOTE -- Source --</documentation>
+						</annotation>
+					</element>
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="TekstelementPropertyType">
+		<sequence minOccurs="0">
+			<element ref="imod:Tekstelement"/>
+		</sequence>
+		<attributeGroup ref="gml:AssociationAttributeGroup"/>
+		<attributeGroup ref="gml:OwnershipAttributeGroup"/>
+	</complexType>
+	<element name="Tekstpatroon" type="imod:TekstpatroonType" substitutionGroup="gml:AbstractObject">
+		<annotation>
+			<documentation>Een tekstpatroon is een verzameling vaste zinstructuren waarmee zinnen kunnen worden opgebouwd.
+NOTE -- Source --</documentation>
+		</annotation>
+	</element>
+	<complexType name="TekstpatroonType">
+		<sequence>
+			<element name="patroonType" type="imod:PatroonTypeWaardeType">
+				<annotation>
+					<documentation>Omschrijving van het type patroon
+NOTE Bijvoorbeeld
+- voorwaardelijk verbod
+- algeheel verbod
+- conditionele verplichting
+-- Source --</documentation>
+				</annotation>
+			</element>
+			<element name="invulveld" minOccurs="0" maxOccurs="unbounded">
+				<complexType>
+					<complexContent>
+						<extension base="gml:AbstractFeatureMemberType">
+							<sequence>
+								<element ref="imod:Invulveld"/>
+							</sequence>
+						</extension>
+					</complexContent>
+				</complexType>
+			</element>
+			<element name="tekstzin" minOccurs="0" maxOccurs="unbounded">
+				<complexType>
+					<complexContent>
+						<extension base="gml:AbstractFeatureMemberType">
+							<sequence>
+								<element ref="imod:TekstPhrase"/>
+							</sequence>
+						</extension>
+					</complexContent>
+				</complexType>
+			</element>
+		</sequence>
+	</complexType>
+	<complexType name="TekstpatroonPropertyType">
+		<sequence>
+			<element ref="imod:Tekstpatroon"/>
+		</sequence>
+	</complexType>
+	<simpleType name="ThemaWaardeType">
+		<union memberTypes="imod:ThemaWaardeEnumerationType imod:ThemaWaardeOtherType"/>
+	</simpleType>
+	<simpleType name="ThemaWaardeEnumerationType">
+		<restriction base="string">
+			<enumeration value="aardkunde"/>
+			<enumeration value="archeologie"/>
+			<enumeration value="bedrijven"/>
+			<enumeration value="bodem"/>
+			<enumeration value="cultuurhistorie"/>
+			<enumeration value="dagrecreatie"/>
+			<enumeration value="defensie"/>
+			<enumeration value="duurzaamheid"/>
+			<enumeration value="ecologie"/>
+			<enumeration value="economie"/>
+			<enumeration value="energie"/>
+			<enumeration value="grondstoffen"/>
+			<enumeration value="infrastructuur"/>
+			<enumeration value="kabels/leidingen"/>
+			<enumeration value="landbouw"/>
+			<enumeration value="landschap"/>
+			<enumeration value="langzaam verkeer"/>
+			<enumeration value="luchtvaart"/>
+			<enumeration value="milieu"/>
+			<enumeration value="natuur"/>
+			<enumeration value="openbaar vervoer"/>
+			<enumeration value="recreatie"/>
+			<enumeration value="snelverkeer"/>
+			<enumeration value="sociaal"/>
+			<enumeration value="spoor"/>
+			<enumeration value="vaarweg"/>
+			<enumeration value="veiligheid"/>
+			<enumeration value="verblijfsrecreatie"/>
+			<enumeration value="verkeer"/>
+			<enumeration value="verstedelijking"/>
+			<enumeration value="vervoer"/>
+			<enumeration value="visserij"/>
+			<enumeration value="voorzieningen"/>
+			<enumeration value="water"/>
+			<enumeration value="waterkering"/>
+			<enumeration value="waterkwaliteit"/>
+			<enumeration value="waterkwantiteit"/>
+			<enumeration value="weg"/>
+			<enumeration value="wonen"/>
+		</restriction>
+	</simpleType>
+	<simpleType name="ThemaWaardeOtherType">
+		<restriction base="string">
+			<pattern value="other: \w{2,}"/>
+		</restriction>
+	</simpleType>
+	<simpleType name="ToegestaanUitgeslotenWaardeType">
+		<union memberTypes="imod:ToegestaanUitgeslotenWaardeEnumerationType imod:ToegestaanUitgeslotenWaardeOtherType"/>
+	</simpleType>
+	<simpleType name="ToegestaanUitgeslotenWaardeEnumerationType">
+		<restriction base="string">
+			<enumeration value="toegestaan"/>
+			<enumeration value="uitgesloten"/>
+		</restriction>
+	</simpleType>
+	<simpleType name="ToegestaanUitgeslotenWaardeOtherType">
+		<restriction base="string">
+			<pattern value="other: \w{2,}"/>
+		</restriction>
+	</simpleType>
+	<simpleType name="TypeGebiedWaardeType">
+		<annotation>
+			<documentation>Classificatie van type gebiedsaanduiding.
+NOTE Om het soort en karakter van het werkingsgebied aan te geven.
+-- Source --</documentation>
+		</annotation>
+		<union memberTypes="imod:TypeGebiedWaardeEnumerationType imod:TypeGebiedWaardeOtherType"/>
+	</simpleType>
+	<simpleType name="TypeGebiedWaardeEnumerationType">
+		<annotation>
+			<documentation>Classificatie van type gebiedsaanduiding.
+NOTE Om het soort en karakter van het werkingsgebied aan te geven.
+-- Source --</documentation>
+		</annotation>
+		<restriction base="string">
+			<enumeration value="beheergebied"/>
+			<enumeration value="benoemdgebied"/>
+			<enumeration value="toegelaten gebruik"/>
+			<enumeration value="beperkinggebied"/>
+			<enumeration value="nadere verbijzondering"/>
+			<enumeration value="zoekgebied"/>
+			<enumeration value="zoekrichting"/>
+			<enumeration value="relatie"/>
+		</restriction>
+	</simpleType>
+	<simpleType name="TypeGebiedWaardeOtherType">
+		<restriction base="string">
+			<pattern value="other: \w{2,}"/>
+		</restriction>
+	</simpleType>
+	<element name="UitspraakRechter" type="imod:UitspraakRechterType" substitutionGroup="imod:Omgevingsdocument_Omgevingsbesluit"/>
+	<complexType name="UitspraakRechterType">
+		<complexContent>
+			<extension base="imod:Omgevingsdocument_OmgevingsbesluitType">
+				<sequence/>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="UitspraakRechterPropertyType">
+		<sequence minOccurs="0">
+			<element ref="imod:UitspraakRechter"/>
+		</sequence>
+		<attributeGroup ref="gml:AssociationAttributeGroup"/>
+		<attributeGroup ref="gml:OwnershipAttributeGroup"/>
+	</complexType>
+	<element name="Voorbereidingsbesluit" type="imod:VoorbereidingsbesluitType" substitutionGroup="imod:Omgevingsdocument_Omgevingsbesluit"/>
+	<complexType name="VoorbereidingsbesluitType">
+		<complexContent>
+			<extension base="imod:Omgevingsdocument_OmgevingsbesluitType">
+				<sequence/>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="VoorbereidingsbesluitPropertyType">
+		<sequence minOccurs="0">
+			<element ref="imod:Voorbereidingsbesluit"/>
+		</sequence>
+		<attributeGroup ref="gml:AssociationAttributeGroup"/>
+		<attributeGroup ref="gml:OwnershipAttributeGroup"/>
+	</complexType>
+	<element name="Voorkeursbeslissing" type="imod:VoorkeursbeslissingType" substitutionGroup="imod:Omgevingsdocument_Omgevingsbesluit"/>
+	<complexType name="VoorkeursbeslissingType">
+		<complexContent>
+			<extension base="imod:Omgevingsdocument_OmgevingsbesluitType">
+				<sequence/>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="VoorkeursbeslissingPropertyType">
+		<sequence minOccurs="0">
+			<element ref="imod:Voorkeursbeslissing"/>
+		</sequence>
+		<attributeGroup ref="gml:AssociationAttributeGroup"/>
+		<attributeGroup ref="gml:OwnershipAttributeGroup"/>
+	</complexType>
+	<element name="VoornemenVerkenning" type="imod:VoornemenVerkenningType" substitutionGroup="imod:Omgevingsdocument_Omgevingsbesluit"/>
+	<complexType name="VoornemenVerkenningType">
+		<complexContent>
+			<extension base="imod:Omgevingsdocument_OmgevingsbesluitType">
+				<sequence/>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="VoornemenVerkenningPropertyType">
+		<sequence minOccurs="0">
+			<element ref="imod:VoornemenVerkenning"/>
+		</sequence>
+		<attributeGroup ref="gml:AssociationAttributeGroup"/>
+		<attributeGroup ref="gml:OwnershipAttributeGroup"/>
+	</complexType>
+	<element name="Waarde" type="imod:WaardeType" abstract="true" substitutionGroup="gml:AbstractObject">
+		<annotation>
+			<documentation>Toestand die een variabele kan aannemen.
+NOTE -- Source --</documentation>
+		</annotation>
+	</element>
+	<complexType name="WaardeType" abstract="true">
+		<sequence/>
+	</complexType>
+	<complexType name="WaardePropertyType">
+		<sequence>
+			<element ref="imod:Waarde"/>
+		</sequence>
+	</complexType>
+	<element name="Waterschapsverordening" type="imod:WaterschapsverordeningType" substitutionGroup="imod:Omgevingsdocument_Omgevingswet"/>
+	<complexType name="WaterschapsverordeningType">
+		<complexContent>
+			<extension base="imod:Omgevingsdocument_OmgevingswetType">
+				<sequence/>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="WaterschapsverordeningPropertyType">
+		<sequence minOccurs="0">
+			<element ref="imod:Waterschapsverordening"/>
+		</sequence>
+		<attributeGroup ref="gml:AssociationAttributeGroup"/>
+		<attributeGroup ref="gml:OwnershipAttributeGroup"/>
+	</complexType>
+	<simpleType name="WerkingWaardeType">
+		<union memberTypes="imod:WerkingWaardeEnumerationType imod:WerkingWaardeOtherType"/>
+	</simpleType>
+	<simpleType name="WerkingWaardeEnumerationType">
+		<restriction base="string">
+			<enumeration value="directe werking"/>
+			<enumeration value="instructieregels"/>
+			<enumeration value="gericht op uitvoerend bestuur"/>
+		</restriction>
+	</simpleType>
+	<simpleType name="WerkingWaardeOtherType">
+		<restriction base="string">
+			<pattern value="other: \w{2,}"/>
+		</restriction>
+	</simpleType>
+	<element name="Werkingsgebied" type="imod:WerkingsgebiedType" substitutionGroup="imod:imod_Object">
+		<annotation>
+			<documentation>Ruimtelijk gebied waar beleid of regelgeving op van toepassing is.
+NOTE Als er geen specifiek deelgebied is aangewezen geldt het totale grondgebied van de administratieve eenheid (Rijk, provincie, gemeente, waterschap, enz.)
+-- Source --</documentation>
+		</annotation>
+	</element>
+	<complexType name="WerkingsgebiedType">
+		<complexContent>
+			<extension base="imod:imod_ObjectType">
+				<sequence>
+					<element name="begrenzingIndicatief" type="boolean">
+						<annotation>
+							<documentation>Aanduiding of de begrenzing van het werkingsgebied indicatief en niet als exact moet worden beschouwd.
+NOTE Een indicatieve begrenzing betekent dat het werkingsgebied ongeveer is aangegeven
+-- Source --</documentation>
+						</annotation>
+					</element>
+					<element name="geometrie" type="gml:SurfacePropertyType">
+						<annotation>
+							<documentation>Ruimtelijke begrenzing.
+NOTE -- Source --</documentation>
+						</annotation>
+					</element>
+					<element name="besluit" type="gml:ReferenceType" minOccurs="0" maxOccurs="unbounded">
+						<annotation>
+							<documentation>Verwijzing naar besluit.
+NOTE -- Source --</documentation>
+							<appinfo>
+								<targetElement xmlns="http://www.opengis.net/gml/3.2">imod:Besluit</targetElement>
+							</appinfo>
+						</annotation>
+					</element>
+					<element name="onderwerp" type="gml:ReferenceType" minOccurs="0" maxOccurs="unbounded">
+						<annotation>
+							<documentation>Verwijzing naar het object Onderwerpt dat bij dit werkingsgebied hoort.
+NOTE -- Source --</documentation>
+							<appinfo>
+								<targetElement xmlns="http://www.opengis.net/gml/3.2">imod:Onderwerp</targetElement>
+							</appinfo>
+						</annotation>
+					</element>
+					<element name="omgevingsdocument" type="imod:OmgevingsdocumentPropertyType" maxOccurs="unbounded">
+						<annotation>
+							<documentation>Verwijzing naar het omgevingsdocument waar deze gebied een onderdeel van is.
+NOTE -- Source --</documentation>
+						</annotation>
+					</element>
+					<element name="eigenschapWaarde" type="gml:ReferenceType" minOccurs="0" maxOccurs="unbounded">
+						<annotation>
+							<documentation>Een combinatie van eigenschap en waarde die geldt binnen het werkingsgebied.
+NOTE -- Source --</documentation>
+							<appinfo>
+								<targetElement xmlns="http://www.opengis.net/gml/3.2">imod:EigenschapWaarde</targetElement>
+							</appinfo>
+						</annotation>
+					</element>
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="WerkingsgebiedPropertyType">
+		<sequence minOccurs="0">
+			<element ref="imod:Werkingsgebied"/>
+		</sequence>
+		<attributeGroup ref="gml:AssociationAttributeGroup"/>
+		<attributeGroup ref="gml:OwnershipAttributeGroup"/>
+	</complexType>
+	<simpleType name="WettelijkgrondslagWaardeType">
+		<union memberTypes="imod:WettelijkgrondslagWaardeEnumerationType imod:WettelijkgrondslagWaardeOtherType"/>
+	</simpleType>
+	<simpleType name="WettelijkgrondslagWaardeEnumerationType">
+		<restriction base="string">
+			<enumeration value="locatiefunctie"/>
+			<enumeration value="bouwen"/>
+			<enumeration value="cultureel erfgoed"/>
+			<enumeration value="archeologie"/>
+			<enumeration value="omgevingswaarde"/>
+			<enumeration value="luchtvaart"/>
+		</restriction>
+	</simpleType>
+	<simpleType name="WettelijkgrondslagWaardeOtherType">
+		<restriction base="string">
+			<pattern value="other: \w{2,}"/>
+		</restriction>
+	</simpleType>
+</schema>

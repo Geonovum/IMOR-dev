@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<imod:FeatureCollectionIMOD gml:id="Collectie" xmlns:imod="http://www.geostandaarden.nl/imod" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.geostandaarden.nl/imod imod_v052.xsd">
+<imod:FeatureCollectionIMOD gml:id="Collectie" xmlns:imod="http://www.geostandaarden.nl/imod" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.geostandaarden.nl/imod imod_v053.xsd">
 	<!-- Onderwerp -->
 	<imod:featureMember>
 		<imod:Omgevingsdocument gml:id="NL.IMOD.0755.VBBOmgevingswet-VS01">
