@@ -1,0 +1,1950 @@
+<?xml version='1.0' encoding='utf-8'?>
+<xs:schema xmlns:doc="http://technische-documentatie.oep.overheid.nl/namespaces/doc"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+    <!-- http://technische-documentatie.oep.overheid.nl/repository/schemas/gvop_compleet/2014-09-24/xsd/gvop_compleet_2014-09-24.xsd -->
+
+    <xs:annotation>
+        <xs:documentation>Dit schema ondersteunt centrale en decentrale besluiten en
+            consolidaties</xs:documentation>
+        <xs:documentation>Het rootelement voor besluiten is officiele-publicatie; het rootelement
+            voor consolidaties is toestand</xs:documentation>
+        <xs:documentation>nog bepalen of toestanden een aanhef / sluiting nodig hebben (deze worden
+            toch niet veranderd), het is wel mogelijk om bijlagen op te nemen. Het is nog een open
+            issue hoe om te gaan met (het consolideren van) een nota-toelichting</xs:documentation>
+    </xs:annotation>
+
+    <xs:annotation>
+        <xs:documentation>metadata wordt in een separaat (Schematron) schema
+            uitgewerkt</xs:documentation>
+    </xs:annotation>
+
+    <!--<xs:import namespace="http://www.w3.org/XML/1998/namespace" schemaLocation="http://technische-documentatie.oep.overheid.nl/repository/schemas/w3c-xml-lang/1.0/xsd/xml.xsd"/>-->
+
+    <!-- ROOT -->
+    <xs:element name="officiele-publicatie">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="metadata">
+                    <xs:complexType>
+                        <xs:sequence maxOccurs="unbounded">
+                            <xs:any processContents="skip"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <!-- let op: officiele-publicatie/kop zit nu BINNEN het *blad element (logischer, want 100% correlatie inhoud met *blad element en bij parlementair werd dit nooit gebruikt) Sluit ook beter aan op meta/body design pattern -->
+                <xs:choice>
+                    <xs:element name="staatscourant" type="bladGeneriek"/>
+                    <xs:element name="staatsblad" type="bladGeneriek"/>
+                    <xs:element name="tractatenblad" type="bladGeneriek"/>
+                    <xs:element name="gemeenteblad" type="bladGeneriek"/>
+                    <xs:element name="provincieblad" type="bladGeneriek"/>
+                    <xs:element name="waterschapsblad" type="bladGeneriek"/>
+                    <xs:element name="bladgemeenschappelijkeregeling" type="bladGeneriek"/>
+                    <!-- er blijken meer "bladen" te zijn dan bovenstaande drie. Omdat het hier om beperkte aantallen gaat, worden deze via blad + attribuut afgehandeld -->
+                    <xs:element name="blad">
+                        <xs:complexType>
+                            <xs:complexContent>
+                                <xs:extension base="bladGeneriek">
+                                    <xs:attribute name="aanduiding">
+                                        <xs:simpleType>
+                                            <xs:restriction base="xs:string">
+                                                <xs:enumeration value="deelgemeente"/>
+                                                <xs:enumeration value="ander_openbaar_lichaam"/>
+                                                <xs:enumeration value="koninkrijksdeel"/>
+                                                <xs:enumeration value="nederlandse_antillen"/>
+                                                <xs:enumeration value="samenwerkingsorgaan"/>
+                                            </xs:restriction>
+                                        </xs:simpleType>
+                                    </xs:attribute>
+                                </xs:extension>
+                            </xs:complexContent>
+                        </xs:complexType>
+                    </xs:element>
+                </xs:choice>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- rootelement voor consolidaties -->
+    <xs:element name="toestand">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="metadata">
+                    <xs:complexType>
+                        <xs:sequence maxOccurs="unbounded">
+                            <xs:any processContents="skip"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="regeling" type="regeling_type">
+                    <xs:annotation>
+                        <xs:documentation>element opschrift wordt ook gebruikt voor citeertitel; nog
+                            bepalen of aanhef en sluiting echt nodig zijn</xs:documentation>
+                        <xs:documentation>naam element is nu regeling, misschien is wet-besluit een
+                            betere naam</xs:documentation>
+                        <xs:documentation>door gebruik van regeling_type komt ook wijzig-artikel in
+                            beeld, dat is niet relevant binnen toestanden en moet er in een latere
+                            versie dus uit</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <!-- ook niet-formele bijlage nodig? (bv GML), vraag is dan hoe dit qua consolidatie werkt -->
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="bladGeneriek">
+        <xs:sequence>
+            <xs:element name="bladaanduiding">
+                <xs:complexType>
+                    <xs:choice>
+                        <xs:element name="titelregel" maxOccurs="2">
+                            <xs:annotation>
+                                <xs:documentation>Bijvoorbeeld in regel 1 de tekst "GEMEENTEBLAD" en
+                                    dan in titelregel 2 de tekst "Officiële uitgave van gemeente
+                                    {gemeentenaam}."</xs:documentation>
+                                <xs:documentation>Hier is een duidelijke, in schematron uit te
+                                    drukken relatie tussen de inhoud van bladaanduiding en het
+                                    bovenliggende element. Dit zou ook in XSD uitgedrukt kunnen
+                                    worden maar dan kan je dus niet meer bladGeneriek gelijk hebben
+                                    voor alle drie de bladen </xs:documentation>
+                            </xs:annotation>
+                        </xs:element>
+                    </xs:choice>
+                </xs:complexType>
+            </xs:element>
+            <!-- let op: opschrift zit nu BINNEN regeling_type -->
+            <xs:element name="regeling" type="regeling_type">
+                <xs:annotation>
+                    <xs:documentation>Hier komt de regeling</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="nawerk" type="nawerk_type" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>Hier komen zaken die strikt genomen niet tot de regeling
+                        behoren maar wel bij de publicatie moeten worden
+                        meegenomen.</xs:documentation>
+                    <xs:documentation>informatie over bezwaar kan hier ook geplaatst
+                        worden</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+        <!-- @id ingevoegd -->
+        <xs:attribute name="id"/>
+    </xs:complexType>
+
+    <!-- BLOCKS -->
+    <!-- elementen die als block mogen worden gebruikt -->
+    <xs:group name="blocks.minimaal">
+        <!-- adres adreslijst specificatielijst ontbreekt -->
+        <xs:choice>
+            <xs:element ref="al"/>
+            <xs:element ref="al-groep"/>
+            <!-- eigenlijk is dit een soort "transparante container" die zelf weer blocks kan bevatten -->
+            <xs:element ref="definitielijst"/>
+            <xs:element ref="lijst"/>
+        </xs:choice>
+    </xs:group>
+    <xs:group name="blocks.algemeen">
+        <!--formule ontbreekt-->
+        <xs:choice>
+            <xs:group ref="blocks.minimaal"/>
+            <xs:element ref="citaat"/>
+            <xs:element ref="plaatje"/>
+            <xs:element ref="tussenkop"/>
+        </xs:choice>
+    </xs:group>
+
+    <xs:group name="blocks.maximaal">
+        <xs:choice>
+            <xs:group ref="blocks.algemeen"/>
+            <xs:element ref="table"/>
+        </xs:choice>
+    </xs:group>
+
+    <!-- CONTAINER -->
+    <!-- dit zijn enkele complextypen die door container elementdefinities worden aangewend -->
+    <xs:complexType name="blocksreq">
+        <xs:sequence minOccurs="0" maxOccurs="unbounded">
+            <xs:group ref="blocks.maximaal"/>
+            <!-- AN kent maar 1 group blockElements; hier dus via redefine eventueel verkleinen -->
+        </xs:sequence>
+        <xs:attributeGroup ref="corereq"/>
+    </xs:complexType>
+
+    <xs:complexType name="blocksopt">
+        <xs:annotation>
+            <xs:documentation>The complex type blocksopt defines the content model and attributes
+                shared by all containers. Here the id attribute is optional</xs:documentation>
+        </xs:annotation>
+        <xs:sequence minOccurs="0" maxOccurs="unbounded">
+            <xs:group ref="blocks.maximaal"/>
+            <!-- AN kent maar 1 group blockElements; hier dus via redefine eventueel verkleinen -->
+        </xs:sequence>
+        <xs:attributeGroup ref="coreopt"/>
+    </xs:complexType>
+
+    <xs:complexType name="blocks.aanhef">
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element ref="al"/>
+            <xs:element ref="lijst"/>
+            <xs:element ref="plaatje"/>
+            <xs:element ref="table"/>
+        </xs:choice>
+        <xs:attributeGroup ref="coreopt"/>
+    </xs:complexType>
+    <!-- CONTAINER einde -->
+
+    <!-- HCONTAINER -->
+    <!-- bij AN is er een generieke hcontainer, maar die is hier niet nodig omdat je niet een volledig vrije hierarchie hebt maar een ingevulde -->
+    <!-- de regels voor toegestane hierarchie zitten in ieder element verwerkt, daarnaast heeft AvdLR nog wat extra regels in aanwijzing 26. door de aard van deze regels kunnen deze pas achteraf worden gecontroleerd (en niet direct bij editen) -->
+
+    <!-- constructie met choice is eigenlijk raar: kan je in zelfde parent verschillende niveaus hebben (bv artikel en paragraaf) -->
+
+    <!-- in AN wordt ook een intro en wrap ondersteund bij hcontainer elementen -->
+
+    <xs:complexType name="baseHContainer">
+        <xs:sequence>
+            <xs:element ref="kop"/>
+            <!-- hier komt een choice maar die kan niet via extension opgelost worden vandaar hele choice in iedere instance nodig -->
+        </xs:sequence>
+        <xs:attribute name="id" type="xs:ID"/>
+        <xs:attributeGroup ref="op"/>
+    </xs:complexType>
+
+    <xs:element name="afdeling" doc:klasse="hcontainer">
+        <!-- deze wordt niet genoemd in AvdLR regelgeving en zou dus eigenlijk wel weg moeten kunnen -->
+        <xs:complexType>
+            <xs:complexContent>
+                <xs:extension base="baseHContainer">
+                    <xs:choice minOccurs="1">
+                        <xs:element ref="inhoud"/>
+                        <xs:sequence>
+                            <xs:element name="aanhef" type="blocks.aanhef" minOccurs="0">
+                                <xs:annotation>
+                                    <xs:documentation>In uitzonderlijke gevallen kunnen hier
+                                        notities of opmerkingen worden geplaatst die geen onderdeel
+                                        van de tekst of de structuur vormen. In afwijking tot AN
+                                        wordt geen sluiting ondersteund.</xs:documentation>
+                                </xs:annotation>
+                            </xs:element>
+                            <xs:choice maxOccurs="unbounded">
+                                <xs:element ref="hoofdstuk"/>
+                                <xs:element ref="paragraaf"/>
+                                <xs:element ref="artikel"/>
+                            </xs:choice>
+                        </xs:sequence>
+                    </xs:choice>
+                </xs:extension>
+            </xs:complexContent>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="boek" doc:klasse="hcontainer">
+        <!-- deze wordt niet genoemd in AvdLR regelgeving en zou dus eigenlijk wel weg moeten kunnen -->
+        <xs:complexType>
+            <xs:complexContent>
+                <xs:extension base="baseHContainer">
+                    <xs:choice minOccurs="1">
+                        <xs:element ref="inhoud"/>
+                        <xs:sequence>
+                            <xs:element name="aanhef" type="blocks.aanhef" minOccurs="0">
+                                <xs:annotation>
+                                    <xs:documentation>In uitzonderlijke gevallen kunnen hier
+                                        notities of opmerkingen worden geplaatst die geen onderdeel
+                                        van de tekst of de structuur vormen. In afwijking tot AN
+                                        wordt geen sluiting ondersteund.</xs:documentation>
+                                </xs:annotation>
+                            </xs:element>
+                            <xs:choice maxOccurs="unbounded">
+                                <xs:element ref="hoofdstuk"/>
+                                <xs:element ref="titeldeel"/>
+                                <xs:element ref="artikel"/>
+                            </xs:choice>
+                        </xs:sequence>
+                    </xs:choice>
+                </xs:extension>
+            </xs:complexContent>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="deel" doc:klasse="hcontainer">
+        <!-- deze wordt niet genoemd in AvdLR regelgeving en zou dus eigenlijk wel weg moeten kunnen -->
+        <xs:complexType>
+            <xs:complexContent>
+                <xs:extension base="baseHContainer">
+                    <xs:choice minOccurs="1">
+                        <xs:element ref="inhoud"/>
+                        <xs:sequence>
+                            <xs:element name="aanhef" type="blocks.aanhef" minOccurs="0">
+                                <xs:annotation>
+                                    <xs:documentation>In uitzonderlijke gevallen kunnen hier
+                                        notities of opmerkingen worden geplaatst die geen onderdeel
+                                        van de tekst of de structuur vormen. In afwijking tot AN
+                                        wordt geen sluiting ondersteund.</xs:documentation>
+                                </xs:annotation>
+                            </xs:element>
+                            <xs:choice maxOccurs="unbounded">
+                                <xs:element ref="hoofdstuk"/>
+                                <xs:element ref="titeldeel"/>
+                                <xs:element ref="artikel"/>
+                            </xs:choice>
+                        </xs:sequence>
+                    </xs:choice>
+                </xs:extension>
+            </xs:complexContent>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="hoofdstuk" doc:klasse="hcontainer">
+        <!-- in principe wordt hoofdstuk alleen gebruikt als paragraaf niet genoeg is (en dus nooit zonder paragraaf) -->
+        <xs:complexType>
+            <xs:complexContent>
+                <xs:extension base="baseHContainer">
+                    <xs:choice minOccurs="1">
+                        <xs:element ref="inhoud"/>
+                        <xs:sequence>
+                            <xs:element name="aanhef" type="blocks.aanhef" minOccurs="0">
+                                <xs:annotation>
+                                    <xs:documentation>In uitzonderlijke gevallen kunnen hier
+                                        notities of opmerkingen worden geplaatst die geen onderdeel
+                                        van de tekst of de structuur vormen. In afwijking tot AN
+                                        wordt geen sluiting ondersteund.</xs:documentation>
+                                </xs:annotation>
+                            </xs:element>
+                            <xs:choice maxOccurs="unbounded">
+                                <xs:element ref="titeldeel"/>
+                                <xs:element ref="afdeling"/>
+                                <xs:element ref="paragraaf"/>
+                                <xs:element ref="artikel"/>
+                            </xs:choice>
+                        </xs:sequence>
+                    </xs:choice>
+                </xs:extension>
+            </xs:complexContent>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="paragraaf" doc:klasse="hcontainer">
+        <!-- paragraaf mag op zichzelf gebruikt worden maar als er meer dan 1 niveau is dan moet de ouder een hoofdstuk zijn -->
+        <xs:complexType>
+            <xs:complexContent>
+                <xs:extension base="baseHContainer">
+                    <xs:choice minOccurs="1">
+                        <xs:element ref="inhoud"/>
+                        <xs:sequence>
+                            <xs:element name="aanhef" type="blocks.aanhef" minOccurs="0">
+                                <xs:annotation>
+                                    <xs:documentation>In uitzonderlijke gevallen kunnen hier
+                                        notities of opmerkingen worden geplaatst die geen onderdeel
+                                        van de tekst of de structuur vormen. In afwijking tot AN
+                                        wordt geen sluiting ondersteund.</xs:documentation>
+                                </xs:annotation>
+                            </xs:element>
+                            <xs:choice maxOccurs="unbounded">
+                                <xs:element ref="afdeling"/>
+                                <xs:element ref="sub-paragraaf"/>
+                                <xs:element ref="artikel"/>
+                            </xs:choice>
+                        </xs:sequence>
+                    </xs:choice>
+                </xs:extension>
+            </xs:complexContent>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="sub-paragraaf" doc:klasse="hcontainer">
+        <!-- deze wordt niet genoemd in AvdLR regelgeving en zou dus eigenlijk wel weg moeten kunnen -->
+        <xs:complexType>
+            <xs:complexContent>
+                <xs:extension base="baseHContainer">
+                    <xs:choice minOccurs="1">
+                        <xs:element ref="inhoud"/>
+                        <xs:sequence>
+                            <xs:element name="aanhef" type="blocks.aanhef" minOccurs="0">
+                                <xs:annotation>
+                                    <xs:documentation>In uitzonderlijke gevallen kunnen hier
+                                        notities of opmerkingen worden geplaatst die geen onderdeel
+                                        van de tekst of de structuur vormen. In afwijking tot AN
+                                        wordt geen sluiting ondersteund.</xs:documentation>
+                                </xs:annotation>
+                            </xs:element>
+                            <xs:choice maxOccurs="unbounded">
+                                <xs:element ref="artikel"/>
+                                <xs:element ref="sub-paragraaf"/>
+                            </xs:choice>
+                        </xs:sequence>
+                    </xs:choice>
+                </xs:extension>
+            </xs:complexContent>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="titeldeel" doc:klasse="hcontainer">
+        <!-- deze wordt niet genoemd in AvdLR regelgeving en zou dus eigenlijk wel weg moeten kunnen -->
+        <xs:complexType>
+            <xs:complexContent>
+                <xs:extension base="baseHContainer">
+                    <xs:choice minOccurs="1">
+                        <xs:element ref="inhoud"/>
+                        <xs:sequence>
+                            <xs:element name="aanhef" type="blocks.aanhef" minOccurs="0">
+                                <xs:annotation>
+                                    <xs:documentation>In uitzonderlijke gevallen kunnen hier
+                                        notities of opmerkingen worden geplaatst die geen onderdeel
+                                        van de tekst of de structuur vormen. In afwijking tot AN
+                                        wordt geen sluiting ondersteund.</xs:documentation>
+                                </xs:annotation>
+                            </xs:element>
+                            <xs:choice maxOccurs="unbounded">
+                                <xs:element ref="hoofdstuk"/>
+                                <xs:element ref="afdeling"/>
+                                <xs:element ref="paragraaf"/>
+                                <xs:element ref="artikel"/>
+                            </xs:choice>
+                        </xs:sequence>
+                    </xs:choice>
+                </xs:extension>
+            </xs:complexContent>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="artikel" doc:klasse="hcontainer">
+        <xs:complexType>
+            <xs:complexContent>
+                <xs:extension base="baseHContainer">
+                    <xs:choice minOccurs="1">
+                        <xs:element ref="lid" maxOccurs="unbounded"/>
+                        <xs:element ref="inhoud"/>
+                        <!-- in sommige gevallen is in het verleden een lijst direct onder artikel terecht gekomen in combinatie met een lid (zie stcrt-2011-2263 en stcrt-2011-22069). Dit is expliciet niet de bedoeling: als er eenmaal gekozen wordt voor een lid structuur dan kunnen er geen lijst of al siblings aanwezig zijn -->
+
+                    </xs:choice>
+                    <xs:attributeGroup ref="artikel.attlist"/>
+                </xs:extension>
+            </xs:complexContent>
+        </xs:complexType>
+    </xs:element>
+    <xs:attributeGroup name="artikel.attlist">
+        <xs:attribute name="code"/>
+        <xs:attribute name="type"/>
+    </xs:attributeGroup>
+
+    <xs:element name="lid" doc:klasse="hcontainer">
+        <!-- lid wijkt af qua definitie af van baseHContaineromdat het een expliciet lidnummer heeft - geen extension van baseHContainer en daarom op lokale id -->
+        <!-- lid lijkt in die zin meer op een lijstitem -->
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="lidnr" type="xs:string"/>
+                <xs:element ref="inhoud"/>
+            </xs:sequence>
+            <xs:attributeGroup ref="lid.attlist"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:attributeGroup name="lid.attlist">
+        <xs:attributeGroup ref="idopt"/>
+    </xs:attributeGroup>
+
+    <xs:element name="inhoud" type="blocksopt"/>
+
+    <xs:element name="divisie" doc:klasse="hcontainer">
+        <!--  
+         divisie wordt gepositioneerd als hcontainer. recursie in divisie zelf is nodig omdat er anders geen hierarchie mee kan worden uitgedrukt. divisie kan zelf nooit semantische elementen bevatten, hooguit via citaat (nog uitwerken) 
+         waarden van @soort worden vrijgegeven   
+         het element margetekst (voorheen in divisie) is out-of-line content en moet opgelost worden door een referentie naar het id attribuut van de content container (dus niet de divisie)
+         nieuw: inhoud overgang      
+      -->
+        <xs:complexType>
+            <xs:complexContent>
+                <xs:extension base="baseHContainer">
+                    <xs:choice minOccurs="1">
+                        <xs:element ref="inhoud"/>
+                        <xs:choice maxOccurs="unbounded">
+                            <xs:element ref="divisie"/>
+                        </xs:choice>
+                    </xs:choice>
+                    <xs:attributeGroup ref="attlist-divisie"/>
+
+                </xs:extension>
+            </xs:complexContent>
+
+        </xs:complexType>
+    </xs:element>
+    <xs:attributeGroup name="attlist-divisie">
+        <xs:attribute name="soort" type="xs:NMTOKEN"/>
+    </xs:attributeGroup>
+    <!-- einde hcontainer -->
+
+    <!-- MARKERS -->
+    <xs:complexType name="markeropt">
+        <xs:attributeGroup ref="coreopt"/>
+    </xs:complexType>
+
+    <xs:complexType name="markerreq">
+        <xs:attributeGroup ref="corereq"/>
+    </xs:complexType>
+
+    <xs:element name="br">
+        <xs:complexType/>
+    </xs:element>
+
+    <xs:element name="img">
+        <xs:complexType>
+            <xs:attributeGroup ref="img.attlist"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:attributeGroup name="img.attlist">
+        <xs:attribute name="src" use="required" type="xs:anyURI"/>
+        <xs:attribute name="alt"/>
+    </xs:attributeGroup>
+
+    <xs:complexType name="eolType">
+        <xs:annotation>
+            <xs:documentation>the complex type eolType is shared by eol and eop elements as being
+                able to specify a position within the next word in which the break can happen
+            </xs:documentation>
+        </xs:annotation>
+        <xs:complexContent>
+            <xs:extension base="markeropt">
+                <xs:attribute name="breakat" type="xs:integer"/>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:element name="eop" type="eolType"/>
+
+    <xs:element name="eol" type="eolType"/>
+
+    <xs:element name="nootref">
+        <xs:complexType>
+            <xs:attributeGroup ref="attlist-nootref"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:attributeGroup name="attlist-nootref">
+        <xs:attribute name="refid" type="xs:IDREF" use="required"/>
+    </xs:attributeGroup>
+
+    <xs:element name="marker">
+        <xs:annotation>
+            <xs:documentation>generiek marker element (via @name moet verplicht soort marker worden
+                aangegeven)</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:complexContent>
+                <xs:extension base="markerreq">
+                    <xs:attributeGroup ref="name"/>
+                </xs:extension>
+            </xs:complexContent>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:group name="markerElementen">
+        <xs:choice>
+            <xs:group ref="OPmarker"/>
+            <xs:group ref="HTMLmarker"/>
+            <xs:element ref="marker"/>
+        </xs:choice>
+    </xs:group>
+
+    <xs:group name="OPmarker">
+        <xs:choice>
+            <xs:element ref="eol"/>
+            <xs:element ref="eop"/>
+            <xs:element ref="nootref"/>
+        </xs:choice>
+    </xs:group>
+
+    <xs:group name="HTMLmarker">
+        <xs:choice>
+            <xs:element ref="br"/>
+            <!--<xs:element ref="img"/>-->
+        </xs:choice>
+    </xs:group>
+    <!-- MARKER einde -->
+
+    <!-- POPUP -->
+    <xs:element name="noot">
+        <!-- vgl met authorialNote in AN -->
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="noot.nr" type="xs:string">
+                    <xs:annotation>
+                        <xs:documentation>inline maken??</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:choice maxOccurs="unbounded" minOccurs="0">
+                    <!-- noot.al en noot.lijst (en dus ook noot.li) als specifieke elementen is onnodig; plaatje hoort niet noot.al maar op dit niveau gedefinieerd te worden -->
+                    <!-- omdat er table inzit zou je ook blocks.maximaal kunnen nemen maar deze is wat ruim vergeleken met origineel -->
+                    <xs:element ref="al"/>
+                    <!-- ref al is wel breder dan extref sup nadruk die origineel was toegestaan -->
+                    <xs:element ref="lijst"/>
+                    <!-- toegestane elementen in li binnen lijst alleen al en lijst, dit moet je dus op de een of andere manier kunnen overrulen in een lokale definitie als deze -->
+                    <xs:element ref="table"/>
+                    <xs:element ref="plaatje"/>
+                </xs:choice>
+            </xs:sequence>
+            <xs:attributeGroup ref="noot.attlist"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:attributeGroup name="noot.attlist">
+        <xs:attributeGroup ref="idreq">
+            <xs:annotation>
+                <xs:documentation>Naamgeving systematiek verplicht @id bijvoorbeeld n1; n2;
+                    n3</xs:documentation>
+            </xs:annotation>
+        </xs:attributeGroup>
+        <xs:attribute default="voet" name="type">
+            <xs:simpleType>
+                <xs:restriction base="xs:token">
+                    <xs:enumeration value="voet"/>
+                    <xs:enumeration value="marge"/>
+                    <xs:enumeration value="eind"/>
+                    <xs:enumeration value="tabel"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+    </xs:attributeGroup>
+
+    <xs:element name="popup">
+        <!-- nog invullen -->
+    </xs:element>
+
+    <xs:group name="popupElements">
+        <xs:choice>
+            <xs:element ref="noot"/>
+            <!--<xs:element ref="popup"/>-->
+        </xs:choice>
+    </xs:group>
+
+    <!-- einde POPUP -->
+
+    <!-- DOCTYPE REGELING -->
+    <xs:complexType name="regeling_type">
+        <xs:sequence>
+            <xs:element ref="opschrift" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>onduidelijk of er regelingen bestaan zonder opschrift ??? zo
+                        nee, dan minOccurs verwijderen en check op lege content
+                        inbouwen</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element ref="aanhef"/>
+            <xs:element ref="regeling-tekst"/>
+            <xs:element ref="regeling-sluiting">
+                <xs:annotation>
+                    <xs:documentation>vraag is of dit als verplicht te handhaven valt (in oude gvop
+                        compleet was dit optioneel)</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:choice maxOccurs="unbounded">
+                <xs:element ref="bijlage" minOccurs="0" maxOccurs="unbounded">
+                    <xs:annotation>
+                        <!-- is het nog nodig om een soort introtekst voor bijlagen mogelijk te maken?  -->
+                        <xs:documentation>Het betreft hier de bijlagen die formeel tot de regeling
+                            behoren (zie AvdLR 24). Toelichting, inhoudsopgave etc. zit in
+                            containerelement nawerk (buiten de regeling)</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element ref="nota-toelichting" minOccurs="0">
+                    <xs:annotation>
+                        <xs:documentation>binnen RO is het nodig om nota-toelichting te hebben. voor
+                            nu als choice in regeling gestopt, onduidelijk hoe semantiek hiervan
+                            werkt ivm consolideren
+                            <!-- XSD klopt overigens niet, want nota-toelichting is nu herhaalbaar (nog aanscherpen) -->                            
+                            </xs:documentation>
+                        
+                    </xs:annotation>
+                </xs:element>
+            </xs:choice>
+
+        </xs:sequence>
+        <xs:attributeGroup ref="idreq"/>
+    </xs:complexType>
+
+    <!-- regeling opschrift start -->
+    <xs:element name="opschrift" type="opschrift_type">
+        <xs:annotation>
+            <xs:documentation>Een opschrift is de formele aanduiding zoals gedefinieerd in AvdlR
+                60</xs:documentation>
+            <xs:documentation>Volgens AvdlR 23 is het opschrift onderdeel van de regeling, vandaar
+                dat dit verplaatst is van preceding-sibling tov regeling element naar
+                child</xs:documentation>
+            <xs:documentation>Voorheen was dit element kop, maar om duidelijker onderscheid te
+                krijgen tussen de verschillende koppen hier een meer betekenisvolle naam
+                gegeven</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+
+    <xs:complexType name="opschrift_type">
+        <xs:sequence maxOccurs="1">
+            <xs:element name="al" type="block_met_minimale_inline_marker_popup_als_inhoud"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- regeling aanhef start -->
+    <xs:element name="aanhef" type="aanhefType"/>
+
+    <xs:complexType name="aanhefType">
+        <xs:choice maxOccurs="unbounded">
+            <!--  informeel: opvolging van al's met optioneel beschrijving voor soort / rol 
+               issue: sommige constructies zijn eigenlijk meer containers en lenen zich dus niet voor al
+               issue: noodzaak voor lijst en / of table?
+         -->
+            <xs:element name="al">
+                <xs:complexType>
+                    <xs:complexContent>
+                        <xs:extension base="block_maximaal">
+                            <xs:attribute name="soort">
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:string">
+                                        <xs:enumeration value="aan-wie"/>
+                                        <xs:enumeration value="in-afschrift-aan"/>
+                                        <xs:enumeration value="kenmerk"/>
+                                        <xs:enumeration value="origine"/>
+                                        <xs:enumeration value="datum"/>
+                                        <xs:enumeration value="informatie"/>
+                                        <xs:enumeration value="relatie"/>
+                                        <xs:enumeration value="onbepaald"/>
+                                        <xs:enumeration value="considerans">
+                                            <xs:annotation>
+                                                <xs:documentation>Volgens AvdLR is er wel een
+                                                  mogelijkheid tot een considerans in lokale
+                                                  regelingen</xs:documentation>
+                                            </xs:annotation>
+                                        </xs:enumeration>
+                                        <xs:enumeration value="wie"/>
+                                        <xs:enumeration value="wij"/>
+                                        <xs:enumeration value="afkondiging">
+                                            <xs:annotation>
+                                                <xs:documentation>In 99% vd gevallen is de
+                                                  afkondiging een enkele alinea. In die gevallen
+                                                  waar het er echt twee of meer zijn, moet er maar
+                                                  een br element gebruikt worden (in plaats van twee
+                                                  keer attribuut waarde
+                                                  afkondiging).</xs:documentation>
+                                            </xs:annotation>
+                                        </xs:enumeration>
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:attribute>
+                        </xs:extension>
+                    </xs:complexContent>
+                </xs:complexType>
+            </xs:element>
+            <!-- in uitzonderlijke gevallen zou je ook een lijst moeten kunnen gebruiken of een al-groep (table lijkt niet nodig; tussenkop is ongewenst -->
+            <xs:element ref="lijst"/>
+            <xs:element ref="al-groep"/>
+        </xs:choice>
+        <xs:attributeGroup ref="aanhef.attlist"/>
+    </xs:complexType>
+
+    <xs:attributeGroup name="aanhef.attlist">
+        <xs:attributeGroup ref="coreopt"/>
+    </xs:attributeGroup>
+    <!-- regeling aanhef einde -->
+
+    <!-- regeling-tekst start -->
+    <xs:element name="regeling-tekst">
+        <xs:complexType>
+            <xs:choice>
+                <xs:choice maxOccurs="unbounded" minOccurs="0">
+                    <xs:element ref="hoofdstuk"/>
+                    <xs:element ref="paragraaf"/>
+                    <xs:element ref="artikel"/>
+                    <xs:element ref="wijzig-artikel"/>
+                </xs:choice>
+                <xs:element ref="inhoud"/>
+                <!-- issue: hier divisie toestaan? Die zit niet standaard in blocksopt. Zie bv cvdr 424/157492_1.xml voor relevant voorbeeld -->
+            </xs:choice>
+            <xs:attributeGroup ref="idreq"/>
+        </xs:complexType>
+    </xs:element>
+    <!-- regeling-tekst einde -->
+
+    <!-- regeling-sluiting start -->
+    <!-- 
+      overgang naar een simpeler model voor alle sluitingen (regeling-sluiting / nota-toelichting / bijlage)
+      in principe gewoon opvolging van al's met optioneel rol attribuut voor vormgeving lijkt genoeg
+      
+      in hoeverre ondertekening beter als container kan worden gedaan is discussiepunt (in gvop oud en op is het mixed en dat is sowieso fout omdat het twee blocks bevat) maar verder wel nuttig. 
+      Er is echter wel iets nodig om extra witruimte voor en na ondertekeningsblok te maken, dus toch een container met alleen al blocks
+
+      slotformulering/lijst of slotformulering/al-groep is nog nooit gebruikt en wordt dus verwijderd 
+   -->
+
+    <xs:complexType name="inlines_in_sluiting" mixed="true">
+        <xs:annotation>
+            <xs:documentation>in een sluiting mogen alineas voorkomen met een beperktere inline
+                content. Hiervoor wordt eerst een complexType gedefinieerd dat vervolgens gebruikt
+                wordt door het (lokale) al element</xs:documentation>
+        </xs:annotation>
+        <xs:choice maxOccurs="unbounded" minOccurs="0">
+            <xs:group ref="inline.op.algemeen"/>
+            <!-- basisdingen als inf sup + noot -->
+            <xs:element ref="nootref"/>
+            <!-- nootref (marker) zit niet meer in inlines (wel in InlineCM.maximaal) maar dan krijg je een te uitgebreide inline set -->
+            <!-- en dan de sluiting-specifieke elementen -->
+            <xs:group ref="sluiting_inlines"/>
+        </xs:choice>
+    </xs:complexType>
+
+    <xs:group name="sluiting_inlines">
+        <!-- het is het overwegen waard om datum en plaats als generieke inlines toe te staan (dus overal) maar dat zou nadelig kunnen zijn bij het contextueel editen in Xopus (teveel keuzes)  -->
+        <xs:choice>
+            <xs:element name="plaats" type="xs:string"/>
+            <xs:element ref="datum"/>
+            <xs:element name="naam" type="xs:string"/>
+        </xs:choice>
+    </xs:group>
+
+    <xs:element name="datum">
+        <xs:complexType>
+            <xs:complexContent mixed="true">
+                <xs:extension base="block_met_minimale_inline_als_inhoud">
+                    <xs:attributeGroup ref="datum.attlist"/>
+                </xs:extension>
+            </xs:complexContent>
+        </xs:complexType>
+    </xs:element>
+    <xs:attributeGroup name="datum.attlist">
+        <xs:attribute name="isodatum" use="required" type="xs:date"/>
+    </xs:attributeGroup>
+
+    <!-- al typen voor sluiting; geen uitlijning met spaties!! 2015-01-30 optional dot added-->
+    <xs:simpleType name="string_with_single_whitespace">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="(\w+(\s\w+\.?)*)"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:complexType name="al_in_sluiting">
+        <!-- let op: in dit model mogen dus GEEN inlines voorkomen (sup; nadruk; etc.). Dit is mogelijk te restrictief! -->
+        <xs:simpleContent>
+            <xs:extension base="string_with_single_whitespace">
+                <xs:attribute name="rol">
+                    <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                            <xs:enumeration value="slotformulering"/>
+                            <xs:enumeration value="gegeven"/>
+                            <xs:enumeration value="goedkeuring"/>
+                            <xs:enumeration value="dagtekening"/>
+                            <xs:enumeration value="dagtekening_plaats"/>
+                            <xs:enumeration value="dagtekening_datum"/>
+                            <!-- ondertekening loopt via element hieronder -->
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:attribute>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+
+    <xs:complexType name="sluiting">
+        <!-- sluiting complexType is gelijkgetrokken voor regeling-sluiting; bijlage-sluiting; nota-toelichting-sluiting -->
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <!-- hier zit je met het issue dat je eigenlijk alleen al elementen wilt maar toch ook ondertekening blok wilt kunnen honoreren (ongewenste mix van container en block elementen) -->
+            <!-- het veelgebruikte model van twee ondertekeningen naast elkaar in de output suggereert een tabel maar dat is ongewenst (het zijn twee blokken die in de vormgeving naast elkaar geplaatst moeten worden, desnoods met een tabel zoals in HTML) -->
+            <xs:element name="al" type="al_in_sluiting"/>
+            <xs:element name="al-groep">
+                <!-- hiermee wordt het mogelijk om toch enige groepering aan te brengen zoals bij
+          <al-groep>
+            <al>De burgemeester</al>
+            <al>Van Drammenstein</al>
+          </al-groep>          
+        -->
+                <xs:complexType>
+                    <xs:choice maxOccurs="unbounded">
+                        <xs:element name="al" type="al_in_sluiting"/>
+                    </xs:choice>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="ondertekening">
+                <xs:annotation>
+                    <xs:documentation>In afwijking tot de andere onderdelen van sluiting is
+                        ondertekening een container</xs:documentation>
+                </xs:annotation>
+                <xs:complexType>
+                    <xs:choice maxOccurs="unbounded">
+                        <xs:element name="al">
+                            <!-- lokale definitie van al is voldoende als inhoud voor ondertekening blok -->
+                            <xs:complexType>
+                                <xs:complexContent>
+                                    <xs:extension base="inlines_in_sluiting">
+                                        <xs:attribute name="rol">
+                                            <xs:simpleType>
+                                                <xs:restriction base="xs:string">
+                                                  <xs:enumeration value="naam"/>
+                                                  <xs:enumeration value="functie"/>
+                                                  <xs:enumeration value="organisatie"/>
+                                                </xs:restriction>
+                                            </xs:simpleType>
+                                        </xs:attribute>
+                                    </xs:extension>
+                                </xs:complexContent>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:choice>
+                </xs:complexType>
+            </xs:element>
+        </xs:choice>
+    </xs:complexType>
+
+    <xs:element name="regeling-sluiting">
+        <xs:complexType>
+            <xs:complexContent>
+                <xs:extension base="sluiting">
+                    <xs:attributeGroup ref="regeling-sluiting.attlist"/>
+                </xs:extension>
+            </xs:complexContent>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:attributeGroup name="regeling-sluiting.attlist">
+        <xs:attributeGroup ref="idopt"/>
+        <xs:attributeGroup ref="op"/>
+    </xs:attributeGroup>
+
+    <!-- regeling-sluiting einde -->
+
+    <!-- bijlage start -->
+    <xs:element name="bijlage" type="bijlage_type"/>
+
+    <xs:complexType name="bijlage_type">
+        <!-- todo: in typestructuur inpassen -->
+        <!-- allerlei semantische elementen als in oep worden hier NIET toegestaan: of inhoud (met table al) of divisie (generieke hcontainer limitatie) -->
+        <xs:sequence>
+            <xs:element ref="kop" minOccurs="0"/>
+            <xs:choice>
+                <xs:element ref="inhoud"/>
+                <xs:element ref="divisie" maxOccurs="unbounded"/>
+                <!-- maxOccurs toegevoegd -->
+            </xs:choice>
+            <xs:element name="bijlage-sluiting" type="sluiting" minOccurs="0"/>
+        </xs:sequence>
+        <xs:attributeGroup ref="bijlage.attlist"/>
+    </xs:complexType>
+    <xs:attributeGroup name="bijlage.attlist">
+        <xs:attributeGroup ref="coreopt"/>
+        <xs:attribute name="startpagina-div">
+            <xs:simpleType>
+                <xs:restriction base="xs:token">
+                    <xs:enumeration value="nieuw"/>
+                    <xs:enumeration value="oneven"/>
+                    <xs:enumeration value="even"/>
+                    <xs:enumeration value="huidig"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+    </xs:attributeGroup>
+
+    <!--  <xs:element name="bijlage-sluiting" type="sluiting"/>-->
+    <!-- bijlage einde -->
+
+    <!-- NAWERK (nota-toelichting, officiele inhoudsopgave, tekst als bezwaarschrift etc.) -->
+    <xs:complexType name="nawerk_type">
+        <xs:annotation>
+            <xs:documentation>hier komen nota-toelichting, inhoudsopgave etc. (onderdelen die niet
+                tot de regeling behoren) (zie AvdLR 23 en 24). als niet relevant dan blijft dit
+                element leeg</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:group ref="nawerk_group" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:group name="nawerk_group">
+        <xs:choice>
+            <xs:element ref="nota-toelichting"/>
+            <xs:element ref="officiele-inhoudsopgave">
+                <xs:annotation>
+                    <xs:documentation>Volgens de Aanwijzingen voor de regelgeving is een
+                        officiele-inhoudsopgave GEEN onderdeel van de regeling</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element ref="bijlage">
+                <xs:annotation>
+                    <xs:documentation>Voor bijlagen die formeel geen onderdeel van de regeling
+                        zijn</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="inhoud">
+                <!-- generieke container met verplicht gebruik van soort attribuut-->
+                <xs:complexType>
+                    <xs:complexContent>
+                        <xs:extension base="blocksopt">
+                            <xs:attribute name="soort" use="required">
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:string">
+                                        <xs:enumeration value="bezwaarschrift">
+                                            <xs:annotation>
+                                                <xs:documentation>Bij lokale regelgeving wordt dit
+                                                  niet aangeraden maar als het dan moet dan in ieder
+                                                  geval niet in de regeling (zie oa AvdlR
+                                                  93)</xs:documentation>
+                                                <xs:documentation>Bij nationale regelgeving wordt
+                                                  dit wel gebruikt maar met een raar out-of-line
+                                                  contentmodel (met behulp van eigen element
+                                                  bezwaarschrift en attribuut @locatie
+                                                  ("voor-sluiting" | "na-sluiting"))
+                                                </xs:documentation>
+                                            </xs:annotation>
+                                        </xs:enumeration>
+                                        <xs:enumeration value="voorblad">
+                                            <!-- hiermee zou je dingen kunnen doen als:
+                                    
+                                    BIJLAGEN BEHOREND BIJ 
+                                    VERORDENING
+                                    VAN UTRECHT 201
+                                    3, NR. 33
+                                    <al>Bijlagen 1 t/m 6</al>
+                                    <al>VERVALLEN</al>
+                                 -->
+                                        </xs:enumeration>
+                                        <xs:enumeration value="geschiedenis">
+                                            <xs:annotation>
+                                                <xs:documentation>Zie bv gmb-2013-91 (tekst na
+                                                  sluiting)
+                                                  <!-- Afkondiging van de verordening is geschied op 3 februari 1993, zodat deze verordening in werking is
+                                          getreden op 6 februari 1993. </nadruk>
+                                          </al>
+                                          <al>
+                                          <nadruk type="vet">Publicatie van de tweede wijziging is geschied op 17 juli 1996, zodat deze in werking is getreden op 25
+                                          juli 1996.</nadruk>
+                                          </al>
+                                          <al>
+                                          <nadruk type="vet">De derde wijziging is in werking getreden op 6 februari 1998.</nadruk>
+                                          </al>
+                                          -->
+                                                </xs:documentation>
+                                            </xs:annotation>
+                                        </xs:enumeration>
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:attribute>
+                        </xs:extension>
+                    </xs:complexContent>
+                </xs:complexType>
+            </xs:element>
+        </xs:choice>
+    </xs:group>
+
+    <xs:element name="nota-toelichting">
+        <!-- nota toelichting is qua aanpak gelijk aan bijlage -->
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" ref="kop"/>
+                <xs:choice>
+                    <xs:element ref="inhoud"/>
+                    <xs:element ref="divisie"/>
+                </xs:choice>
+                <xs:element ref="nota-toelichting-sluiting" minOccurs="0">
+                    <!-- dit is een wijziging tov oep (en dus ook gvop). Deze oplossing leidt tot een consistenter geheel (hergebruik sluiting complexType en sluit aan op een (terechte) wens van Sdu -->
+                </xs:element>
+                <xs:element maxOccurs="unbounded" minOccurs="0" ref="bijlage"/>
+            </xs:sequence>
+            <!-- @id ingevoegd -->
+            <xs:attribute name="id"/>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="nota-toelichting-sluiting" type="sluiting"/>
+
+    <xs:element name="officiele-inhoudsopgave">
+        <!-- todo: type van maken -->
+        <!-- eigenlijk is de AN oplossing met @level veel netter maar nu ff een brug te ver -->
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="kop" minOccurs="0"/>
+                <xs:choice>
+                    <xs:element ref="table"/>
+                    <xs:element ref="al" maxOccurs="unbounded"/>
+                </xs:choice>
+            </xs:sequence>
+            <xs:attributeGroup ref="officiele-inhoudsopgave.attlist"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:attributeGroup name="officiele-inhoudsopgave.attlist">
+        <xs:attributeGroup ref="idopt"/>
+        <xs:attributeGroup ref="op"/>
+    </xs:attributeGroup>
+    <!-- NAWERK einde -->
+
+    <!-- GEDEELDE ELEMENTEN -->
+    <xs:element name="bron">
+        <!-- let op: dit is veel ruimer dan origineel want daarin mocht alleen al -->
+        <!-- bron is een container omdat er vaak meer dan 1 al wordt gebruikt -->
+        <xs:complexType>
+            <xs:complexContent>
+                <xs:extension base="blocksopt">
+                    <xs:attributeGroup ref="bron.attlist"/>
+                </xs:extension>
+            </xs:complexContent>
+        </xs:complexType>
+    </xs:element>
+    <xs:attributeGroup name="bron.attlist"> </xs:attributeGroup>
+
+    <xs:element name="citaat">
+        <!-- container -->
+        <!-- vergelijken met quotedStructure van AN: zou goed zijn om te splitsen in citaat (algemeen) en citaat (structuur) waarbij je in de laatste hele artikel fragmenten etc kan plaatsen -->
+        <xs:complexType>
+            <xs:choice maxOccurs="unbounded" minOccurs="0">
+                <xs:group ref="blocks.minimaal"/>
+            </xs:choice>
+            <xs:attributeGroup ref="citaat.attlist"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:attributeGroup name="citaat.attlist">
+        <xs:attributeGroup ref="coreopt"/>
+        <xs:attribute name="bron"/>
+        <xs:attribute name="url"/>
+        <xs:attribute name="auteur"/>
+    </xs:attributeGroup>
+
+    <xs:element name="extref" doc:klasse="inline">
+        <xs:complexType>
+            <xs:complexContent>
+                <!-- mixed via block_minimaal -->
+                <xs:extension base="block_met_minimale_inline_als_inhoud">
+                    <xs:attributeGroup ref="attlist-extref"/>
+                </xs:extension>
+            </xs:complexContent>
+        </xs:complexType>
+    </xs:element>
+    <xs:attributeGroup name="attlist-extref">
+        <xs:attribute name="doc" use="required"/>
+        <xs:attribute name="struct"/>
+        <xs:attribute name="beschrijving"/>
+        <xs:attribute name="label"/>
+        <xs:attribute name="soort">
+            <xs:simpleType>
+                <xs:restriction base="xs:token">
+                    <xs:enumeration value="URL"/>
+                    <xs:enumeration value="document"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+    </xs:attributeGroup>
+
+    <xs:element name="intref" doc:klasse="inline">
+        <xs:complexType>
+            <xs:complexContent>
+                <!-- mixed via block_minimaal -->
+                <xs:extension base="block_met_minimale_inline_als_inhoud">
+                    <xs:attributeGroup ref="attlist-intref"/>
+                </xs:extension>
+            </xs:complexContent>
+        </xs:complexType>
+    </xs:element>
+    <xs:attributeGroup name="attlist-intref">
+        <!-- de oude cvdr attributen struct, beschrijving, label werden nooit gebruikt. doc is hernoemd naar idref wat beter de bedoeling aangeeft -->
+        <xs:attribute name="idref" use="required"/>
+    </xs:attributeGroup>
+
+    <!-- LIJST -->
+    <xs:element name="lijst">
+        <xs:complexType>
+            <xs:sequence>
+                <!-- Deze ook naar blocks.aanhef ??? -->
+                <xs:element name="aanhef" type="al_complextype" minOccurs="0">
+                    <xs:annotation>
+                        <xs:documentation>Dit betreft maximaal 1 al die in de praktijk altijd
+                            eindigt op ":"</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element maxOccurs="unbounded" ref="li"/>
+                <xs:element name="sluiting" type="al_complextype" minOccurs="0">
+                    <xs:annotation>
+                        <xs:documentation>Dit betreft maximaal 1 al die logisch gezien bij de lijst
+                            hoort</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+            </xs:sequence>
+            <xs:attributeGroup ref="attlist-lijst"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:attributeGroup name="attlist-lijst">
+        <xs:attributeGroup ref="coreopt"/>
+        <!-- attributen verwijderd -->
+        <!-- type attribuut moet worden gerepliceerd door hardcoded in li.nr de waarde in te vullen -->
+    </xs:attributeGroup>
+
+    <xs:element name="li">
+        <!-- ?vertypificeren? -->
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="li.nr">
+                    <xs:annotation>
+                        <xs:documentation>in het verleden was dit optioneel maar in de paar gevallen
+                            dat het element ontbrak was er duidelijk sprake van een
+                            fout</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <!-- je zou er ook voor kunnen kiezen om alle li content in een inhoud block te stoppen -->
+                <xs:group maxOccurs="unbounded" ref="blocks.maximaal"/>
+            </xs:sequence>
+            <xs:attributeGroup ref="attlist-li"/>
+            <!-- custom hack -->
+            <xs:attribute name="property"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:attributeGroup name="attlist-li">
+        <xs:attributeGroup ref="idopt"/>
+        <!-- attribuut waarde verwijderd (nooit gebruikt) -->
+    </xs:attributeGroup>
+
+    <xs:element name="definitielijst">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element maxOccurs="unbounded" ref="definitie-item"/>
+            </xs:sequence>
+            <xs:attributeGroup ref="definitielijst.attlist"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:attributeGroup name="definitielijst.attlist">
+        <xs:attributeGroup ref="idopt"/>
+        <xs:attribute name="plaatsing">
+            <xs:simpleType>
+                <xs:restriction base="xs:token">
+                    <xs:enumeration value="tabel"/>
+                    <xs:enumeration value="inline"/>
+                    <xs:enumeration value="tekst"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <!-- diverse attributen verwijderd -->
+        <!-- type is altijd expliciet of ongemarkeerd en het verschil tussen beide is onduidelijk -->
+    </xs:attributeGroup>
+
+    <xs:element name="definitie-item">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="li.nr"/>
+                <!-- deze komt vaak voor zonder li.nr dus optioneel laten -->
+                <xs:element ref="term"/>
+                <xs:element ref="definitie"/>
+            </xs:sequence>
+            <xs:attributeGroup ref="attlist-definitie-item"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:attributeGroup name="attlist-definitie-item">
+        <xs:attributeGroup ref="coreopt"/>
+    </xs:attributeGroup>
+
+    <xs:element name="term">
+        <xs:complexType mixed="true">
+            <xs:choice maxOccurs="unbounded" minOccurs="0">
+                <xs:group ref="inlineCM.maximaal"/>
+            </xs:choice>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="definitie">
+        <!-- recursieve definitielijsten als in stcrt-2012-4242 zijn niet de bedoeling -->
+        <xs:complexType>
+            <xs:choice maxOccurs="unbounded">
+                <xs:element ref="al"/>
+                <xs:element ref="lijst"/>
+            </xs:choice>
+        </xs:complexType>
+    </xs:element>
+    <!-- LIJST einde -->
+
+    <!-- INLINES -->
+    <!-- inf en sup zijn "kale" inlines (kunnen alleen tekst bevatten); nadruk is een "rijke" inline (mixed) -->
+    <xs:element name="inf" type="xs:string" doc:klasse="inline_minimaal"/>
+
+    <xs:element name="sup" type="xs:string" doc:klasse="inline_minimaal"/>
+
+    <xs:element name="nadruk" doc:klasse="inline_algemeen">
+        <xs:complexType mixed="true">
+            <xs:choice maxOccurs="unbounded" minOccurs="0">
+                <xs:group ref="inlineCM.minimaal">
+                    <xs:annotation>
+                        <xs:documentation>bevat inline minimaal, marker en popup</xs:documentation>
+                    </xs:annotation>
+                </xs:group>
+            </xs:choice>
+            <xs:attributeGroup ref="attlist-nadruk"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:attributeGroup name="attlist-nadruk">
+        <xs:attribute name="type" type="opmaak_waarden" use="required"/>
+        <xs:attributeGroup ref="style"/>
+    </xs:attributeGroup>
+
+    <!-- inline groepen -->
+    <xs:group name="inline.op.minimaal">
+        <!-- ontbreekt: omissie ovl unl -->
+        <xs:choice>
+            <xs:element ref="inf"/>
+            <xs:element ref="nadruk"/>
+            <xs:element ref="sup"/>
+        </xs:choice>
+    </xs:group>
+
+    <xs:group name="inline.op.algemeen">
+        <xs:choice>
+            <xs:group ref="inline.op.minimaal">
+                <xs:annotation>
+                    <xs:documentation>niet: aanhaling afk cit dfn</xs:documentation>
+                </xs:annotation>
+            </xs:group>
+            <!--<xs:element ref="noot"><!-\- dit is eigenlijk out-of-line content -\-></xs:element>-->
+            <!-- nootref verplaatst naar marker -->
+        </xs:choice>
+    </xs:group>
+
+    <xs:group name="inline.op.maximaal">
+        <!-- ontbreekt: extref-groep indexterm intref-groep dossierref -->
+        <xs:choice>
+            <xs:group ref="inline.op.algemeen"/>
+            <xs:element ref="extref"/>
+            <xs:element ref="intref"/>
+        </xs:choice>
+    </xs:group>
+
+    <xs:group name="inlineCM.minimaal">
+        <!-- waar inline mag, is ook altijd marker toegestaan: dit is de variant met minimale inline, en volledige marker -->
+        <!-- gebruiker van deze groep doet minOccurs / maxOccurs -->
+        <xs:choice>
+            <xs:group ref="inline.op.minimaal"/>
+            <xs:group ref="markerElementen"/>
+            <xs:group ref="popupElements"/>
+        </xs:choice>
+    </xs:group>
+
+    <xs:group name="inlineCM.maximaal">
+        <!-- waar inline mag, is ook altijd marker toegestaan: dit is de variant met maximale inline, en volledige marker -->
+        <!-- gebruiker van deze groep doet minOccurs / maxOccurs -->
+        <xs:choice>
+            <xs:group ref="inline.op.maximaal"/>
+            <xs:group ref="markerElementen"/>
+            <xs:group ref="popupElements"/>
+        </xs:choice>
+    </xs:group>
+
+    <!-- AN heeft ook zoiets als "inline containers" bv een mref is daar een verzameling ref. Die mref is een inline omdat je 'm kan gebruiken op alle plaatsen waar inline mogelijk is maar zelf is het eigenlijk een container -->
+
+    <!-- BLOCKS -->
+    <!-- contentmodel van blocks -->
+    <xs:complexType name="block_met_minimale_inline_als_inhoud" mixed="true">
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:group ref="inline.op.minimaal"/>
+        </xs:choice>
+        <xs:attributeGroup ref="coreopt"/>
+    </xs:complexType>
+
+    <xs:complexType name="block_met_minimale_inline_marker_popup_als_inhoud" mixed="true">
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:group ref="inlineCM.minimaal"/>
+        </xs:choice>
+        <xs:attributeGroup ref="coreopt"/>
+    </xs:complexType>
+
+
+    <xs:complexType name="block_maximaal" mixed="true">
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:group ref="inlineCM.maximaal"/>
+            <!-- toevoeging hack voor waarde element -->
+            <xs:sequence>
+                <xs:element ref="waarde"/>
+            </xs:sequence>
+
+        </xs:choice>
+        <xs:attributeGroup ref="coreopt"/>
+    </xs:complexType>
+
+    <!-- instances van blocks -->
+    <xs:element name="al" type="al_complextype"/>
+
+    <xs:complexType mixed="true" name="al_complextype">
+        <xs:complexContent>
+            <xs:extension base="block_maximaal">
+                <xs:attributeGroup ref="al.attlist"/>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:attributeGroup name="al.attlist">
+        <xs:attribute default="default" name="opmaak">
+            <xs:simpleType>
+                <xs:restriction base="xs:token">
+                    <xs:enumeration value="default"/>
+                    <xs:enumeration value="niet-inspringen"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="type" type="opmaak_waarden"/>
+        <xs:attribute default="default" name="align">
+            <xs:simpleType>
+                <xs:restriction base="xs:token">
+                    <xs:enumeration value="default"/>
+                    <xs:enumeration value="centreren"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <!-- custom -->
+        <xs:attribute name="property"/>
+        <xs:attribute name="about"/>
+    </xs:attributeGroup>
+
+    <xs:element name="bijschrift">
+        <xs:complexType>
+            <xs:complexContent mixed="true">
+                <xs:extension base="block_met_minimale_inline_als_inhoud">
+                    <xs:attributeGroup ref="bijschrift.attlist"/>
+                </xs:extension>
+            </xs:complexContent>
+        </xs:complexType>
+    </xs:element>
+    <xs:attributeGroup name="bijschrift.attlist">
+        <xs:attribute default="onder" name="locatie">
+            <!-- is dit niet iets om door het stylesheet te laten bepalen???? -->
+            <xs:simpleType>
+                <xs:restriction base="xs:token">
+                    <xs:enumeration value="boven"/>
+                    <xs:enumeration value="onder"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+    </xs:attributeGroup>
+
+    <!-- TABLE (block) start -->
+    <!-- hier kunnen nog wel wat attributen weg -->
+    <!-- wens: keuze op hoogste niveau tussen table CALS en table HTML. ze hebben hetzelfde root element dus je moet iets anders verzinnen -->
+    <xs:element name="table">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element maxOccurs="unbounded" minOccurs="0" ref="title"/>
+                <xs:element maxOccurs="unbounded" ref="tgroup"/>
+                <xs:element minOccurs="0" ref="bron"/>
+            </xs:sequence>
+            <xs:attributeGroup ref="table.attlist"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:attributeGroup name="table.attlist">
+        <xs:attributeGroup ref="idopt"/>
+        <xs:attribute name="colsep" type="xs:NMTOKEN"/>
+        <xs:attribute name="rowsep" type="xs:NMTOKEN"/>
+        <xs:attribute name="tabstyle" type="xs:NMTOKEN"/>
+        <!-- was enumeration -->
+        <xs:attribute name="summary"/>
+        <xs:attribute name="frame">
+            <xs:simpleType>
+                <xs:restriction base="xs:token">
+                    <xs:enumeration value="top"/>
+                    <xs:enumeration value="bottom"/>
+                    <xs:enumeration value="topbot"/>
+                    <xs:enumeration value="all"/>
+                    <xs:enumeration value="sides"/>
+                    <xs:enumeration value="none"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="tabeltype"/>
+        <xs:attribute default="no" name="tablebreak">
+            <xs:simpleType>
+                <xs:restriction base="xs:token">
+                    <xs:enumeration value="yes"/>
+                    <xs:enumeration value="no"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+    </xs:attributeGroup>
+
+    <xs:element name="entry">
+        <xs:complexType>
+            <xs:choice maxOccurs="unbounded" minOccurs="0">
+                <xs:group ref="blocks.algemeen"/>
+                <!-- dit is ruimer (alle blocks behalve table) omwille vd consistentie -->
+            </xs:choice>
+            <xs:attributeGroup ref="entry.attlist"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:attributeGroup name="entry.attlist">
+        <xs:attribute name="id" type="xs:ID"/>
+        <xs:attribute name="colname" type="xs:NMTOKEN"/>
+        <xs:attribute name="colsep" type="xs:NMTOKEN"/>
+        <xs:attribute default="0" name="morerows" type="xs:NMTOKEN"/>
+        <xs:attribute name="nameend" type="xs:NMTOKEN"/>
+        <xs:attribute name="namest" type="xs:NMTOKEN"/>
+        <xs:attribute default="0" name="rotate" type="xs:NMTOKEN"/>
+        <xs:attribute name="rowsep" type="xs:NMTOKEN"/>
+        <xs:attribute name="valign">
+            <xs:simpleType>
+                <xs:restriction base="xs:token">
+                    <xs:enumeration value="top"/>
+                    <xs:enumeration value="middle"/>
+                    <xs:enumeration value="bottom"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="align">
+            <xs:simpleType>
+                <xs:restriction base="xs:token">
+                    <xs:enumeration value="left"/>
+                    <xs:enumeration value="right"/>
+                    <xs:enumeration value="center"/>
+                    <xs:enumeration value="justify"/>
+                    <xs:enumeration value="char"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="thscope">
+            <xs:simpleType>
+                <xs:restriction base="xs:token">
+                    <xs:enumeration value="row"/>
+                    <xs:enumeration value="col"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="abbr"/>
+        <xs:attribute name="headers"/>
+        <xs:attributeGroup ref="style"/>
+        <!-- aloude kleur-lijn-entity / kleur-font-entity / kleur-achtergrond-entity MOET opgelost worden via CSS waarden in style attribuut -->
+    </xs:attributeGroup>
+
+    <xs:element name="row">
+        <xs:complexType>
+            <xs:choice maxOccurs="unbounded">
+                <xs:element ref="entry"/>
+            </xs:choice>
+            <xs:attributeGroup ref="attlist-row"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:attributeGroup name="attlist-row">
+        <xs:attribute name="id" type="xs:ID"/>
+        <xs:attribute name="rowsep" type="xs:NMTOKEN"/>
+        <xs:attribute name="valign">
+            <xs:simpleType>
+                <xs:restriction base="xs:token">
+                    <xs:enumeration value="top"/>
+                    <xs:enumeration value="middle"/>
+                    <xs:enumeration value="bottom"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <!--<xs:attribute name="pdf-background-color"/> deprecated -->
+        <xs:attributeGroup ref="style"/>
+        <!-- kleur-lijn-entity / kleur-font-entity / kleur-achtergrond-entity MOET opgelost worden via CSS waarden in style attribuut -->
+    </xs:attributeGroup>
+
+    <xs:element name="tbody">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element maxOccurs="unbounded" ref="row"/>
+            </xs:sequence>
+            <xs:attributeGroup ref="attlist-tbody"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:attributeGroup name="attlist-tbody">
+        <xs:attribute name="id" type="xs:ID"/>
+        <xs:attribute default="top" name="valign">
+            <xs:simpleType>
+                <xs:restriction base="xs:token">
+                    <xs:enumeration value="top"/>
+                    <xs:enumeration value="middle"/>
+                    <xs:enumeration value="bottom"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="style"/>
+    </xs:attributeGroup>
+
+    <xs:element name="tgroup">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element maxOccurs="unbounded" minOccurs="0" ref="colspec"/>
+                <xs:element minOccurs="0" ref="thead"/>
+                <xs:element ref="tbody"/>
+            </xs:sequence>
+            <xs:attributeGroup ref="attlist-tgroup"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:attributeGroup name="attlist-tgroup">
+        <xs:attribute name="id" type="xs:ID"/>
+        <xs:attribute name="cols" type="xs:NMTOKEN" use="required"/>
+        <xs:attribute name="colsep" type="xs:NMTOKEN"/>
+        <xs:attribute name="rowsep" type="xs:NMTOKEN"/>
+        <xs:attribute default="" name="char"/>
+        <xs:attribute default="50" name="charoff" type="xs:NMTOKEN"/>
+        <xs:attribute default="left" name="align">
+            <xs:simpleType>
+                <xs:restriction base="xs:token">
+                    <xs:enumeration value="left"/>
+                    <xs:enumeration value="right"/>
+                    <xs:enumeration value="center"/>
+                    <xs:enumeration value="justify"/>
+                    <xs:enumeration value="char"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+    </xs:attributeGroup>
+
+    <xs:element name="thead">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element maxOccurs="unbounded" ref="row"/>
+            </xs:sequence>
+            <xs:attributeGroup ref="attlist-thead"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:attributeGroup name="attlist-thead">
+        <xs:attribute name="id" type="xs:ID"/>
+        <xs:attribute default="bottom" name="valign">
+            <xs:simpleType>
+                <xs:restriction base="xs:token">
+                    <xs:enumeration value="top"/>
+                    <xs:enumeration value="middle"/>
+                    <xs:enumeration value="bottom"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:attributeGroup ref="style"/>
+        <!-- aloude kleur-lijn-entity / kleur-font-entity / kleur-achtergrond-entity MOET opgelost worden via CSS waarden in style attribuut -->
+    </xs:attributeGroup>
+
+    <xs:element name="title">
+        <xs:complexType mixed="true">
+            <xs:choice maxOccurs="unbounded" minOccurs="0">
+                <xs:element ref="nadruk"/>
+                <xs:element ref="sup"/>
+                <xs:element ref="inf"/>
+                <xs:element ref="noot"/>
+                <xs:element ref="br"/>
+            </xs:choice>
+            <xs:attributeGroup ref="attlist-title"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:attributeGroup name="attlist-title">
+        <xs:attributeGroup ref="style"/>
+        <!-- aloude kleur-font-entity / kleur-achtergrond-entity MOET opgelost worden via CSS waarden in style attribuut -->
+        <xs:attribute name="kopopmaak" type="opmaak_waarden"/>
+    </xs:attributeGroup>
+
+    <xs:element name="colspec">
+        <xs:complexType>
+            <xs:attributeGroup ref="attlist-colspec"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:attributeGroup name="attlist-colspec">
+        <xs:attribute name="colname" type="xs:NMTOKEN"/>
+        <xs:attribute name="colnum" type="xs:NMTOKEN"/>
+        <xs:attribute name="colwidth"/>
+        <xs:attribute name="align">
+            <xs:simpleType>
+                <xs:restriction base="xs:token">
+                    <xs:enumeration value="left"/>
+                    <xs:enumeration value="right"/>
+                    <xs:enumeration value="center"/>
+                    <xs:enumeration value="justify"/>
+                    <xs:enumeration value="char"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:attributeGroup ref="style"/>
+        <!--<xs:attribute name="pdf-colwidth"/> deprecated-->
+        <!--<xs:attribute name="pdf-background-color"/> deprecated -->
+        <!-- aloude kleur-lijn-entity / kleur-font-entity / kleur-achtergrond-entity MOET opgelost worden via CSS waarden in style attribuut -->
+    </xs:attributeGroup>
+    <!-- TABLE einde -->
+
+    <!-- KOP start -->
+    <xs:element name="kop" type="kop_complextype" doc:klasse="container"
+        ><!-- dit is het generieke kop type. in lokale contexten kan het nodig zijn om dit aan te scherpen -->
+    </xs:element>
+
+    <xs:complexType name="kop_complextype">
+        <xs:sequence>
+            <xs:choice minOccurs="0">
+                <xs:sequence>
+                    <xs:element ref="label"/>
+                    <xs:element minOccurs="0" ref="nr"/>
+                </xs:sequence>
+                <xs:sequence>
+                    <xs:element ref="nr"/>
+                    <xs:element minOccurs="0" ref="label"/>
+                </xs:sequence>
+            </xs:choice>
+            <xs:element minOccurs="0" ref="titel"/>
+            <xs:element maxOccurs="3" minOccurs="0" ref="subtitel"/>
+        </xs:sequence>
+        <xs:attributeGroup ref="kop.attlist"/>
+    </xs:complexType>
+    <xs:attributeGroup name="kop.attlist">
+        <xs:attributeGroup ref="idopt"/>
+        <xs:attribute name="kopopmaak">
+            <!-- legacy element: de vormgeving heeft hier eigenlijk geen plaats, misschien wel in sommige contexten (alleen divisie bijvoorbeeld). verwijderen??-->
+            <xs:simpleType>
+                <xs:restriction base="xs:token">
+                    <xs:enumeration value="vet"/>
+                    <xs:enumeration value="cur"/>
+                    <xs:enumeration value="ondlijn"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:attributeGroup ref="style"/>
+        <!-- aloude kleur-font-entity  MOET opgelost worden via CSS waarden in style attribuut -->
+    </xs:attributeGroup>
+
+    <xs:element name="nr" type="block_maximaal"/>
+
+    <xs:element name="label" type="block_maximaal"/>
+
+    <xs:element name="subtitel" type="block_maximaal"/>
+
+    <xs:element name="titel" type="block_maximaal"/>
+    <!-- KOP einde -->
+
+    <xs:element name="tekst">
+        <xs:complexType>
+            <xs:choice>
+                <xs:group ref="blocks.maximaal"/>
+            </xs:choice>
+            <xs:attributeGroup ref="attlist-tekst"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:attributeGroup name="attlist-tekst">
+        <xs:attribute name="id" type="xs:ID"/>
+        <xs:attributeGroup ref="op"/>
+        <xs:attribute name="type"/>
+    </xs:attributeGroup>
+
+    <xs:element name="tussenkop">
+        <xs:complexType mixed="true">
+            <xs:choice maxOccurs="unbounded" minOccurs="0">
+                <xs:group ref="inlineCM.maximaal"/>
+            </xs:choice>
+            <xs:attributeGroup ref="tussenkop.attlist"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:attributeGroup name="tussenkop.attlist">
+        <xs:attribute default="cur" name="kopopmaak" type="opmaak_waarden"/>
+        <xs:attributeGroup ref="style"/>
+        <!-- aloude kleur-font-entity MOET opgelost worden via CSS waarden in style attribuut -->
+        <xs:attribute default="nee" name="witregel">
+            <xs:simpleType>
+                <xs:restriction base="xs:token">
+                    <xs:enumeration value="ja"/>
+                    <xs:enumeration value="nee"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+    </xs:attributeGroup>
+
+    <!-- gedeelde attributeGroups -->
+    <xs:attributeGroup name="coreopt">
+        <xs:attributeGroup ref="core"/>
+        <xs:attributeGroup ref="idopt"/>
+        <xs:attributeGroup ref="op"/>
+        <xs:attributeGroup ref="lang"/>
+        <!--<xs:attributeGroup ref="refers"/> 
+         <xs:attributeGroup ref="enactment"/>      -->
+        <xs:attributeGroup ref="style"/>
+    </xs:attributeGroup>
+
+    <xs:attributeGroup name="corereq">
+        <xs:attributeGroup ref="core"/>
+        <xs:attributeGroup ref="idreq"/>
+        <xs:attributeGroup ref="op"/>
+        <xs:attributeGroup ref="lang"/>
+        <xs:attributeGroup ref="style"/>
+    </xs:attributeGroup>
+
+    <xs:attributeGroup name="style">
+        <xs:attribute name="style">
+            <xs:annotation>
+                <xs:documentation>Het idee is dat hier CSS instructions in komen zoals bij HTML
+                    @style attribuut. Dit is ter vervanging van constructies als kleur-font-entity
+                    en kleur-achtergrond-entity</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+    </xs:attributeGroup>
+
+    <xs:attributeGroup name="idopt">
+        <xs:attribute name="id" type="xs:ID"/>
+    </xs:attributeGroup>
+
+    <xs:attributeGroup name="idreq">
+        <xs:attribute name="id" type="xs:string" use="required"/>
+    </xs:attributeGroup>
+
+    <xs:attributeGroup name="core">
+        <xs:anyAttribute namespace="##other" processContents="lax"/>
+    </xs:attributeGroup>
+
+    <xs:attributeGroup name="op">
+        <xs:attribute name="status" type="status_waarden" default="goed"/>
+    </xs:attributeGroup>
+
+    <xs:attributeGroup name="name">
+        <xs:attribute name="name" type="xs:string" use="required"/>
+    </xs:attributeGroup>
+
+    <xs:attributeGroup name="lang">
+        <xs:attribute name="lang"/>
+    </xs:attributeGroup>
+
+    <xs:simpleType name="opmaak_waarden">
+        <xs:restriction base="xs:token">
+            <xs:enumeration value="vet"/>
+            <xs:enumeration value="cur"/>
+            <xs:enumeration value="vetcur"/>
+            <xs:enumeration value="rom"/>
+            <xs:enumeration value="ondlijn"/>
+            <xs:enumeration value="nonprop"/>
+            <xs:enumeration value="klkap"/>
+            <xs:enumeration value="kap"/>
+            <xs:enumeration value="halfvet"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <!-- UITZOEKPUNTEN -->
+
+    <!-- al-groep is eigenlijk een onnodige constructie indien je een attribuut "bijeenhouden" bij al toestaat, of een generieke container gebruikt met name al-groep -->
+    <xs:element name="al-groep">
+        <xs:complexType>
+            <xs:choice maxOccurs="unbounded">
+                <xs:element ref="al"/>
+                <xs:element ref="lijst"/>
+            </xs:choice>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:simpleType name="status_waarden">
+        <xs:restriction base="xs:token">
+            <xs:enumeration value="nogniet"/>
+            <xs:enumeration value="vervallen"/>
+            <xs:enumeration value="goed"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <!-- kunnen toekennen van extra metadata aan elementen
+      voorbeeld: @status ("redactie" | "officieel") aan lidnr
+      oplossingsmogelijkheden:
+      - referentie naar @id value (dan moet er een apart blok voor metadata geplaatst worden
+      
+      bij nr kop ook: @status ("officieel" | "redactioneel")      
+   -->
+
+    <!-- PLAATJE container / wrapper -->
+    <xs:element name="plaatje">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" ref="titel"/>
+                <xs:element name="illustratie">
+                    <xs:complexType>
+                        <xs:attributeGroup ref="illustratie.attlist"/>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element minOccurs="0" ref="bijschrift"/>
+                <xs:element minOccurs="0" ref="bron"/>
+            </xs:sequence>
+            <xs:attributeGroup ref="plaatje.attlist"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:attributeGroup name="illustratie.attlist">
+        <xs:attribute name="id" type="xs:ID"/>
+        <xs:attribute name="naam" use="required"/>
+        <xs:attribute name="breedte">
+            <!-- in 3pas is hier een veel strikter model gemaakt
+            <xs:simpleType>
+                <xs:restriction base="xs:string">
+                    <xs:pattern value="((([1][0-5])|([0-9]))(\.[0-9]*)?|\.[0-9]+)(cm)"/>
+                </xs:restriction>
+            </xs:simpleType>
+-->
+        </xs:attribute>
+        <xs:attribute name="hoogte"/>
+        <xs:attribute name="schaal"/>
+        <xs:attribute default="start" name="uitlijning">
+            <xs:simpleType>
+                <xs:restriction base="xs:token">
+                    <xs:enumeration value="start"/>
+                    <xs:enumeration value="end"/>
+                    <xs:enumeration value="center"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="kleur">
+            <xs:simpleType>
+                <xs:restriction base="xs:token">
+                    <xs:enumeration value="ja"/>
+                    <xs:enumeration value="nee"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute default="png" name="formaat">
+            <xs:simpleType>
+                <xs:restriction base="xs:token">
+                    <xs:enumeration value="jpeg"/>
+                    <xs:enumeration value="gif"/>
+                    <xs:enumeration value="png"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="type" use="required">
+            <xs:simpleType>
+                <xs:restriction base="xs:token">
+                    <xs:enumeration value="foto"/>
+                    <xs:enumeration value="tekst"/>
+                    <xs:enumeration value="lijn"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="alt"/>
+    </xs:attributeGroup>
+    <xs:attributeGroup name="plaatje.attlist">
+        <xs:attribute name="id" type="xs:ID"/>
+        <xs:attribute name="style"/>
+        <xs:attribute name="frame">
+            <xs:simpleType>
+                <xs:restriction base="xs:token">
+                    <xs:enumeration value="top"/>
+                    <xs:enumeration value="bottom"/>
+                    <xs:enumeration value="topbot"/>
+                    <xs:enumeration value="all"/>
+                    <xs:enumeration value="sides"/>
+                    <xs:enumeration value="none"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute default="block" name="positionering">
+            <xs:simpleType>
+                <xs:restriction base="xs:token">
+                    <xs:enumeration value="block"/>
+                    <xs:enumeration value="inline"/>
+                    <xs:enumeration value="floating"/>
+                    <xs:enumeration value="default"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+    </xs:attributeGroup>
+    <!-- PLAATJE einde -->
+
+    <!-- UITZOEKPUNTEN -->
+
+    <!-- officiele-inhoudsopgave op meer plaatsen -->
+
+    <!-- hoe oplossen bezwaarschrift: als divisie tekst? in lopende string 
+      (al | tussenkop)* @locatie ("voor-sluiting" | "na-sluiting")
+   -->
+    <!-- quotedStructure
+        relatie met citaat (zit in blocks.algemeen)
+   -->
+
+    <!-- margetekst verwijderd in lokale regelingen -->
+
+    <xs:element name="wijzig-artikel">
+        <xs:annotation>
+            <xs:documentation>dit element is een placeholder voor een verder uit te werken voorstel
+                tbv wijzig-artikel</xs:documentation>
+            <xs:documentation>huidige BWB / OP aanpak van wijzig-artikel is te complex en sluit niet
+                aan op was-wordt gedachte</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+
+    <!-- nieuwe custom elementen -->
+    <xs:element name="waarde">
+        <xs:complexType mixed="true">
+            <xs:attribute name="property"/>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>
