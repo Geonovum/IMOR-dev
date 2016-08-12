@@ -1,0 +1,5 @@
+#
+# Ignore all output of ShapeChange
+#
+ShapeChange/output
+UML/7. IMKL2015 Diepte.wmf

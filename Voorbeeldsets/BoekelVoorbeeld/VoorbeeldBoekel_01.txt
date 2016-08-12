@@ -1,0 +1,709 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Start met Boekel. Als voorbeeld. 1 Begrip. Twee werkingsgebieden, Twee onderwerpen, EigenschapWaarde, 1 Artikel, 1 Lid -->
+<!-- Er is elke keer een BRON opgenomen en daarna het DOEL waarnaar het is vertaald -->
+<!-- Sommige bronnen hebben meerdere DOELEN -->
+<!-- Hierna opstellen van mappingregels -->
+<imod:FeatureCollectionIMOD gml:id="Collectie" xmlns:imod="http://www.geostandaarden.nl/imod" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.geostandaarden.nl/imod ../xsd/imod_v05.xsd">
+	<!-- BRON: definitie van een begrip -->
+	<!--
+
+	<TekstObject  identificatie="NL.imod.PT.s1231">
+		<verwijzingNaarPlangebied>NL.imod.0755.Omgevingsplan2016-VO01</verwijzingNaarPlangebied>
+		<volgnummer>134</volgnummer>
+		<niveau>4</niveau>
+		<type>lid</type>
+		<titelInfo>
+			<TitelInfo>
+				<label></label>
+				<nummer>1.1</nummer>
+				<naam>plan</naam>
+			</TitelInfo>
+		</titelInfo>
+		<ouderID xl:href="#NL.imod.PT.s1230"/>
+				<Tekstpatroon type="begrip">
+					<Norm>
+						<waarde waardetype="begrip">plan</waarde>
+						<waarde waardetype="definitie">het omgevingsplan Omgevingsplan Buitengebied 2016 met identificatienummer NL.imod.0755.Omgevingsplan2016-VO01 van de gemeente Boekel.</waarde>
+					</Norm>
+				</Tekstpatroon>
+	</TekstObject> -->
+	
+	<!-- DOEL: Lid waar een begrip in is opgenomen -->
+	<imod:featureMember>
+		<imod:Lid gml:id="s1231">
+			<imod:identificatie/>
+			<imod:beginGeldigheid>2016-01-01T09:00:00</imod:beginGeldigheid>
+			<imod:tijdstipRegistratieROD>2016-01-01T09:00:00</imod:tijdstipRegistratieROD>
+			<imod:tijdstipRegistratie>2016-01-01T09:00:00</imod:tijdstipRegistratie>
+			<imod:tekst>
+				<imod:Tekstpatroon>
+					<imod:patroonType>definitie</imod:patroonType>
+					<imod:invulveld>
+						<imod:Invulveld gml:id="I1">
+							<imod:identificatie/>
+							<imod:beginGeldigheid>2016-01-01T09:00:00</imod:beginGeldigheid>
+							<imod:tijdstipRegistratieROD>2016-01-01T09:00:00</imod:tijdstipRegistratieROD>
+							<imod:tijdstipRegistratie>2016-01-01T09:00:00</imod:tijdstipRegistratie>
+							<imod:inhoud xlink:href="B1"/>
+						</imod:Invulveld>
+					</imod:invulveld>
+				</imod:Tekstpatroon>
+			</imod:tekst>
+			<imod:ouder/>
+		</imod:Lid>
+	</imod:featureMember>
+	
+	<!-- DOEL 2: de definitie -->
+	<imod:featureMember>
+		<imod:Begrip gml:id="B1">
+			<imod:identificatie/>
+			<imod:beginGeldigheid>2016-01-01T09:00:00</imod:beginGeldigheid>
+			<imod:tijdstipRegistratieROD>2016-01-01T09:00:00</imod:tijdstipRegistratieROD>
+			<imod:tijdstipRegistratie>2016-01-01T09:00:00</imod:tijdstipRegistratie>
+			<imod:tekst>plan</imod:tekst>
+			<imod:omschrijving xlink:href="D13"/>
+		</imod:Begrip>
+	</imod:featureMember>
+	<imod:featureMember>
+		<imod:Definitie gml:id="D13">
+			<imod:identificatie/>
+			<imod:beginGeldigheid>2016-01-01T09:00:00</imod:beginGeldigheid>
+			<imod:tijdstipRegistratieROD>2016-01-01T09:00:00</imod:tijdstipRegistratieROD>
+			<imod:tijdstipRegistratie>2016-01-01T09:00:00</imod:tijdstipRegistratie>
+			<imod:tekst>het omgevingsplan Omgevingsplan Buitengebied 2016 met identificatienummer NL.imod.0755.Omgevingsplan2016-VO01 van de gemeente Boekel.</imod:tekst>
+		</imod:Definitie>
+	</imod:featureMember>
+	
+	<!-- BRON: Artikel -->
+	<!-- </TekstObject></onderwerp><onderwerp geografischgebied="benoemdgebied" wettelijkegrondslag="locatiefunctie">
+	<TekstObject identificatie="NL.imod.PT.s1367">
+		<verwijzingNaarPlangebied>NL.imod.0755.Omgevingsplan2016-VO01</verwijzingNaarPlangebied>
+		<volgnummer>270</volgnummer>
+		<niveau>3</niveau>
+		<type>artikel</type>
+		<titelInfo>
+			<TitelInfo>
+				<label>artikel</label>
+				<nummer>7</nummer>
+				<naam>Beekdal met aansluitend open agrarisch landschap </naam>
+			</TitelInfo>
+		</titelInfo>
+		<ouderID xl:href="#NL.imod.PT.s1347"/>
+		<tekst xmlns="http://www.w3.org/1999/xhtml"></tekst>
+	</TekstObject> 
+
+-->
+	<!-- DOEL 1 Onderwerp -->
+	<imod:featureMember>
+		<imod:Onderwerp gml:id="O1">
+			<imod:identificatie/>
+			<imod:beginGeldigheid>2016-01-01T09:00:00</imod:beginGeldigheid>
+			<imod:tijdstipRegistratieROD>2016-01-01T09:00:00</imod:tijdstipRegistratieROD>
+			<imod:tijdstipRegistratie>2016-01-01T09:00:00</imod:tijdstipRegistratie>
+			<imod:naam>Beekdal met aansluitend open agrarisch landschap</imod:naam>
+			<imod:geografischgebied>benoemdgebied</imod:geografischgebied>
+			<imod:wettelijkegrondslag>locatiefunctie</imod:wettelijkegrondslag>
+			<imod:werking>directe werking</imod:werking>
+			<imod:hoofdOnderwerp/>
+		</imod:Onderwerp>
+	</imod:featureMember>
+	
+	<!-- DOEL 2 Artikel -->
+	<imod:featureMember>
+		<imod:Artikel gml:id="s1367">
+			<imod:identificatie/>
+			<imod:beginGeldigheid>2016-01-01T09:00:00</imod:beginGeldigheid>
+			<imod:tijdstipRegistratieROD>2016-01-01T09:00:00</imod:tijdstipRegistratieROD>
+			<imod:tijdstipRegistratie>2016-01-01T09:00:00</imod:tijdstipRegistratie>
+			<imod:tekst>
+				<imod:Tekstpatroon>
+					<imod:patroonType>vrijeTekst</imod:patroonType>
+					<imod:tekstzin>
+						<imod:TekstPhrase gml:id="TP12">
+							<imod:identificatie/>
+							<imod:beginGeldigheid>2016-01-01T09:00:00</imod:beginGeldigheid>
+							<imod:tijdstipRegistratieROD>2016-01-01T09:00:00</imod:tijdstipRegistratieROD>
+							<imod:tijdstipRegistratie>2016-01-01T09:00:00</imod:tijdstipRegistratie>
+							<imod:tekst>Beekdal met aansluitend open agrarisch landschap</imod:tekst>
+						</imod:TekstPhrase>
+					</imod:tekstzin>
+				</imod:Tekstpatroon>
+			</imod:tekst>
+			<imod:ouder/>
+			<imod:onderwerp xlink:href="O1"/>
+		</imod:Artikel>
+	</imod:featureMember>
+	
+	<!-- BRON: Lid in artikel met beschrijving van bestemming -->
+	<!-- 
+<onderwerp>
+	<TekstObject identificatie="NL.imod.PT.s1368">
+		<verwijzingNaarPlangebied>NL.imod.0755.Omgevingsplan2016-VO01</verwijzingNaarPlangebied>
+		<volgnummer>271</volgnummer>
+		<niveau>4</niveau>
+		<type>lid</type>
+		<titelInfo>
+			<TitelInfo>
+				<label></label>
+				<nummer>7.1</nummer>
+				<naam>Gebiedsbeschrijving</naam>
+			</TitelInfo>
+		</titelInfo>
+		<ouderID xl:href="#NL.imod.PT.s1367"/>
+		<tekst xmlns="http://www.w3.org/1999/xhtml">
+			Het beekdal en het aansluitende open agrarisch (weide)landschap wordt gekenmerkt door openheid met slechts enkele houtsingels en relatief weinig bebouwing. De hoofdwatergangen Aa en de Leijgraaf vormen, samen met de oost-west georiënteerde waterlopen een robuust (oppervlakte - en grond)watersysteem. De ontginningslinten zijn overwegend noord-zuid georiënteerd, in combinatie met een oost-west oriëntatie van de waterlopen. Bomenlanen en houtsingels zijn overwegend haaks op de waterlopen aangelegd. 
+			Nieuwe ontwikkelingen dienen bij te dragen aan het behouden en/of versterken van de landschapskarakteristieken: relatieve openheid, een rationele (stroken)verkaveling, rechtlijnige landschapselementen en het natte karakter. Behoud/versterking van openheid rondom waterlopen, zichtbaarheid van waterloop vergroten door begeleiding met wilgen en kansen benutten voor (natte) natuurontwikkeling (bijv. rietkragen) zijn voor het beekdallandschap van belang. Nieuwe ontwikkelingen dienen recht te doen aan de openheid in het beekdal. 
+			Een functionele inrichting van het erf past bij de eigenschappen van het landschap. Een rijk beplant voorerf (woonzone) aan het lint en het bedrijfskavel daarachter. De woonzone kent een groene inrichting met een moestuin of boomgaard, hagen en of solitaire (monumentale) bomen. Het bedrijfskavel is landschappelijke ingepast. De bebouwing mag gezien worden, maar dient niet beeldbepalend te zijn. Een bomenrij of houtsingel haaks op het ontginningslint (veelal de lange zijde van het erf), kan al voldoende zijn.
+			
+			De karakteristieken van het beekdal met aangrenzende open landschap bieden potentie voor een mix van functies. Vooral voor (natte) natuurontwikkeling en daaraan gerelateerde functies (zoals recreatieve en biologische functies) biedt dit landschap uitstekende mogelijkheden. 
+			Het beekdal met aansluitend open agrarisch landschap is aangemerkt als zone in de luwte. In eerste instantie is hier ruimte voor grondgebonden landbouw, wonen en nevenfuncties bij landbouw en wonen: (agro)toerisme en kleinschalige verblijfsrecreatie.
+			
+			De kwaliteit van het beekdal en aangrenzend open agrarisch landschap kan verbeterd worden door onder andere het stimuleren van initiatieven voor plattelandsverbreding alsmede initiatieven op het gebied van toerisme en recreatie. 
+			Bij ontwikkelingen moet er sprake zijn van ruimtelijke kwaliteitswinst.
+			
+		</tekst>
+	</TekstObject></onderwerp>
+
+-->
+
+<!-- DOEL 1: Onderwerp voor Lid: OPMERKING: is dit nodig? Het Lid valt immers al onder het artikel -->
+	<imod:featureMember>
+		<imod:Onderwerp gml:id="O2">
+			<imod:identificatie/>
+			<imod:beginGeldigheid>2016-01-01T09:00:00</imod:beginGeldigheid>
+			<imod:tijdstipRegistratieROD>2016-01-01T09:00:00</imod:tijdstipRegistratieROD>
+			<imod:tijdstipRegistratie>2016-01-01T09:00:00</imod:tijdstipRegistratie>
+			<imod:naam>Gebiedsbeschrijving</imod:naam>
+			<imod:geografischgebied>benoemdgebied</imod:geografischgebied>
+			<imod:wettelijkegrondslag>locatiefunctie</imod:wettelijkegrondslag>
+			<imod:werking>directe werking</imod:werking>
+			<imod:hoofdOnderwerp/>
+		</imod:Onderwerp>
+	</imod:featureMember>
+	
+	<!-- DOEL2: LID met tekst  -->
+	
+	<imod:featureMember>
+		<imod:Lid gml:id="s1368">
+			<imod:identificatie/>
+			<imod:beginGeldigheid>2016-01-01T09:00:00</imod:beginGeldigheid>
+			<imod:tijdstipRegistratieROD>2016-01-01T09:00:00</imod:tijdstipRegistratieROD>
+			<imod:tijdstipRegistratie>2016-01-01T09:00:00</imod:tijdstipRegistratie>
+			<imod:tekst>
+				<imod:Tekstpatroon>
+					<imod:patroonType>vrijeTekst</imod:patroonType>
+					<imod:tekstzin>
+						<imod:TekstPhrase gml:id="TP11">
+							<imod:identificatie/>
+							<imod:beginGeldigheid>2016-01-01T09:00:00</imod:beginGeldigheid>
+							<imod:tijdstipRegistratieROD>2016-01-01T09:00:00</imod:tijdstipRegistratieROD>
+							<imod:tijdstipRegistratie>2016-01-01T09:00:00</imod:tijdstipRegistratie>
+							<imod:tekst>
+			Het beekdal en het aansluitende open agrarisch (weide)landschap wordt gekenmerkt door openheid met slechts enkele houtsingels en relatief weinig bebouwing. De hoofdwatergangen Aa en de Leijgraaf vormen, samen met de oost-west georiënteerde waterlopen een robuust (oppervlakte - en grond)watersysteem. De ontginningslinten zijn overwegend noord-zuid georiënteerd, in combinatie met een oost-west oriëntatie van de waterlopen. Bomenlanen en houtsingels zijn overwegend haaks op de waterlopen aangelegd. 
+			Nieuwe ontwikkelingen dienen bij te dragen aan het behouden en/of versterken van de landschapskarakteristieken: relatieve openheid, een rationele (stroken)verkaveling, rechtlijnige landschapselementen en het natte karakter. Behoud/versterking van openheid rondom waterlopen, zichtbaarheid van waterloop vergroten door begeleiding met wilgen en kansen benutten voor (natte) natuurontwikkeling (bijv. rietkragen) zijn voor het beekdallandschap van belang. Nieuwe ontwikkelingen dienen recht te doen aan de openheid in het beekdal. 
+			Een functionele inrichting van het erf past bij de eigenschappen van het landschap. Een rijk beplant voorerf (woonzone) aan het lint en het bedrijfskavel daarachter. De woonzone kent een groene inrichting met een moestuin of boomgaard, hagen en of solitaire (monumentale) bomen. Het bedrijfskavel is landschappelijke ingepast. De bebouwing mag gezien worden, maar dient niet beeldbepalend te zijn. Een bomenrij of houtsingel haaks op het ontginningslint (veelal de lange zijde van het erf), kan al voldoende zijn.
+			
+			De karakteristieken van het beekdal met aangrenzende open landschap bieden potentie voor een mix van functies. Vooral voor (natte) natuurontwikkeling en daaraan gerelateerde functies (zoals recreatieve en biologische functies) biedt dit landschap uitstekende mogelijkheden. 
+			Het beekdal met aansluitend open agrarisch landschap is aangemerkt als zone in de luwte. In eerste instantie is hier ruimte voor grondgebonden landbouw, wonen en nevenfuncties bij landbouw en wonen: (agro)toerisme en kleinschalige verblijfsrecreatie.
+			
+			De kwaliteit van het beekdal en aangrenzend open agrarisch landschap kan verbeterd worden door onder andere het stimuleren van initiatieven voor plattelandsverbreding alsmede initiatieven op het gebied van toerisme en recreatie. 
+			Bij ontwikkelingen moet er sprake zijn van ruimtelijke kwaliteitswinst.
+			</imod:tekst>
+						</imod:TekstPhrase>
+					</imod:tekstzin>
+				</imod:Tekstpatroon>
+			</imod:tekst>
+			<imod:ouder xlink:href="s1367"/>
+			<imod:onderwerp xlink:href="O2"/>
+		</imod:Lid>
+	</imod:featureMember>
+	
+	
+	<!-- BRON: Een enkelbestemming als gebied -->
+	<!--
+	 <imod:featureMember>
+      <imod:Enkelbestemming gml:id="NL.imod.e6fcc03727c24c9d8f585636427954ff">
+         <imod:identificatie>
+            <imod:NEN3610ID>
+               <imod:namespace>NL.imod</imod:namespace>
+               <imod:lokaalID>e6fcc03727c24c9d8f585636427954ff</imod:lokaalID>
+            </imod:NEN3610ID>
+         </imod:identificatie>
+         <imod:typePlanobject>enkelbestemming</imod:typePlanobject>
+         <imod:naam>Beekdal met aansluitend open agrarisch landschap</imod:naam>
+         <imod:bestemmingshoofdgroep>overig</imod:bestemmingshoofdgroep>
+         <imod:artikelnummer>7</imod:artikelnummer>
+         <imod:verwijzingNaarTekstInfo>
+            <imod:TekstReferentie_BP>
+               <imod:verwijzingNaarTekst>pt_NL.imod.0755.Omgevingsplan2016-VO01.xml#NL.imod.PT.s1367</imod:verwijzingNaarTekst>
+               <imod:typeTekst>regels</imod:typeTekst>
+            </imod:TekstReferentie_BP>
+         </imod:verwijzingNaarTekstInfo>
+         <imod:geometrie>
+            <gml:Surface gml:id="id.90750e8e66084b0c91dea9683e9d5598" srsName="urn:ogc:def:crs:EPSG::28992">
+               <gml:patches>
+                  <gml:PolygonPatch>
+                     <gml:exterior>
+                        <gml:Ring>
+                           <gml:curveMember>
+                              <gml:Curve gml:id="id.a569e7f490044effb0fdd7ea95873b8e">
+                                 <gml:segments>
+                                    <gml:LineStringSegment>
+                                       <gml:posList>173279.358 404143.044 173277.322 404136.294 173273.631 404133.424 173270.885 404131.653 173265.384 404127.386 173221.353 404125.235 173171.502 404123.11 173121.289 404121.079 173058.415 404122.261 173000 404120.464 172995.651 404120.33 172985.72 404119.759 172966.18 404119.568 172923.468 404119.152 172869.192 404118.309 172789.147 404117.196 172750.818 404117.031 172725.951 404116.451 172720.904 404116.342 172716.777 404116.042 172708.745 404117.093 172693.466 404113.941 172646.37 404100.391 172634.818 404097.925 172571.223 404091.729 172561.572 404090.927 172548.324 404090.426 172533.845 404090.127 172494.064 404090.934 172454.54 404091.852 172440.098 404091.253 172425.695 404091.358 172375.889 404088.615 172326.167 404086.329 172276.309 404084.34 172242.723 404082.66 172209.901 404085.131 172198.602 404084.925 172187.441 404083.144 172156.955 404075.273 172126.935 404067.366 172118.527 404064.549 172111.453 404059.424 172067.222 404020.149 172066.041 404019.1 172057.329 404011.817 172054.981 404009.998 172053.983 404009.225 172027.661 404000 172006.466 403992.572 172000 403990.446 171964.24 403978.691 171916.408 403963.932 171868.674 403949.409 171831.74 403939.543 171822.291 403936.466 171767.615 403913.819 171758.702 403909.014 171750.279 403902.993 171712.74 403870.033 171678.949 403839.806 171676.583 403840.174 171647.582 403863.952 171643.166 403865.348 171635.089 403866.316 171605.005 403868.687 171596.35 403869.412 171585.947 403866.6 171578.065 403865.326 171575.692 403864.475 171581.62 403852.722 171607.05 403795.772 171628.36 403754.761 171636.2 403740.41 171649.42 403720.41 171662.28 403697.881 171677.158 403679.968 171698.65 403654.092 171712.05 403641.731 171718.58 403631.382 171719.38 403612.542 171735.74 403588.352 171737.63 403584.631 171737.706 403575.954 171737.74 403572.031 171748.122 403541.117 171751.16 403532.07 171760.55 403512.022 171766.582 403500 171770.173 403492.843 171802.043 403429.338 171805.93 403421.592 171808.285 403415.535 171815.1 403398.01 171815.412 403397.826 171818.19 403396.191 171825.84 403394.751 171833.001 403396.444 171833.41 403396.541 171839.17 403396.292 171845.557 403391.151 171864.2 403354.192 171886.48 403312.771 172000 403104.417 172010.361 403085.4 172058.71 403000 172070.751 402978.731 172118.923 402902.302 172298.459 402617.451 172372.486 402500 172619.09 402108.74 172619.707 402107.758 172624.072 402100.818 172686.12 402002.791 172687.861 402000 172710.112 401964.34 172712.234 401960.94 172715.297 401955.714 172715.973 401953.399 172716.317 401952.223 172730.993 401899.739 172745.787 401846.839 172816.6 401593.619 172816.739 401593.104 172874.988 401595.715 172903.763 401546.262 172928.107 401504.425 172930.682 401500 172936.233 401490.456 172947.878 401470.438 172948.865 401468.736 172958.433 401433.023 172966.568 401385.63 172967.155 401382.205 172909.515 401405.571 172883.905 401415.954 172862.924 401422.437 172864.866 401415.614 172868.484 401402.902 172868.685 401402.197 172879.409 401365.769 172879.69 401364.815 172883.331 401352.469 172888.17 401336.037 172888.359 401335.394 172911.614 401343.35 172913.007 401385.753 172963.84 401365.697 172964.462 401355.345 172964.889 401347.362 172962.931 401346.769 172963.515 401340.254 172945.762 401334.86 172933.091 401331.01 172928.307 401329.556 172892.799 401318.768 172902.123 401283.223 172904.182 401275.967 172913.409 401278.587 172923.101 401279.845 172933.464 401277.707 172948.749 401271.267 172969.816 401278.762 172970.989 401270.402 172986.033 401214.857 172994.089 401184.841 172997.098 401173.338 172954.285 401166.462 172936.09 401163.539 172952.234 401106.654 172955.891 401093.767 172982.504 401000 173000 400938.355 173029.83 400833.25 173033.884 400818.968 173053.547 400749.685 173107.791 400558.561 173116.567 400500 173131.559 400400 173135.144 400376.115 173135.585 400373.145 173137.028 400363.523 173167.722 400158.789 173168.101 400156.26 173167.222 400155.9 173188.081 400098.651 173188.122 400081.754 173188.142 400073.871 173187.626 400071.316 173177.479 400066.891 173183.78 400051.153 173197.52 400016.346 173203.969 400000 173204.919 399997.593 173207.505 399991.242 173222.712 399953.879 173225.596 399946.793 173237.407 399917.104 173244.03 399901.06 173249.139 399887.084 173253.449 399871.92 173254.735 399866.212 173257.027 399856.043 173260.209 399840.168 173261.112 399828.925 173261.21 399825.538 173261.38 399819.61 173260.69 399806.786 173259.394 399787.635 173257.396 399768.279 173255.96 399754.488 173255.177 399747.93 173253.642 399735.068 173252.877 399729.239 173251.58 399719.348 173248.881 399696 173247.544 399684.67 173246.616 399676.801 173241.774 399633.688 173241.307 399630.028 173239.562 399616.368 173238.669 399596.748 173239.085 399582.398 173239.367 399569.517 173239.895 399564.332 173240.607 399558.626 173242.596 399548.595 173245.582 399535.804 173250.712 399517.43 173255.631 399500 173259.203 399487.344 173266.686 399460.558 173276.242 399425.265 173285.226 399393.238 173294.141 399361.998 173300.103 399340.272 173308.831 399304.546 173317.665 399304.714 173317.824 399305.426 173319.937 399305.458 173340.724 399305.768 173363.347 399309.641 173447.909 399323.655 173664.799 399361.15 173711.553 399370.6 173716.518 399371.604 173724.312 399380.175 173725.401 399381.053 173730.996 399384.432 173749.577 399395.777 173760.261 399394.083 173772.656 399394.271 173808.864 399402.79 173835.775 399404.067 173843.914 399388.085 173886.327 399377.235 173892.184 399375.737 173921.604 399375.532 173927.212 399375.398 173933.258 399374.484 173939.409 399371.138 173948.268 399365.994 173968.839 399370.971 174000 399370.363 174007.689 399370.213 174098.468 399375.52 174120.084 399375.346 174144.998 399377.327 174166.667 399378.856 174214.19 399382.21 174272.023 399386.153 174349.675 399389.837 174387.592 399391.836 174393.753 399392.729 174411.238 399389.747 174417.259 399390.07 174478.701 399397.327 174479.161 399397.381 174492.851 399398.135 174584.123 399403.16 174643.609 399405.982 174752.173 399411.732 174806.451 399414.707 174933.98 399421.357 174995.232 399424.263 174983.435 399702.231 174792.763 399692.995 174788.003 399859.371 174732.772 399943.298 174677.223 399924.097 174668.257 399949.611 174653.893 399990.484 174643.466 400095.594 174625.892 400272.753</gml:posList>
+                                    </gml:LineStringSegment>
+                                    <gml:Arc>
+                                       <gml:posList>174625.892 400272.753 174619.755 400279.155 174613.804 400285.73</gml:posList>
+                                    </gml:Arc>
+                                    <gml:LineStringSegment>
+                                       <gml:posList>174613.804 400285.73 174612.743 400286.944 174611.68 400288.171 174610.625 400289.402 174609.576 400290.637 174608.535 400291.875 174607.499 400293.117 174606.47 400294.362 174605.447 400295.61 174604.43 400296.86 174603.419 400298.113 174602.413 400299.368 174601.413 400300.626 174600.417 400301.885 174599.427 400303.146 174598.441 400304.408 174597.459 400305.672 174596.482 400306.937 174595.509 400308.203 174594.539 400309.47 174593.573 400310.738 174592.611 400312.006 174591.651 400313.274 174590.695 400314.543 174589.741 400315.811 174588.79 400317.08 174587.843 400318.344 174586.896 400319.612 174585.95 400320.88 174585.006 400322.146 174584.064 400323.412 174583.123 400324.676 174578.703 400330.613 174574.486 400336.277 174565.103 400348.406 174561.726 400353.397 174561.193 400354.108 174560.254 400355.356 174559.315 400356.602 174558.374 400357.846 174557.433 400359.086 174556.49 400360.324 174555.545 400361.558 174554.599 400362.788 174553.651 400364.016 174552.701 400365.239 174551.749 400366.459 174550.794 400367.674 174549.836 400368.886 174548.876 400370.092 174547.912 400371.295 174546.946 400372.493 174545.976 400373.685 174545.002 400374.873 174544.024 400376.056 174543.043 400377.233 174542.057 400378.404 174541.068 400379.57 174540.073 400380.73 174539.074 400381.883 174538.062 400383.04</gml:posList>
+                                    </gml:LineStringSegment>
+                                    <gml:Arc>
+                                       <gml:posList>174538.062 400383.04 174498.021 400420.688 174451.616 400450.138</gml:posList>
+                                    </gml:Arc>
+                                    <gml:LineStringSegment>
+                                       <gml:posList>174451.616 400450.138 174429.144 400459.934 174375.64 400451.37 174371.3 400450.83 174366.28 400451.03 174344.22 400456.21 174297.02 400465.66 174272.09 400470.96 174198.49 400486.46 174133.96 400500 174101.79 400506.67 174099.63 400507.87 174071.42 400513.805 174043.21 400519.74 174021.605 400524.255 174000 400528.77 173964.47 400536.265 173931.045 400543.298 173897.62 400550.33 173873.185 400555.503 173848.75 400560.675 173824.315 400565.848 173799.88 400571.02 173787.24 400573.883 173774.6 400576.745 173761.96 400579.608 173749.32 400582.47 173746.97 400583.46 173734.786 400608.031 173722.602 400632.601 173703.871 400670.116 173685.14 400707.63 173671.3 400735.8 173657.46 400763.97 173642.105 400794.995 173637.622 400803.977 173626.75 400826.02 173612.05 400855.635 173597.35 400885.25 173582.65 400914.865 173567.95 400944.48 173596.173 400955.188 173589.272 400978.353 173517.19 401220.291 173501.98 401263.553 173496.547 401279.4 173471.054 401423.142</gml:posList>
+                                    </gml:LineStringSegment>
+                                    <gml:Arc>
+                                       <gml:posList>173471.054 401423.142 173478.967 401486.394 173496.434 401547.699</gml:posList>
+                                    </gml:Arc>
+                                    <gml:LineStringSegment>
+                                       <gml:posList>173496.434 401547.699 173500.645 401559.952 173523.916 401569.509 173524.901 401572.482 173528.038 401578.436</gml:posList>
+                                    </gml:LineStringSegment>
+                                    <gml:Arc>
+                                       <gml:posList>173528.038 401578.436 173559.326 401631.695 173598.446 401679.498</gml:posList>
+                                    </gml:Arc>
+                                    <gml:LineStringSegment>
+                                       <gml:posList>173598.446 401679.498 173599.556 401680.654 173600.678 401681.813 173601.802 401682.966 173602.93 401684.114 173604.061 401685.258 173605.195 401686.396 173606.332 401687.53 173607.471 401688.66 173608.613 401689.785 173609.758 401690.906 173610.904 401692.023 173612.053 401693.137 173613.203 401694.246 173614.355 401695.352 173615.508 401696.454 173616.663 401697.554 173617.819 401698.65 173618.976 401699.743 173620.134 401700.833 173621.293 401701.921 173622.453 401703.006 173623.612 401704.088 173624.773 401705.169 173625.93 401706.244 173627.091 401707.321 173628.252 401708.396 173629.413 401709.47 173630.573 401710.542 173631.733 401711.612 173632.892 401712.682 173634.05 401713.75 173634.929 401714.561 173636.086 401715.629 173637.242 401716.695 173638.396 401717.761 173639.549 401718.827 173640.7 401719.892 173641.845 401720.954 173642.991 401722.018 173644.134 401723.083 173645.274 401724.148 173646.412 401725.214 173647.547 401726.28 173648.679 401727.348 173649.807 401728.416 173650.931 401729.486 173652.052 401730.558 173653.169 401731.631 173654.282 401732.706 173655.391 401733.784 173656.495 401734.863 173657.595 401735.945 173658.689 401737.029 173659.779 401738.116 173660.863 401739.206 173661.942 401740.299 173663.016 401741.395 173664.083 401742.495 173665.145 401743.598 173666.2 401744.704 173667.249 401745.815 173668.292 401746.929 173669.336 401748.057</gml:posList>
+                                    </gml:LineStringSegment>
+                                    <gml:Arc>
+                                       <gml:posList>173669.336 401748.057 173693.856 401778.576 173714.047 401812.118</gml:posList>
+                                    </gml:Arc>
+                                    <gml:LineStringSegment>
+                                       <gml:posList>173714.047 401812.118 173714.745 401813.487 173715.432 401814.85 173716.112 401816.217 173716.787 401817.59 173717.456 401818.967 173718.12 401820.348 173718.779 401821.734 173719.432 401823.123 173720.081 401824.517 173720.726 401825.915 173721.366 401827.316 173722.002 401828.721 173722.635 401830.13 173723.264 401831.542 173723.889 401832.958 173724.511 401834.376 173725.13 401835.798 173725.747 401837.223 173726.361 401838.65 173726.973 401840.08 173727.582 401841.513 173728.19 401842.949 173728.797 401844.387 173729.402 401845.827 173730.006 401847.27 173730.611 401848.718 173731.213 401850.164 173731.815 401851.612 173732.417 401853.062 173733.019 401854.513 173733.621 401855.966 173734.593 401858.312 173735.196 401859.766 173735.799 401861.22 173736.4 401862.673 173737.001 401864.126 173737.602 401865.578 173738.201 401867.029 173738.799 401868.48 173739.396 401869.93 173739.991 401871.38 173740.585 401872.83 173741.175 401874.274 173741.765 401875.723 173742.354 401877.172 173742.94 401878.62 173743.524 401880.068 173744.105 401881.517 173744.684 401882.965 173745.261 401884.413 173745.835 401885.862 173746.405 401887.31 173746.973 401888.759 173747.538 401890.208 173748.1 401891.658 173748.658 401893.108 173749.212 401894.558 173749.763 401896.008 173750.31 401897.46 173750.853 401898.911 173751.392 401900.363 173751.927 401901.816 173752.46 401903.276</gml:posList>
+                                    </gml:LineStringSegment>
+                                    <gml:Arc>
+                                       <gml:posList>173752.46 401903.276 173765.188 401943.018 173774.81 401983.624</gml:posList>
+                                    </gml:Arc>
+                                    <gml:LineStringSegment>
+                                       <gml:posList>173774.81 401983.624 173775.108 401985.15 173775.4 401986.67 173775.688 401988.192 173775.972 401989.716 173776.253 401991.241 173776.531 401992.768 173776.805 401994.296 173777.075 401995.825 173777.343 401997.357 173777.608 401998.889 173777.869 402000.423 173778.129 402001.959 173778.385 402003.495 173778.639 402005.033 173778.891 402006.573 173779.141 402008.113 173779.389 402009.655 173779.635 402011.198 173779.879 402012.742 173780.122 402014.288 173780.364 402015.839 173780.604 402017.386 173780.862 402019.058 173781.817 402025.253 173770.05 402037.817 173789.415 402166.253 173793.192 402204.009</gml:posList>
+                                    </gml:LineStringSegment>
+                                    <gml:Arc>
+                                       <gml:posList>173793.192 402204.009 173793.23 402204.245 173793.296 402204.475</gml:posList>
+                                    </gml:Arc>
+                                    <gml:LineStringSegment>
+                                       <gml:posList>173793.296 402204.475 173798.982 402220.61</gml:posList>
+                                    </gml:LineStringSegment>
+                                    <gml:Arc>
+                                       <gml:posList>173798.982 402220.61 173799.688 402222.59 173800.735 402224.413</gml:posList>
+                                    </gml:Arc>
+                                    <gml:Arc>
+                                       <gml:posList>173800.735 402224.413 173801.589 402226.567 173801.38 402228.875</gml:posList>
+                                    </gml:Arc>
+                                    <gml:LineStringSegment>
+                                       <gml:posList>173801.38 402228.875 173795.818 402245.614</gml:posList>
+                                    </gml:LineStringSegment>
+                                    <gml:Arc>
+                                       <gml:posList>173795.818 402245.614 173794.797 402249.186 173794.192 402252.851</gml:posList>
+                                    </gml:Arc>
+                                    <gml:LineStringSegment>
+                                       <gml:posList>173794.192 402252.851 173793.992 402282.099 173804.881 402295.838</gml:posList>
+                                    </gml:LineStringSegment>
+                                    <gml:Arc>
+                                       <gml:posList>173804.881 402295.838 173812.595 402301.947 173822.224 402303.979</gml:posList>
+                                    </gml:Arc>
+                                    <gml:LineStringSegment>
+                                       <gml:posList>173822.224 402303.979 173822.392 402303.961 173823.127 402307.594 173828.012 402331.738 173834.257 402373.104 173834.494 402374.664 173834.731 402376.226 173834.969 402377.789 173835.21 402379.359 173835.452 402380.925 173835.696 402382.494 173835.943 402384.063 173836.192 402385.634 173836.444 402387.206 173836.699 402388.779 173836.958 402390.353 173837.22 402391.928 173837.487 402393.504 173837.757 402395.081 173838.033 402396.66 173838.313 402398.238 173838.598 402399.818 173838.888 402401.398 173839.185 402402.979 173839.487 402404.561 173839.795 402406.143 173840.11 402407.725 173840.432 402409.308 173840.76 402410.891 173841.096 402412.474 173841.44 402414.057 173841.791 402415.641 173842.151 402417.224 173842.516 402418.794</gml:posList>
+                                    </gml:LineStringSegment>
+                                    <gml:Arc>
+                                       <gml:posList>173842.516 402418.794 173862.242 402476.472 173892.882 402529.17</gml:posList>
+                                    </gml:Arc>
+                                    <gml:LineStringSegment>
+                                       <gml:posList>173892.882 402529.17 173915.497 402556.962</gml:posList>
+                                    </gml:LineStringSegment>
+                                    <gml:Arc>
+                                       <gml:posList>173915.497 402556.962 173966.703 402601.847 174026.48 402634.459</gml:posList>
+                                    </gml:Arc>
+                                    <gml:LineStringSegment>
+                                       <gml:posList>174026.48 402634.459 174027.973 402635.067 174029.479 402635.672 174030.987 402636.268 174032.496 402636.857 174034.007 402637.438 174035.518 402638.013 174037.03 402638.58 174038.543 402639.14 174040.057 402639.694 174041.571 402640.242 174043.085 402640.784 174044.6 402641.32 174046.115 402641.85 174047.63 402642.376 174049.145 402642.897 174050.66 402643.413 174052.174 402643.924 174053.688 402644.432 174055.202 402644.935 174056.715 402645.436 174058.228 402645.932 174059.739 402646.426 174061.25 402646.917 174062.76 402647.405 174064.269 402647.891 174065.774 402648.374 174067.281 402648.856 174068.787 402649.337 174070.292 402649.817 174071.796 402650.295 174073.298 402650.773 174129.401 402668.619 174021.739 403172.252 173830.374 403122.758 173785.211 403289.605 173779.124 403312.496 173764.184 403368.683 173710.574 403361.639 173688.946 403358.315 173631.361 403350.809 173531 403658.22 173474.242 403872.971 173367.495 403840.521 173361.553 403836.947 173350.307 403832.73 173338.645 403829.219 173312.449 403838.72 173306.598 403840.842 173302.587 403845.283 173300.872 403851.088 173297.113 403900.796 173293.28 403950.549 173285.179 404057.081 173280.679 404115.558 173279.358 404143.044</gml:posList>
+                                    </gml:LineStringSegment>
+                                 </gml:segments>
+                              </gml:Curve>
+                           </gml:curveMember>
+                        </gml:Ring>
+                     </gml:exterior>
+                     <gml:interior>
+                        <gml:LinearRing>
+                           <gml:posList>171600.501 403864.234 171641.652 403860.041 171646.24 403858.202 171677.822 403831.435 171620.578 403783.528 171604.279 403814.706 171581.52 403857.904 171580.428 403860.188 171594.56 403863.954 171600.501 403864.234</gml:posList>
+                        </gml:LinearRing>
+                     </gml:interior>
+                     <gml:interior>
+                        <gml:LinearRing>
+                           <gml:posList>173312.607 399735.686 173317.339 399665.854 173255.515 399655.191 173255.564 399655.597 173256.794 399665.985 173260.761 399699.494 173264.88 399734.557 173312.607 399735.686</gml:posList>
+                        </gml:LinearRing>
+                     </gml:interior>
+                     <gml:interior>
+                        <gml:LinearRing>
+                           <gml:posList>174174.814 399673.901 174177.448 399672.329 174193.114 399609.525 174187.009 399607.998 174178.566 399606.799 174162.367 399605.211 174159.507 399604.92 174152.924 399642.486 174155.145 399643.015 174150.62 399669.408 174151.578 399671.43 174174.814 399673.901</gml:posList>
+                        </gml:LinearRing>
+                     </gml:interior>
+                  </gml:PolygonPatch>
+               </gml:patches>
+            </gml:Surface>
+         </imod:geometrie>
+         <imod:plangebied xlink:href="#NL.imod.0755.Omgevingsplan2016-VO01" />
+      </imod:Enkelbestemming>
+   </imod:featureMember>
+		-->
+	<!-- DOEL: Een werkingsgebied dat naar onderwerp O1 verwijst -->
+	<imod:featureMember>
+		<imod:Werkingsgebied gml:id="NL.imod.e6fcc03727c24c9d8f585636427954ff">
+			<imod:identificatie/>
+			<imod:beginGeldigheid>2016-01-01T09:00:00</imod:beginGeldigheid>
+			<imod:tijdstipRegistratieROD>2016-01-01T09:00:00</imod:tijdstipRegistratieROD>
+			<imod:tijdstipRegistratie>2016-01-01T09:00:00</imod:tijdstipRegistratie>
+			<imod:begrenzingIndicatief>false</imod:begrenzingIndicatief>
+			<imod:geometrie>
+				<gml:Surface gml:id="id.90750e8e66084b0c91dea9683e9d5598" srsName="urn:ogc:def:crs:EPSG::28992">
+					<gml:patches>
+						<gml:PolygonPatch>
+							<gml:exterior>
+								<gml:Ring>
+									<gml:curveMember>
+										<gml:Curve gml:id="id.a569e7f490044effb0fdd7ea95873b8e">
+											<gml:segments>
+												<gml:LineStringSegment>
+													<gml:posList>173279.358 404143.044 173277.322 404136.294 173273.631 404133.424 173270.885 404131.653 173265.384 404127.386 173221.353 404125.235 173171.502 404123.11 173121.289 404121.079 173058.415 404122.261 173000 404120.464 172995.651 404120.33 172985.72 404119.759 172966.18 404119.568 172923.468 404119.152 172869.192 404118.309 172789.147 404117.196 172750.818 404117.031 172725.951 404116.451 172720.904 404116.342 172716.777 404116.042 172708.745 404117.093 172693.466 404113.941 172646.37 404100.391 172634.818 404097.925 172571.223 404091.729 172561.572 404090.927 172548.324 404090.426 172533.845 404090.127 172494.064 404090.934 172454.54 404091.852 172440.098 404091.253 172425.695 404091.358 172375.889 404088.615 172326.167 404086.329 172276.309 404084.34 172242.723 404082.66 172209.901 404085.131 172198.602 404084.925 172187.441 404083.144 172156.955 404075.273 172126.935 404067.366 172118.527 404064.549 172111.453 404059.424 172067.222 404020.149 172066.041 404019.1 172057.329 404011.817 172054.981 404009.998 172053.983 404009.225 172027.661 404000 172006.466 403992.572 172000 403990.446 171964.24 403978.691 171916.408 403963.932 171868.674 403949.409 171831.74 403939.543 171822.291 403936.466 171767.615 403913.819 171758.702 403909.014 171750.279 403902.993 171712.74 403870.033 171678.949 403839.806 171676.583 403840.174 171647.582 403863.952 171643.166 403865.348 171635.089 403866.316 171605.005 403868.687 171596.35 403869.412 171585.947 403866.6 171578.065 403865.326 171575.692 403864.475 171581.62 403852.722 171607.05 403795.772 171628.36 403754.761 171636.2 403740.41 171649.42 403720.41 171662.28 403697.881 171677.158 403679.968 171698.65 403654.092 171712.05 403641.731 171718.58 403631.382 171719.38 403612.542 171735.74 403588.352 171737.63 403584.631 171737.706 403575.954 171737.74 403572.031 171748.122 403541.117 171751.16 403532.07 171760.55 403512.022 171766.582 403500 171770.173 403492.843 171802.043 403429.338 171805.93 403421.592 171808.285 403415.535 171815.1 403398.01 171815.412 403397.826 171818.19 403396.191 171825.84 403394.751 171833.001 403396.444 171833.41 403396.541 171839.17 403396.292 171845.557 403391.151 171864.2 403354.192 171886.48 403312.771 172000 403104.417 172010.361 403085.4 172058.71 403000 172070.751 402978.731 172118.923 402902.302 172298.459 402617.451 172372.486 402500 172619.09 402108.74 172619.707 402107.758 172624.072 402100.818 172686.12 402002.791 172687.861 402000 172710.112 401964.34 172712.234 401960.94 172715.297 401955.714 172715.973 401953.399 172716.317 401952.223 172730.993 401899.739 172745.787 401846.839 172816.6 401593.619 172816.739 401593.104 172874.988 401595.715 172903.763 401546.262 172928.107 401504.425 172930.682 401500 172936.233 401490.456 172947.878 401470.438 172948.865 401468.736 172958.433 401433.023 172966.568 401385.63 172967.155 401382.205 172909.515 401405.571 172883.905 401415.954 172862.924 401422.437 172864.866 401415.614 172868.484 401402.902 172868.685 401402.197 172879.409 401365.769 172879.69 401364.815 172883.331 401352.469 172888.17 401336.037 172888.359 401335.394 172911.614 401343.35 172913.007 401385.753 172963.84 401365.697 172964.462 401355.345 172964.889 401347.362 172962.931 401346.769 172963.515 401340.254 172945.762 401334.86 172933.091 401331.01 172928.307 401329.556 172892.799 401318.768 172902.123 401283.223 172904.182 401275.967 172913.409 401278.587 172923.101 401279.845 172933.464 401277.707 172948.749 401271.267 172969.816 401278.762 172970.989 401270.402 172986.033 401214.857 172994.089 401184.841 172997.098 401173.338 172954.285 401166.462 172936.09 401163.539 172952.234 401106.654 172955.891 401093.767 172982.504 401000 173000 400938.355 173029.83 400833.25 173033.884 400818.968 173053.547 400749.685 173107.791 400558.561 173116.567 400500 173131.559 400400 173135.144 400376.115 173135.585 400373.145 173137.028 400363.523 173167.722 400158.789 173168.101 400156.26 173167.222 400155.9 173188.081 400098.651 173188.122 400081.754 173188.142 400073.871 173187.626 400071.316 173177.479 400066.891 173183.78 400051.153 173197.52 400016.346 173203.969 400000 173204.919 399997.593 173207.505 399991.242 173222.712 399953.879 173225.596 399946.793 173237.407 399917.104 173244.03 399901.06 173249.139 399887.084 173253.449 399871.92 173254.735 399866.212 173257.027 399856.043 173260.209 399840.168 173261.112 399828.925 173261.21 399825.538 173261.38 399819.61 173260.69 399806.786 173259.394 399787.635 173257.396 399768.279 173255.96 399754.488 173255.177 399747.93 173253.642 399735.068 173252.877 399729.239 173251.58 399719.348 173248.881 399696 173247.544 399684.67 173246.616 399676.801 173241.774 399633.688 173241.307 399630.028 173239.562 399616.368 173238.669 399596.748 173239.085 399582.398 173239.367 399569.517 173239.895 399564.332 173240.607 399558.626 173242.596 399548.595 173245.582 399535.804 173250.712 399517.43 173255.631 399500 173259.203 399487.344 173266.686 399460.558 173276.242 399425.265 173285.226 399393.238 173294.141 399361.998 173300.103 399340.272 173308.831 399304.546 173317.665 399304.714 173317.824 399305.426 173319.937 399305.458 173340.724 399305.768 173363.347 399309.641 173447.909 399323.655 173664.799 399361.15 173711.553 399370.6 173716.518 399371.604 173724.312 399380.175 173725.401 399381.053 173730.996 399384.432 173749.577 399395.777 173760.261 399394.083 173772.656 399394.271 173808.864 399402.79 173835.775 399404.067 173843.914 399388.085 173886.327 399377.235 173892.184 399375.737 173921.604 399375.532 173927.212 399375.398 173933.258 399374.484 173939.409 399371.138 173948.268 399365.994 173968.839 399370.971 174000 399370.363 174007.689 399370.213 174098.468 399375.52 174120.084 399375.346 174144.998 399377.327 174166.667 399378.856 174214.19 399382.21 174272.023 399386.153 174349.675 399389.837 174387.592 399391.836 174393.753 399392.729 174411.238 399389.747 174417.259 399390.07 174478.701 399397.327 174479.161 399397.381 174492.851 399398.135 174584.123 399403.16 174643.609 399405.982 174752.173 399411.732 174806.451 399414.707 174933.98 399421.357 174995.232 399424.263 174983.435 399702.231 174792.763 399692.995 174788.003 399859.371 174732.772 399943.298 174677.223 399924.097 174668.257 399949.611 174653.893 399990.484 174643.466 400095.594 174625.892 400272.753</gml:posList>
+												</gml:LineStringSegment>
+												<gml:Arc>
+													<gml:posList>174625.892 400272.753 174619.755 400279.155 174613.804 400285.73</gml:posList>
+												</gml:Arc>
+												<gml:LineStringSegment>
+													<gml:posList>174613.804 400285.73 174612.743 400286.944 174611.68 400288.171 174610.625 400289.402 174609.576 400290.637 174608.535 400291.875 174607.499 400293.117 174606.47 400294.362 174605.447 400295.61 174604.43 400296.86 174603.419 400298.113 174602.413 400299.368 174601.413 400300.626 174600.417 400301.885 174599.427 400303.146 174598.441 400304.408 174597.459 400305.672 174596.482 400306.937 174595.509 400308.203 174594.539 400309.47 174593.573 400310.738 174592.611 400312.006 174591.651 400313.274 174590.695 400314.543 174589.741 400315.811 174588.79 400317.08 174587.843 400318.344 174586.896 400319.612 174585.95 400320.88 174585.006 400322.146 174584.064 400323.412 174583.123 400324.676 174578.703 400330.613 174574.486 400336.277 174565.103 400348.406 174561.726 400353.397 174561.193 400354.108 174560.254 400355.356 174559.315 400356.602 174558.374 400357.846 174557.433 400359.086 174556.49 400360.324 174555.545 400361.558 174554.599 400362.788 174553.651 400364.016 174552.701 400365.239 174551.749 400366.459 174550.794 400367.674 174549.836 400368.886 174548.876 400370.092 174547.912 400371.295 174546.946 400372.493 174545.976 400373.685 174545.002 400374.873 174544.024 400376.056 174543.043 400377.233 174542.057 400378.404 174541.068 400379.57 174540.073 400380.73 174539.074 400381.883 174538.062 400383.04</gml:posList>
+												</gml:LineStringSegment>
+												<gml:Arc>
+													<gml:posList>174538.062 400383.04 174498.021 400420.688 174451.616 400450.138</gml:posList>
+												</gml:Arc>
+												<gml:LineStringSegment>
+													<gml:posList>174451.616 400450.138 174429.144 400459.934 174375.64 400451.37 174371.3 400450.83 174366.28 400451.03 174344.22 400456.21 174297.02 400465.66 174272.09 400470.96 174198.49 400486.46 174133.96 400500 174101.79 400506.67 174099.63 400507.87 174071.42 400513.805 174043.21 400519.74 174021.605 400524.255 174000 400528.77 173964.47 400536.265 173931.045 400543.298 173897.62 400550.33 173873.185 400555.503 173848.75 400560.675 173824.315 400565.848 173799.88 400571.02 173787.24 400573.883 173774.6 400576.745 173761.96 400579.608 173749.32 400582.47 173746.97 400583.46 173734.786 400608.031 173722.602 400632.601 173703.871 400670.116 173685.14 400707.63 173671.3 400735.8 173657.46 400763.97 173642.105 400794.995 173637.622 400803.977 173626.75 400826.02 173612.05 400855.635 173597.35 400885.25 173582.65 400914.865 173567.95 400944.48 173596.173 400955.188 173589.272 400978.353 173517.19 401220.291 173501.98 401263.553 173496.547 401279.4 173471.054 401423.142</gml:posList>
+												</gml:LineStringSegment>
+												<gml:Arc>
+													<gml:posList>173471.054 401423.142 173478.967 401486.394 173496.434 401547.699</gml:posList>
+												</gml:Arc>
+												<gml:LineStringSegment>
+													<gml:posList>173496.434 401547.699 173500.645 401559.952 173523.916 401569.509 173524.901 401572.482 173528.038 401578.436</gml:posList>
+												</gml:LineStringSegment>
+												<gml:Arc>
+													<gml:posList>173528.038 401578.436 173559.326 401631.695 173598.446 401679.498</gml:posList>
+												</gml:Arc>
+												<gml:LineStringSegment>
+													<gml:posList>173598.446 401679.498 173599.556 401680.654 173600.678 401681.813 173601.802 401682.966 173602.93 401684.114 173604.061 401685.258 173605.195 401686.396 173606.332 401687.53 173607.471 401688.66 173608.613 401689.785 173609.758 401690.906 173610.904 401692.023 173612.053 401693.137 173613.203 401694.246 173614.355 401695.352 173615.508 401696.454 173616.663 401697.554 173617.819 401698.65 173618.976 401699.743 173620.134 401700.833 173621.293 401701.921 173622.453 401703.006 173623.612 401704.088 173624.773 401705.169 173625.93 401706.244 173627.091 401707.321 173628.252 401708.396 173629.413 401709.47 173630.573 401710.542 173631.733 401711.612 173632.892 401712.682 173634.05 401713.75 173634.929 401714.561 173636.086 401715.629 173637.242 401716.695 173638.396 401717.761 173639.549 401718.827 173640.7 401719.892 173641.845 401720.954 173642.991 401722.018 173644.134 401723.083 173645.274 401724.148 173646.412 401725.214 173647.547 401726.28 173648.679 401727.348 173649.807 401728.416 173650.931 401729.486 173652.052 401730.558 173653.169 401731.631 173654.282 401732.706 173655.391 401733.784 173656.495 401734.863 173657.595 401735.945 173658.689 401737.029 173659.779 401738.116 173660.863 401739.206 173661.942 401740.299 173663.016 401741.395 173664.083 401742.495 173665.145 401743.598 173666.2 401744.704 173667.249 401745.815 173668.292 401746.929 173669.336 401748.057</gml:posList>
+												</gml:LineStringSegment>
+												<gml:Arc>
+													<gml:posList>173669.336 401748.057 173693.856 401778.576 173714.047 401812.118</gml:posList>
+												</gml:Arc>
+												<gml:LineStringSegment>
+													<gml:posList>173714.047 401812.118 173714.745 401813.487 173715.432 401814.85 173716.112 401816.217 173716.787 401817.59 173717.456 401818.967 173718.12 401820.348 173718.779 401821.734 173719.432 401823.123 173720.081 401824.517 173720.726 401825.915 173721.366 401827.316 173722.002 401828.721 173722.635 401830.13 173723.264 401831.542 173723.889 401832.958 173724.511 401834.376 173725.13 401835.798 173725.747 401837.223 173726.361 401838.65 173726.973 401840.08 173727.582 401841.513 173728.19 401842.949 173728.797 401844.387 173729.402 401845.827 173730.006 401847.27 173730.611 401848.718 173731.213 401850.164 173731.815 401851.612 173732.417 401853.062 173733.019 401854.513 173733.621 401855.966 173734.593 401858.312 173735.196 401859.766 173735.799 401861.22 173736.4 401862.673 173737.001 401864.126 173737.602 401865.578 173738.201 401867.029 173738.799 401868.48 173739.396 401869.93 173739.991 401871.38 173740.585 401872.83 173741.175 401874.274 173741.765 401875.723 173742.354 401877.172 173742.94 401878.62 173743.524 401880.068 173744.105 401881.517 173744.684 401882.965 173745.261 401884.413 173745.835 401885.862 173746.405 401887.31 173746.973 401888.759 173747.538 401890.208 173748.1 401891.658 173748.658 401893.108 173749.212 401894.558 173749.763 401896.008 173750.31 401897.46 173750.853 401898.911 173751.392 401900.363 173751.927 401901.816 173752.46 401903.276</gml:posList>
+												</gml:LineStringSegment>
+												<gml:Arc>
+													<gml:posList>173752.46 401903.276 173765.188 401943.018 173774.81 401983.624</gml:posList>
+												</gml:Arc>
+												<gml:LineStringSegment>
+													<gml:posList>173774.81 401983.624 173775.108 401985.15 173775.4 401986.67 173775.688 401988.192 173775.972 401989.716 173776.253 401991.241 173776.531 401992.768 173776.805 401994.296 173777.075 401995.825 173777.343 401997.357 173777.608 401998.889 173777.869 402000.423 173778.129 402001.959 173778.385 402003.495 173778.639 402005.033 173778.891 402006.573 173779.141 402008.113 173779.389 402009.655 173779.635 402011.198 173779.879 402012.742 173780.122 402014.288 173780.364 402015.839 173780.604 402017.386 173780.862 402019.058 173781.817 402025.253 173770.05 402037.817 173789.415 402166.253 173793.192 402204.009</gml:posList>
+												</gml:LineStringSegment>
+												<gml:Arc>
+													<gml:posList>173793.192 402204.009 173793.23 402204.245 173793.296 402204.475</gml:posList>
+												</gml:Arc>
+												<gml:LineStringSegment>
+													<gml:posList>173793.296 402204.475 173798.982 402220.61</gml:posList>
+												</gml:LineStringSegment>
+												<gml:Arc>
+													<gml:posList>173798.982 402220.61 173799.688 402222.59 173800.735 402224.413</gml:posList>
+												</gml:Arc>
+												<gml:Arc>
+													<gml:posList>173800.735 402224.413 173801.589 402226.567 173801.38 402228.875</gml:posList>
+												</gml:Arc>
+												<gml:LineStringSegment>
+													<gml:posList>173801.38 402228.875 173795.818 402245.614</gml:posList>
+												</gml:LineStringSegment>
+												<gml:Arc>
+													<gml:posList>173795.818 402245.614 173794.797 402249.186 173794.192 402252.851</gml:posList>
+												</gml:Arc>
+												<gml:LineStringSegment>
+													<gml:posList>173794.192 402252.851 173793.992 402282.099 173804.881 402295.838</gml:posList>
+												</gml:LineStringSegment>
+												<gml:Arc>
+													<gml:posList>173804.881 402295.838 173812.595 402301.947 173822.224 402303.979</gml:posList>
+												</gml:Arc>
+												<gml:LineStringSegment>
+													<gml:posList>173822.224 402303.979 173822.392 402303.961 173823.127 402307.594 173828.012 402331.738 173834.257 402373.104 173834.494 402374.664 173834.731 402376.226 173834.969 402377.789 173835.21 402379.359 173835.452 402380.925 173835.696 402382.494 173835.943 402384.063 173836.192 402385.634 173836.444 402387.206 173836.699 402388.779 173836.958 402390.353 173837.22 402391.928 173837.487 402393.504 173837.757 402395.081 173838.033 402396.66 173838.313 402398.238 173838.598 402399.818 173838.888 402401.398 173839.185 402402.979 173839.487 402404.561 173839.795 402406.143 173840.11 402407.725 173840.432 402409.308 173840.76 402410.891 173841.096 402412.474 173841.44 402414.057 173841.791 402415.641 173842.151 402417.224 173842.516 402418.794</gml:posList>
+												</gml:LineStringSegment>
+												<gml:Arc>
+													<gml:posList>173842.516 402418.794 173862.242 402476.472 173892.882 402529.17</gml:posList>
+												</gml:Arc>
+												<gml:LineStringSegment>
+													<gml:posList>173892.882 402529.17 173915.497 402556.962</gml:posList>
+												</gml:LineStringSegment>
+												<gml:Arc>
+													<gml:posList>173915.497 402556.962 173966.703 402601.847 174026.48 402634.459</gml:posList>
+												</gml:Arc>
+												<gml:LineStringSegment>
+													<gml:posList>174026.48 402634.459 174027.973 402635.067 174029.479 402635.672 174030.987 402636.268 174032.496 402636.857 174034.007 402637.438 174035.518 402638.013 174037.03 402638.58 174038.543 402639.14 174040.057 402639.694 174041.571 402640.242 174043.085 402640.784 174044.6 402641.32 174046.115 402641.85 174047.63 402642.376 174049.145 402642.897 174050.66 402643.413 174052.174 402643.924 174053.688 402644.432 174055.202 402644.935 174056.715 402645.436 174058.228 402645.932 174059.739 402646.426 174061.25 402646.917 174062.76 402647.405 174064.269 402647.891 174065.774 402648.374 174067.281 402648.856 174068.787 402649.337 174070.292 402649.817 174071.796 402650.295 174073.298 402650.773 174129.401 402668.619 174021.739 403172.252 173830.374 403122.758 173785.211 403289.605 173779.124 403312.496 173764.184 403368.683 173710.574 403361.639 173688.946 403358.315 173631.361 403350.809 173531 403658.22 173474.242 403872.971 173367.495 403840.521 173361.553 403836.947 173350.307 403832.73 173338.645 403829.219 173312.449 403838.72 173306.598 403840.842 173302.587 403845.283 173300.872 403851.088 173297.113 403900.796 173293.28 403950.549 173285.179 404057.081 173280.679 404115.558 173279.358 404143.044</gml:posList>
+												</gml:LineStringSegment>
+											</gml:segments>
+										</gml:Curve>
+									</gml:curveMember>
+								</gml:Ring>
+							</gml:exterior>
+							<gml:interior>
+								<gml:LinearRing>
+									<gml:posList>171600.501 403864.234 171641.652 403860.041 171646.24 403858.202 171677.822 403831.435 171620.578 403783.528 171604.279 403814.706 171581.52 403857.904 171580.428 403860.188 171594.56 403863.954 171600.501 403864.234</gml:posList>
+								</gml:LinearRing>
+							</gml:interior>
+							<gml:interior>
+								<gml:LinearRing>
+									<gml:posList>173312.607 399735.686 173317.339 399665.854 173255.515 399655.191 173255.564 399655.597 173256.794 399665.985 173260.761 399699.494 173264.88 399734.557 173312.607 399735.686</gml:posList>
+								</gml:LinearRing>
+							</gml:interior>
+							<gml:interior>
+								<gml:LinearRing>
+									<gml:posList>174174.814 399673.901 174177.448 399672.329 174193.114 399609.525 174187.009 399607.998 174178.566 399606.799 174162.367 399605.211 174159.507 399604.92 174152.924 399642.486 174155.145 399643.015 174150.62 399669.408 174151.578 399671.43 174174.814 399673.901</gml:posList>
+								</gml:LinearRing>
+							</gml:interior>
+						</gml:PolygonPatch>
+					</gml:patches>
+				</gml:Surface>
+			</imod:geometrie>
+			<imod:besluit xlink:href=""/>
+			<imod:onderwerp xlink:href="O1"/>
+			<imod:omgevingsdocument/>
+			<imod:eigenschapWaarde/>
+		</imod:Werkingsgebied>
+	</imod:featureMember>
+	
+	<!-- BRON: maatvoeringen in een artikel -->
+	<!--
+ <onderwerp typeActiviteit="Bouwactiviteit">
+	<TekstObject identificatie="NL.imod.PT.s1524">
+		<verwijzingNaarPlangebied>NL.imod.0755.Omgevingsplan2016-VO01</verwijzingNaarPlangebied>
+		<volgnummer>427</volgnummer>
+		<niveau>3</niveau>
+		<type>artikel</type>
+		<titelInfo>
+			<TitelInfo>
+				<label>artikel</label>
+				<nummer>51</nummer>
+				<naam>Bouwen - woningen</naam>
+			</TitelInfo>
+		</titelInfo>
+		<ouderID xl:href="#NL.imod.PT.s1515"/>
+		<tekst xmlns="http://www.w3.org/1999/xhtml">
+					<Tekstpatroon>
+					
+1.	<Norm>De maximum oppervlakte<keyword> van een </keyword>
+							<invulpatroon>hoofdgebouw</invulpatroon>
+						</Norm>
+						<Waarde>
+							<keyword> bedraagt</keyword>100%<keyword> van het</keyword>
+							<invulpatroon>bouwvlak</invulpatroon>
+						</Waarde>
+2.	<Norm>De maximum oppervlakte<keyword> van</keyword>
+							<invulpatroon>aaneengesloten woningen</invulpatroon>
+						</Norm>
+						<Waarde>
+							<keyword>bedraagt </keyword>65 m2</Waarde>;
+3.	<Norm>De maximum oppervlakte <keyword>van</keyword>
+							<invulpatroon>twee-aaneen woningen</invulpatroon>
+						</Norm>
+						<Waarde>
+							<keyword>bedraagt</keyword> 90 m2</Waarde>;
+4.	<Norm>De maximum oppervlakte <keyword>van</keyword>
+							<invulpatroon> vrijstaande woningen</invulpatroon>
+						</Norm>
+						<Waarde>
+							<keyword>bedraagt</keyword> 150 m2</Waarde>; 
+5.	<Norm>De maximum goothoogte</Norm>
+						<Waarde>
+							<keyword>bedraagt </keyword>
+							<UitGeometrie alt="zoals aangegeven op de kaart" waardetype="maximum goothoogte" eenheid="meter"/>
+						</Waarde>, met dien verstande dat deze mag worden overschreden door kappen, topgevels, wolfseinden, dakkapellen en ondergeschikte bouwdelen; 
+NB1: het refereren naar de kaart is hiet nog niet goed. Ik heb gewerkt met een "waardetype" aanduiding om aan de geometriekant op te kunnen vragen waar ik de waarde van wil hebben. Dit is waarschijnlijk heel ondoorzichtig en foutgevoelig.
+NB2: de regel"met dien verstande dat.... is een nadere preciesiering, moet die niet getagd worden?
+
+6.	<Norm>De maximum bouwhoogte </Norm>
+						<keyword> bedraagt </keyword>
+						<Waarde>
+							<UitGeometrie alt="zoals aangegeven op de kaart" waardetype="maximum goothoogte" eenheid="meter"/>
+						</Waarde>
+7.	<Norm>De bouwhoogte</Norm>
+						<keyword>bedraagt ten hoogste </keyword>
+						<Waarde> de hoogste bouwhoogte die voorkomt in de straat waarin het hoofdgebouw zijn adres heeft </Waarde>.
+8.	<Norm>Het maximum aantal woningen</Norm>
+						<keyword>bedraagt</keyword>
+						<Waarde>het bestaande aantal</Waarde>;
+9.	<Norm>De afstand tot de zijdelingse perceelsgrens</Norm>
+						<keyword>bedraagt </keyword>
+						<Waarde>3 meter</Waarde>;
+10.<Norm>De nokrichting van hoofdgebouwen</Norm>
+						<Waarde>
+							<keyword>is</keyword>
+							<UitGeometrie alt="zoals aangegeven op de kaart" waardetype="nokrichting"/>
+						</Waarde>
+11.<Norm>Situering hoofdgebouwen</Norm>: <Waarde>binnen het bouwvlak</Waarde>;
+12.<Norm>Toegelaten hoofdgebouwen</Norm>:<Waarde>uitsluitend bouwwerken die ten dienste staan van de toegelaten functie.</Waarde>
+					</Tekstpatroon>
+		</tekst>
+	</TekstObject></onderwerp> 
+
+-->
+	<!-- DOEL 1 : 1 EigenschapWaarde -->
+	<imod:featureMember>
+		<imod:Maatvoering gml:id="M01">
+			<imod:identificatie/>
+			<imod:beginGeldigheid>2016-01-01T09:00:00</imod:beginGeldigheid>
+			<imod:tijdstipRegistratieROD>2016-01-01T09:00:00</imod:tijdstipRegistratieROD>
+			<imod:tijdstipRegistratie>2016-01-01T09:00:00</imod:tijdstipRegistratie>
+			<imod:naam/>
+			<imod:waarde>
+				<imod:NumeriekeWaarde>
+					<imod:waarde uom="m">10</imod:waarde>
+				</imod:NumeriekeWaarde>
+			</imod:waarde>
+			<imod:gerelateerdeEigenschap/>
+			<imod:typeMaatvoering>maximum bouwhoogte</imod:typeMaatvoering>
+		</imod:Maatvoering>
+	</imod:featureMember>
+	<!-- DOEL 2: 1 EigenschapWaarde -->
+	<imod:featureMember>
+		<imod:Maatvoering gml:id="M02">
+			<imod:identificatie/>
+			<imod:beginGeldigheid>2016-01-01T09:00:00</imod:beginGeldigheid>
+			<imod:tijdstipRegistratieROD>2016-01-01T09:00:00</imod:tijdstipRegistratieROD>
+			<imod:tijdstipRegistratie>2016-01-01T09:00:00</imod:tijdstipRegistratie>
+			<imod:naam/>
+			<imod:waarde>
+				<imod:NumeriekeWaarde>
+					<imod:waarde uom="%">100</imod:waarde>
+				</imod:NumeriekeWaarde>
+			</imod:waarde>
+			<imod:gerelateerdeEigenschap/>
+			<imod:typeMaatvoering>De maximum oppervlakte</imod:typeMaatvoering>
+		</imod:Maatvoering>
+	</imod:featureMember>
+	
+	<!-- DOEL 3: Lid waar de waarde in de tekst is opgenomen -->
+	<imod:featureMember>
+		<imod:Lid gml:id="s1524">
+			<imod:identificatie/>
+			<imod:beginGeldigheid>2016-01-01T09:00:00</imod:beginGeldigheid>
+			<imod:tijdstipRegistratieROD>2016-01-01T09:00:00</imod:tijdstipRegistratieROD>
+			<imod:tijdstipRegistratie>2016-01-01T09:00:00</imod:tijdstipRegistratie>
+			<imod:tekst>
+				<imod:Tekstpatroon>
+					<imod:patroonType>normWaardePaar</imod:patroonType>
+					<imod:tekstzin>
+						<imod:TekstPhrase gml:id="T1">
+							<imod:identificatie/>
+							<imod:beginGeldigheid>2016-01-01T09:00:00</imod:beginGeldigheid>
+							<imod:tijdstipRegistratieROD>2016-01-01T09:00:00</imod:tijdstipRegistratieROD>
+							<imod:tijdstipRegistratie>2016-01-01T09:00:00</imod:tijdstipRegistratie>
+							<imod:tekst>Zoals aangegeven op de kaart</imod:tekst>
+						</imod:TekstPhrase>
+					</imod:tekstzin>
+				</imod:Tekstpatroon>
+			</imod:tekst>
+			<imod:betekenis xlink:href="M1"/>
+			<imod:ouder/>
+		</imod:Lid>
+	</imod:featureMember>
+	
+	<!-- BRON Het werkingsgebied van de maatvoeringen -->
+	<!--
+<imro:featureMember>
+      <imro:Enkelbestemming gml:id="NL.IMRO.92da1e2f37f54e27855cb4f6cbda6de0">
+         <imro:identificatie>
+            <imro:NEN3610ID>
+               <imro:namespace>NL.IMRO</imro:namespace>
+               <imro:lokaalID>92da1e2f37f54e27855cb4f6cbda6de0</imro:lokaalID>
+            </imro:NEN3610ID>
+         </imro:identificatie>
+         <imro:typePlanobject>enkelbestemming</imro:typePlanobject>
+         <imro:naam>Bouwen - woningen</imro:naam>
+         <imro:bestemmingshoofdgroep>overig</imro:bestemmingshoofdgroep>
+         <imro:artikelnummer>51</imro:artikelnummer>
+         <imro:verwijzingNaarTekstInfo>
+            <imro:TekstReferentie_BP>
+               <imro:verwijzingNaarTekst>pt_NL.IMRO.0755.Omgevingsplan2016-VO01.xml#NL.IMRO.PT.s1524</imro:verwijzingNaarTekst>
+               <imro:typeTekst>regels</imro:typeTekst>
+            </imro:TekstReferentie_BP>
+         </imro:verwijzingNaarTekstInfo>
+         <imro:labelInfo>
+            <imro:Label>
+               <imro:tekst>[w]</imro:tekst>
+               <imro:positie>
+                  <imro:Labelpositie>
+                     <imro:plaatsingspunt>
+                        <gml:Point srsName="urn:ogc:def:crs:EPSG::28992" gml:id="id.e3cda341dc3b49b39033a2bb793f44d0">
+                           <gml:pos>174451.377 404028.824</gml:pos>
+                        </gml:Point>
+                     </imro:plaatsingspunt>
+                  </imro:Labelpositie>
+               </imro:positie>
+            </imro:Label>
+         </imro:labelInfo>
+         <imro:geometrie>
+            <gml:Surface gml:id="id.abb37d4e6e4d474ba12a94322f0a784a" srsName="urn:ogc:def:crs:EPSG::28992">
+               <gml:patches>
+                  <gml:PolygonPatch>
+                     <gml:exterior>
+                        <gml:LinearRing>
+                           <gml:posList>174438.76 404003.419 174439.404 404001.891 174464.402 404006.783 174485.909 404011.094 174478.88 404056.201 174428.077 404048.284 174435.183 404002.331 174438.76 404003.419</gml:posList>
+                        </gml:LinearRing>
+                     </gml:exterior>
+                  </gml:PolygonPatch>
+               </gml:patches>
+            </gml:Surface>
+         </imro:geometrie>
+         <imro:plangebied xlink:href="#NL.IMRO.0755.Omgevingsplan2016-VO01" />
+      </imro:Enkelbestemming>
+   </imro:featureMember>
+-->
+	<!-- DOEL 1: Object onderwerp waar het werkingsgebied bij hoort -->
+	<imod:featureMember>
+		<imod:Onderwerp gml:id="O3">
+			<imod:identificatie/>
+			<imod:beginGeldigheid>2016-01-01T09:00:00</imod:beginGeldigheid>
+			<imod:tijdstipRegistratieROD>2016-01-01T09:00:00</imod:tijdstipRegistratieROD>
+			<imod:tijdstipRegistratie>2016-01-01T09:00:00</imod:tijdstipRegistratie>
+			<imod:naam>Bouwen - woningen</imod:naam>
+			<imod:typeActiviteit>bouwactiviteit</imod:typeActiviteit>
+		</imod:Onderwerp>
+	</imod:featureMember>
+	<!-- DOEL2: het werkingsgebied van de EigenschapWaarden -->
+	<imod:featureMember>
+		<imod:Werkingsgebied gml:id="NL.IMRO.92da1e2f37f54e27855cb4f6cbda6de0">
+			<imod:identificatie/>
+			<imod:beginGeldigheid>2016-01-01T09:00:00</imod:beginGeldigheid>
+			<imod:tijdstipRegistratieROD>2016-01-01T09:00:00</imod:tijdstipRegistratieROD>
+			<imod:tijdstipRegistratie>2016-01-01T09:00:00</imod:tijdstipRegistratie>
+			<imod:begrenzingIndicatief>false</imod:begrenzingIndicatief>
+			<imod:geometrie>
+				<gml:Surface gml:id="id.abb37d4e6e4d474ba12a94322f0a784a" srsName="urn:ogc:def:crs:EPSG::28992">
+					<gml:patches>
+						<gml:PolygonPatch>
+							<gml:exterior>
+								<gml:LinearRing>
+									<gml:posList>174438.76 404003.419 174439.404 404001.891 174464.402 404006.783 174485.909 404011.094 174478.88 404056.201 174428.077 404048.284 174435.183 404002.331 174438.76 404003.419</gml:posList>
+								</gml:LinearRing>
+							</gml:exterior>
+						</gml:PolygonPatch>
+					</gml:patches>
+				</gml:Surface>
+			</imod:geometrie>
+			<imod:besluit/>
+			<imod:onderwerp xlink:href="O3"/>
+			<imod:omgevingsdocument xlink:href="OD01"/>
+			<imod:eigenschapWaarde xlink:href="M01"/>
+			<imod:eigenschapWaarde xlink:href="M02"/>
+		</imod:Werkingsgebied>
+	</imod:featureMember>
+</imod:FeatureCollectionIMOD>

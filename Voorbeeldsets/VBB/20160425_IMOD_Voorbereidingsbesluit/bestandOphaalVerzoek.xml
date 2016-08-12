@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bov:BestandOphaalVerzoek xmlns:bov="http://www.koop.nl/schemas/rod/bestandophaalverzoek/v20160101"
+ xmlns:tns="http://www.logius.nl/digikoppeling/gb/2010/10"
+ xmlns:cor="http://www.koop.nl/rod/correlatie/v20160101"
+ xmlns:NEN3610="http://www.geonovum.nl/NEN3610/schemas/v20110301"
+ xmlns:GML3="http://www.opengis.net/gml/3.2"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://www.koop.nl/schemas/rod/bestandophaalverzoek/v20160101 file:/G:/OW/Uitwisselstandaard/20160324%20KOOP_Kadaster_ROD_Ophalen_Vrijgeven/koop/rod/bestandophaalverzoek/v20160101/ROD_BestandOphaalVerzoek_v0_1.xsd">
+    <cor:ROD_Correlatie>
+        <cor:procesId>procesId0</cor:procesId>
+        <cor:opdrachtBronhouder>opdrachtBronhouder0</cor:opdrachtBronhouder>
+        <cor:procesType>
+        </cor:procesType>
+        <cor:besluitId>
+            <NEN3610:namespace>NL.IMOD</NEN3610:namespace>
+            <NEN3610:lokaalID>e6fcc03727c24c9d8f585636427957f</NEN3610:lokaalID>
+        </cor:besluitId>
+    </cor:ROD_Correlatie>
+    <bov:Bestand>
+        <tns:digikoppeling-external-datareferences>
+            <tns:data-reference>
+                <tns:lifetime>
+                </tns:lifetime>
+                <tns:content contentType="contentType0">
+                    <tns:filename>NL.IMOD.0755.VBBOmgevingswet-VS01.zip</tns:filename>
+                    <tns:checksum type="MD5"></tns:checksum>
+                    <tns:size>50</tns:size>
+                </tns:content>
+                <tns:transport>
+                    <tns:location>
+                        <tns:senderUrl type="xs:anyURI">senderUrl0</tns:senderUrl>
+                    </tns:location>
+                </tns:transport>
+            </tns:data-reference>
+        </tns:digikoppeling-external-datareferences>
+    </bov:Bestand>
+    <bov:replyTo type="xs:anyURI">replyTo0</bov:replyTo>
+</bov:BestandOphaalVerzoek>

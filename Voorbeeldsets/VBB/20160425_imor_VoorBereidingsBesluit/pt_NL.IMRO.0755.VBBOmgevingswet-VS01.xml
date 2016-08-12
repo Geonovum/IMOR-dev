@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="IMROPT2012.xsl" type="text/xsl"?>
+<FeatureCollectionIMROPT xsi:schemaLocation="http://www.geonovum.nl/imro/pt/2012/1.0 http://schemas.geonovum.nl/imro/pt/2012/1.0/IMROPT2012.xsd" xmlns:xl="http://www.w3.org/1999/xlink" xmlns:imropt="http://www.geonovum.nl/imro/pt/2012/1.0" xmlns="http://www.geonovum.nl/imro/pt/2012/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<TekstMetadata identificatie="NL.IMRO.PT.0755.VBBOmgevingswet-VS01">
+		<verwijzingNaarPlangebied>NL.IMRO.0755.VBBOmgevingswet-VS01</verwijzingNaarPlangebied>
+		<typePlan>voorbereidingsbesluit</typePlan>
+		<naam>Voorbereidingsbesluit Buitengebied 2019</naam>
+		<beleidsmatigVerantwoordelijkeOverheid>gemeentelijke overheid</beleidsmatigVerantwoordelijkeOverheid>
+		<overheidsCode>0755</overheidsCode>
+		<creatiedatum>2016-04-06</creatiedatum>
+		<naamPraktijkrichtlijn>PRPT2012</naamPraktijkrichtlijn>
+	</TekstMetadata>
+	<TekstObject identificatie="NL.IMRO.PT.s0">
+		<verwijzingNaarPlangebied>NL.IMRO.0755.VBBOmgevingswet-VS01</verwijzingNaarPlangebied>
+		<volgnummer>1</volgnummer>
+		<niveau>0</niveau>
+		<type>besluitdocument</type>
+		<titelInfo>
+			<TitelInfo>
+				<label></label>
+				<nummer></nummer>
+				<naam>Voorbereidingsbesluit Buitengebied 2019</naam>
+			</TitelInfo>
+		</titelInfo>
+		<tekstMetadata xl:href="#NL.IMRO.PT.0755.VBBOmgevingswet-VS01"/>
+		<ouderID/>
+		<tekst xmlns="http://www.w3.org/1999/xhtml">
+			<p></p>
+			<p></p>
+		</tekst>
+	</TekstObject>
+	<TekstObject identificatie="NL.IMRO.PT.s1">
+		<verwijzingNaarPlangebied>NL.IMRO.0755.VBBOmgevingswet-VS01</verwijzingNaarPlangebied>
+		<volgnummer>2</volgnummer>
+		<niveau>1</niveau>
+		<type>besluittekst</type>
+		<titelInfo>
+			<TitelInfo>
+				<label></label>
+				<nummer></nummer>
+				<naam>Besluittekst</naam>
+			</TitelInfo>
+		</titelInfo>
+		<ouderID xl:href="#NL.IMRO.PT.s0"/>
+		<tekst xmlns="http://www.w3.org/1999/xhtml">
+			<p></p>
+			<p>
+				<img src="i_NL.IMRO.0755.VBBOmgevingswet-VS01_0001.png" width="585" height="206" alt="verplicht"/>
+			</p>
+			<p>
+				<strong>Raadsbesluit</strong> </p>
+			<p></p>
+			<p>De raad van de gemeente Boekel; </p>
+			<p></p>
+			<p>gezien het voorstel van burgemeester en wethouders d.d. 30 januari 2018;</p>
+			<p></p>
+			<p>gelet op:  </p>
+			<p></p>
+			<p>artikel 4.14 van de Omgevingswet; </p>
+			<p></p>
+			<p>BESLUIT</p>
+			<p> </p>
+			<p>1.  Een voorbereidingsbesluit voor het buitengebied van de gemeente Boekel te nemen zoals aangewezen in de verbeelding met nummer NL.IMRO.0755.VBBOmgevingswet-VS01.</p>
+			<p></p>
+			<p>2.  Het is op de percelen, waarvoor dit voorbereidingsbesluit geldt, verboden het feitelijk gebruik van gronden en opstallen, zoals dat bestond op het moment van inwerkingtreding van dit besluit, te wijzigen in een ander gebruik, waaronder ook wordt verstaan het wijzigen in omvang, intensiteit, maatvoering en/of verschijningsvorm.</p>
+			<p></p>
+			<p>3.  Burgemeester en wethouders kunnen bij omgevingsvergunning afwijken van dit verbod mits het voorgestane gebruik niet in strijd is met de Omgevingsvisie.</p>
+			<p></p>
+			<p>4.  Het besluit treedt in werking op de dag van de publicatie.</p>
+			<p></p>
+			<p></p>
+			<p>Aldus besloten in de openbare vergadering van de raad van de gemeente Boekel, gehouden op 1 februari 2019. </p>
+			<p></p>
+			<p></p>
+			<p>de griffier, 				de voorzitter,</p>
+			<p></p>
+			<p>M.R.P. Philipse 				P.M.J.H. Bos</p>
+			<p></p>
+			<p>Besluitnummer: Z/025807 AB/013565</p>
+			<p></p>
+		</tekst>
+	</TekstObject>
+</FeatureCollectionIMROPT>
